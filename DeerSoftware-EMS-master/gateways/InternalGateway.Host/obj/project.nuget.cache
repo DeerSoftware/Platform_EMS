@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kKtvJ86tanNbjaRh2813oHnGYjnUThGYI2y9m9Kye/OQfW72u9fk9w3u/kKU4Zh5svRcsE/D+1zEmXHRK9cCeA==",
+  "dgSpecHash": "Rv49ARvK0v/C+ZE4cSIaT1jKNhKSr61vExIa8Be821RYcyHPueGglF33WVfXw7NEGxLFfLxX91aU26wSkz1y9w==",
   "success": true,
-  "projectFilePath": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\gateways\\InternalGateway.Host\\InternalGateway.Host.csproj",
+  "projectFilePath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\gateways\\InternalGateway.Host\\InternalGateway.Host.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wancm\\.nuget\\packages\\autofac\\5.2.0\\autofac.5.2.0.nupkg.sha512",
     "C:\\Users\\wancm\\.nuget\\packages\\autofac.extras.dynamicproxy\\5.0.0\\autofac.extras.dynamicproxy.5.0.0.nupkg.sha512",

@@ -12017,11 +12017,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\microservices\\ModelingService.Host\\ModelingService.Host.csproj",
+      "projectUniqueName": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\ModelingService.Host\\ModelingService.Host.csproj",
       "projectName": "ModelingService.Host",
-      "projectPath": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\microservices\\ModelingService.Host\\ModelingService.Host.csproj",
+      "projectPath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\ModelingService.Host\\ModelingService.Host.csproj",
       "packagesPath": "C:\\Users\\wancm\\.nuget\\packages\\",
-      "outputPath": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\microservices\\ModelingService.Host\\obj\\",
+      "outputPath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\ModelingService.Host\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

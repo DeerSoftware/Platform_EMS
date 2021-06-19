@@ -12373,11 +12373,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\gateways\\InternalGateway.Host\\InternalGateway.Host.csproj",
+      "projectUniqueName": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\gateways\\InternalGateway.Host\\InternalGateway.Host.csproj",
       "projectName": "InternalGateway.Host",
-      "projectPath": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\gateways\\InternalGateway.Host\\InternalGateway.Host.csproj",
+      "projectPath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\gateways\\InternalGateway.Host\\InternalGateway.Host.csproj",
       "packagesPath": "C:\\Users\\wancm\\.nuget\\packages\\",
-      "outputPath": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\gateways\\InternalGateway.Host\\obj\\",
+      "outputPath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\gateways\\InternalGateway.Host\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

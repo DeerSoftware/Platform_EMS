@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zDPAL7b3g2S8a5qMIFK/EeiPu5BJVR+u0U2mftRxGfRyzyPYUcvV/oUGQkCDykShg3DtJ4aAWAZd33Tbeex+oA==",
+  "dgSpecHash": "zisBI3zDBV/RRqb8/DWcOVs4t0+FcC8QTZQJqlx9PgBnPsIY3ZPzetB5E1lcxN1iqL29PsSJDeoLeoUgznVwxg==",
   "success": true,
-  "projectFilePath": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\IdentityService.Host.csproj",
+  "projectFilePath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\IdentityService.Host.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wancm\\.nuget\\packages\\autofac\\5.2.0\\autofac.5.2.0.nupkg.sha512",
     "C:\\Users\\wancm\\.nuget\\packages\\autofac.extras.dynamicproxy\\5.0.0\\autofac.extras.dynamicproxy.5.0.0.nupkg.sha512",

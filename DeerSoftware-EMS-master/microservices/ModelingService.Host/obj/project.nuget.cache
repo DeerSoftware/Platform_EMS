@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/SRdk5cNqw3AF6bTeUQWMYY0cY30YJlh43n37PQs/+tkVxHhcI6Pp3lV2c5oS1X15yQFU6a/T1ThQ7sEnj559w==",
+  "dgSpecHash": "hjj8SylZKJbXQL4xFgKl3i85VjmkiaMiCipz+K+u7jtHAFA9a8YSjbqMP48qn/prsHSZwIsVtw6g/ea/ht4nGQ==",
   "success": true,
-  "projectFilePath": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\microservices\\ModelingService.Host\\ModelingService.Host.csproj",
+  "projectFilePath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\ModelingService.Host\\ModelingService.Host.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wancm\\.nuget\\packages\\autofac\\5.2.0\\autofac.5.2.0.nupkg.sha512",
     "C:\\Users\\wancm\\.nuget\\packages\\autofac.extras.dynamicproxy\\5.0.0\\autofac.extras.dynamicproxy.5.0.0.nupkg.sha512",

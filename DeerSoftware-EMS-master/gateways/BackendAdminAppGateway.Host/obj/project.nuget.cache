@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8vuevulbAsQZ4aiQOnYkjTiisgFvta7qqAIYuOjwACNo0Cm6cgdYXTjLv/wnnHLNrol8VHUk4NPLoZHepCAOdQ==",
+  "dgSpecHash": "vJEXWvAypvmTLXmO8cN+ScAZJtkNaA3KuHEgbPqTNSx9ZSSxtL1BMl8yh9IawiTo+fMtQzHuj0yXz9WebZfJlA==",
   "success": true,
-  "projectFilePath": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\gateways\\BackendAdminAppGateway.Host\\BackendAdminAppGateway.Host.csproj",
+  "projectFilePath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\gateways\\BackendAdminAppGateway.Host\\BackendAdminAppGateway.Host.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wancm\\.nuget\\packages\\autofac\\5.2.0\\autofac.5.2.0.nupkg.sha512",
     "C:\\Users\\wancm\\.nuget\\packages\\autofac.extras.dynamicproxy\\5.0.0\\autofac.extras.dynamicproxy.5.0.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w6tTYhCx+n53walJ6egiFmGzESgAiDS63O9ruEvD9kYu3G8DjcpUB1Z/mdjb5MjliK6nU77BCrIG7crzdz7Qkw==",
+  "dgSpecHash": "1Q5T3/C1OmDVp5+NCJHzW36bZlj0tThw5/jf0OYgzJbacY+n05TA6jQiHOFVJc21q27iKVTB2ARsQXi5xNy0Ew==",
   "success": true,
-  "projectFilePath": "D:\\工作文档\\代码\\DeerSoftware-EMS-master\\applications\\AuthServer.Host\\AuthServer.Host.csproj",
+  "projectFilePath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\applications\\AuthServer.Host\\AuthServer.Host.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wancm\\.nuget\\packages\\autofac\\5.2.0\\autofac.5.2.0.nupkg.sha512",
     "C:\\Users\\wancm\\.nuget\\packages\\autofac.extras.dynamicproxy\\5.0.0\\autofac.extras.dynamicproxy.5.0.0.nupkg.sha512",
