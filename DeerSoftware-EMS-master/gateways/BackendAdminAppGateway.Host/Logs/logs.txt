@@ -1,0 +1,293 @@
+2021-06-18 13:04:58.638 +08:00 [INF] Starting BackendAdminAppGateway.Host.
+2021-06-18 13:05:15.165 +08:00 [INF] Loaded ABP modules:
+2021-06-18 13:05:15.166 +08:00 [INF] - Volo.Abp.Castle.AbpCastleCoreModule
+2021-06-18 13:05:15.166 +08:00 [INF] - Volo.Abp.Autofac.AbpAutofacModule
+2021-06-18 13:05:15.166 +08:00 [INF] - Volo.Abp.Users.AbpUsersDomainSharedModule
+2021-06-18 13:05:15.166 +08:00 [INF] - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2021-06-18 13:05:15.166 +08:00 [INF] - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2021-06-18 13:05:15.166 +08:00 [INF] - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2021-06-18 13:05:15.166 +08:00 [INF] - Volo.Abp.Security.AbpSecurityModule
+2021-06-18 13:05:15.166 +08:00 [INF] - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Uow.AbpUnitOfWorkModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Data.AbpDataModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Settings.AbpSettingsModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Localization.AbpLocalizationModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Validation.AbpValidationModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Features.AbpFeaturesModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Identity.AbpIdentityDomainSharedModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.EventBus.AbpEventBusModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Users.AbpUsersAbstractionModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Authorization.AbpAuthorizationModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Timing.AbpTimingModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Json.AbpJsonModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Threading.AbpThreadingModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Auditing.AbpAuditingModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Guids.AbpGuidsModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Domain.AbpDddDomainModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Application.AbpDddApplicationContractsModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Http.AbpHttpAbstractionsModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Application.AbpDddApplicationModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationContractsModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Identity.AbpIdentityApplicationContractsModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Minify.AbpMinifyModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Http.AbpHttpModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.UI.AbpUiModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Identity.AbpIdentityHttpApiModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Http.Client.AbpHttpClientModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Identity.AbpIdentityHttpApiClientModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Serialization.AbpSerializationModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.Caching.AbpCachingModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainModule
+2021-06-18 13:05:15.167 +08:00 [INF] - Volo.Abp.PermissionManagement.EntityFrameworkCore.AbpPermissionManagementEntityFrameworkCoreModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.PermissionManagement.HttpApi.AbpPermissionManagementHttpApiModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Blogging.BloggingDomainSharedModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Blogging.BloggingApplicationContractsSharedModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Blogging.BloggingApplicationContractsModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.PermissionManagement.Identity.AbpPermissionManagementDomainIdentityModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.IdentityServer.AbpIdentityServerDomainSharedModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.PermissionManagement.IdentityServer.AbpPermissionManagementDomainIdentityServerModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.IdentityModel.AbpIdentityModelModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.Http.Client.IdentityModel.AbpHttpClientIdentityModelModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.Http.Client.IdentityModel.Web.AbpHttpClientIdentityModelWebModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementApplicationContractsModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationContractsModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.FeatureManagement.AbpFeatureManagementHttpApiModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementHttpApiModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementHttpApiClientModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementDomainModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.TenantManagement.EntityFrameworkCore.AbpTenantManagementEntityFrameworkCoreModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.FeatureManagement.EntityFrameworkCore.AbpFeatureManagementEntityFrameworkCoreModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.AbpAspNetCoreMvcUiModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.AbpAspNetCoreMvcUiBootstrapModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.Packages.AbpAspNetCoreMvcUiPackagesModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.Widgets.AbpAspNetCoreMvcUiWidgetsModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.AbpAspNetCoreMvcUiThemeSharedModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2021-06-18 13:05:15.168 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.AbpAspNetCoreMvcUiMultiTenancyModule
+2021-06-18 13:05:15.168 +08:00 [INF] - BackendAdminAppGateway.Host.BackendAdminAppGatewayHostModule
+2021-06-18 13:05:17.174 +08:00 [INF] Initialized all ABP modules.
+2021-06-18 13:05:17.336 +08:00 [INF] Now listening on: https://localhost:44315
+2021-06-18 13:05:17.337 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 13:05:17.338 +08:00 [INF] Hosting environment: Development
+2021-06-18 13:05:17.338 +08:00 [INF] Content root path: E:\code\net\Deer\DeerSoftware-EMS-master\gateways\BackendAdminAppGateway.Host
+2021-06-18 13:05:18.644 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44315/  
+2021-06-18 13:05:18.732 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:05:18.791 +08:00 [DBG] requestId: 0HM9I2QL3ESLV:00000001, previousRequestId: no previous request id, message: ocelot pipeline started
+2021-06-18 13:05:18.796 +08:00 [DBG] requestId: 0HM9I2QL3ESLV:00000001, previousRequestId: no previous request id, message: Upstream url path is /
+2021-06-18 13:05:18.814 +08:00 [WRN] requestId: 0HM9I2QL3ESLV:00000001, previousRequestId: no previous request id, message: DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match ReRoute configuration for upstream path: /, verb: GET.
+2021-06-18 13:05:18.816 +08:00 [WRN] requestId: 0HM9I2QL3ESLV:00000001, previousRequestId: no previous request id, message: Failed to match ReRoute configuration for upstream path: /, verb: GET.
+2021-06-18 13:05:18.817 +08:00 [WRN] requestId: 0HM9I2QL3ESLV:00000001, previousRequestId: no previous request id, message: Error Code: UnableToFindDownstreamRouteError Message: Failed to match ReRoute configuration for upstream path: /, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/, request method: GET
+2021-06-18 13:05:18.819 +08:00 [DBG] requestId: 0HM9I2QL3ESLV:00000001, previousRequestId: no previous request id, message: ocelot pipeline finished
+2021-06-18 13:05:18.831 +08:00 [INF] Request finished in 189.24ms 404 
+2021-06-18 13:05:34.146 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/productManagement/GetInfo  
+2021-06-18 13:05:34.152 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:05:34.157 +08:00 [DBG] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: ocelot pipeline started
+2021-06-18 13:05:34.157 +08:00 [DBG] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: Upstream url path is /api/productManagement/GetInfo
+2021-06-18 13:05:34.165 +08:00 [DBG] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: downstream templates are /api/productManagement/{everything}
+2021-06-18 13:05:34.260 +08:00 [INF] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/productManagement/{everything}
+2021-06-18 13:05:34.266 +08:00 [INF] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: No authentication needed for /api/productManagement/GetInfo
+2021-06-18 13:05:34.270 +08:00 [INF] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: /api/productManagement/{everything} route does not require user to be authorised
+2021-06-18 13:05:34.298 +08:00 [DBG] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: Downstream url is https://localhost:44344/api/productManagement/GetInfo
+2021-06-18 13:05:34.798 +08:00 [DBG] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: IHttpRequester returned an error, setting pipeline error
+2021-06-18 13:05:34.798 +08:00 [WRN] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: Error making http request, exception: System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.Security.SslStream.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, ExceptionDispatchInfo exception)
+   at System.Net.Security.SslStream.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslStream.ThrowIfExceptional()
+   at System.Net.Security.SslStream.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsClient(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsClientAsync>b__65_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsyncCore(Stream stream, SslClientAuthenticationOptions sslOptions, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsyncCore(Stream stream, SslClientAuthenticationOptions sslOptions, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at Ocelot.Requester.HttpClientHttpRequester.GetResponse(DownstreamContext context)
+2021-06-18 13:05:34.815 +08:00 [WRN] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: Error Code: UnableToCompleteRequestError Message: Error making http request, exception: System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.Security.SslStream.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, ExceptionDispatchInfo exception)
+   at System.Net.Security.SslStream.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslStream.ThrowIfExceptional()
+   at System.Net.Security.SslStream.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsClient(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsClientAsync>b__65_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsyncCore(Stream stream, SslClientAuthenticationOptions sslOptions, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsyncCore(Stream stream, SslClientAuthenticationOptions sslOptions, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at Ocelot.Requester.HttpClientHttpRequester.GetResponse(DownstreamContext context) errors found in ResponderMiddleware. Setting error response for request path:/api/productManagement/GetInfo, request method: GET
+2021-06-18 13:05:34.818 +08:00 [DBG] requestId: 0HM9I2QL3ESLV:00000003, previousRequestId: no previous request id, message: ocelot pipeline finished
+2021-06-18 13:05:34.827 +08:00 [INF] Request finished in 681.842ms 500 
+2021-06-18 13:06:41.813 +08:00 [INF] Application is shutting down...
+2021-06-18 15:52:05.227 +08:00 [INF] Starting BackendAdminAppGateway.Host.
+2021-06-18 15:52:13.570 +08:00 [INF] Loaded ABP modules:
+2021-06-18 15:52:13.572 +08:00 [INF] - Volo.Abp.Castle.AbpCastleCoreModule
+2021-06-18 15:52:13.572 +08:00 [INF] - Volo.Abp.Autofac.AbpAutofacModule
+2021-06-18 15:52:13.572 +08:00 [INF] - Volo.Abp.Users.AbpUsersDomainSharedModule
+2021-06-18 15:52:13.572 +08:00 [INF] - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2021-06-18 15:52:13.572 +08:00 [INF] - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Security.AbpSecurityModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Uow.AbpUnitOfWorkModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Data.AbpDataModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Settings.AbpSettingsModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Localization.AbpLocalizationModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Validation.AbpValidationModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Features.AbpFeaturesModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Identity.AbpIdentityDomainSharedModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.EventBus.AbpEventBusModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Users.AbpUsersAbstractionModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Authorization.AbpAuthorizationModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Timing.AbpTimingModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Json.AbpJsonModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Threading.AbpThreadingModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Auditing.AbpAuditingModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Guids.AbpGuidsModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Domain.AbpDddDomainModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Application.AbpDddApplicationContractsModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Http.AbpHttpAbstractionsModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Application.AbpDddApplicationModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationContractsModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Identity.AbpIdentityApplicationContractsModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Minify.AbpMinifyModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Http.AbpHttpModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.UI.AbpUiModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Identity.AbpIdentityHttpApiModule
+2021-06-18 15:52:13.573 +08:00 [INF] - Volo.Abp.Http.Client.AbpHttpClientModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.Identity.AbpIdentityHttpApiClientModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.Serialization.AbpSerializationModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.Caching.AbpCachingModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.PermissionManagement.EntityFrameworkCore.AbpPermissionManagementEntityFrameworkCoreModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementApplicationModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.PermissionManagement.HttpApi.AbpPermissionManagementHttpApiModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Blogging.BloggingDomainSharedModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Blogging.BloggingApplicationContractsSharedModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Blogging.BloggingApplicationContractsModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.PermissionManagement.Identity.AbpPermissionManagementDomainIdentityModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.IdentityServer.AbpIdentityServerDomainSharedModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.PermissionManagement.IdentityServer.AbpPermissionManagementDomainIdentityServerModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.IdentityModel.AbpIdentityModelModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.Http.Client.IdentityModel.AbpHttpClientIdentityModelModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.Http.Client.IdentityModel.Web.AbpHttpClientIdentityModelWebModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementApplicationContractsModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationContractsModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.FeatureManagement.AbpFeatureManagementHttpApiModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementHttpApiModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementHttpApiClientModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementDomainModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.TenantManagement.EntityFrameworkCore.AbpTenantManagementEntityFrameworkCoreModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.FeatureManagement.EntityFrameworkCore.AbpFeatureManagementEntityFrameworkCoreModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.AbpAspNetCoreMvcUiModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.AbpAspNetCoreMvcUiBootstrapModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.Bundling.AbpAspNetCoreMvcUiBundlingModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.Packages.AbpAspNetCoreMvcUiPackagesModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.Widgets.AbpAspNetCoreMvcUiWidgetsModule
+2021-06-18 15:52:13.574 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.AbpAspNetCoreMvcUiThemeSharedModule
+2021-06-18 15:52:13.575 +08:00 [INF] - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2021-06-18 15:52:13.575 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.AbpAspNetCoreMvcUiMultiTenancyModule
+2021-06-18 15:52:13.575 +08:00 [INF] - BackendAdminAppGateway.Host.BackendAdminAppGatewayHostModule
+2021-06-18 15:52:15.260 +08:00 [INF] Initialized all ABP modules.
+2021-06-18 15:52:15.426 +08:00 [INF] Now listening on: https://localhost:44315
+2021-06-18 15:52:15.429 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 15:52:15.429 +08:00 [INF] Hosting environment: Development
+2021-06-18 15:52:15.429 +08:00 [INF] Content root path: E:\code\net\Deer\DeerSoftware-EMS-master\gateways\BackendAdminAppGateway.Host
+2021-06-18 15:52:16.280 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44315/  
+2021-06-18 15:52:16.440 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:52:16.513 +08:00 [DBG] requestId: 0HM9I5NULGG55:00000001, previousRequestId: no previous request id, message: ocelot pipeline started
+2021-06-18 15:52:16.523 +08:00 [DBG] requestId: 0HM9I5NULGG55:00000001, previousRequestId: no previous request id, message: Upstream url path is /
+2021-06-18 15:52:16.555 +08:00 [WRN] requestId: 0HM9I5NULGG55:00000001, previousRequestId: no previous request id, message: DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match ReRoute configuration for upstream path: /, verb: GET.
+2021-06-18 15:52:16.557 +08:00 [WRN] requestId: 0HM9I5NULGG55:00000001, previousRequestId: no previous request id, message: Failed to match ReRoute configuration for upstream path: /, verb: GET.
+2021-06-18 15:52:16.560 +08:00 [WRN] requestId: 0HM9I5NULGG55:00000001, previousRequestId: no previous request id, message: Error Code: UnableToFindDownstreamRouteError Message: Failed to match ReRoute configuration for upstream path: /, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/, request method: GET
+2021-06-18 15:52:16.563 +08:00 [DBG] requestId: 0HM9I5NULGG55:00000001, previousRequestId: no previous request id, message: ocelot pipeline finished
+2021-06-18 15:52:16.576 +08:00 [INF] Request finished in 304.7918ms 404 
+2021-06-18 15:52:21.322 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44315/api/productManagement/GetInfo  
+2021-06-18 15:52:21.325 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:52:21.326 +08:00 [DBG] requestId: 0HM9I5NULGG55:00000003, previousRequestId: no previous request id, message: ocelot pipeline started
+2021-06-18 15:52:21.327 +08:00 [DBG] requestId: 0HM9I5NULGG55:00000003, previousRequestId: no previous request id, message: Upstream url path is /api/productManagement/GetInfo
+2021-06-18 15:52:21.341 +08:00 [DBG] requestId: 0HM9I5NULGG55:00000003, previousRequestId: no previous request id, message: downstream templates are /api/productManagement/{everything}
+2021-06-18 15:52:21.422 +08:00 [INF] requestId: 0HM9I5NULGG55:00000003, previousRequestId: no previous request id, message: EndpointRateLimiting is not enabled for /api/productManagement/{everything}
+2021-06-18 15:52:21.426 +08:00 [INF] requestId: 0HM9I5NULGG55:00000003, previousRequestId: no previous request id, message: No authentication needed for /api/productManagement/GetInfo
+2021-06-18 15:52:21.428 +08:00 [INF] requestId: 0HM9I5NULGG55:00000003, previousRequestId: no previous request id, message: /api/productManagement/{everything} route does not require user to be authorised
+2021-06-18 15:52:21.446 +08:00 [DBG] requestId: 0HM9I5NULGG55:00000003, previousRequestId: no previous request id, message: Downstream url is https://localhost:44344/api/productManagement/GetInfo
+2021-06-18 15:52:22.099 +08:00 [DBG] requestId: 0HM9I5NULGG55:00000003, previousRequestId: no previous request id, message: setting http response message
+2021-06-18 15:52:22.133 +08:00 [DBG] requestId: 0HM9I5NULGG55:00000003, previousRequestId: no previous request id, message: no pipeline errors, setting and returning completed response
+2021-06-18 15:52:22.149 +08:00 [DBG] requestId: 0HM9I5NULGG55:00000003, previousRequestId: no previous request id, message: ocelot pipeline finished
+2021-06-18 15:52:22.160 +08:00 [INF] Request finished in 837.7974ms 200 text/plain; charset=utf-8
+2021-06-19 10:11:33.498 +08:00 [INF] Starting BackendAdminAppGateway.Host.

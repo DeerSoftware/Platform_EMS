@@ -1,0 +1,370 @@
+2021-06-18 13:03:15.563 +08:00 [INF] Starting IdentityService.Host.
+2021-06-18 13:03:25.731 +08:00 [INF] Loaded ABP modules:
+2021-06-18 13:03:25.733 +08:00 [INF] - Volo.Abp.Castle.AbpCastleCoreModule
+2021-06-18 13:03:25.733 +08:00 [INF] - Volo.Abp.Autofac.AbpAutofacModule
+2021-06-18 13:03:25.733 +08:00 [INF] - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2021-06-18 13:03:25.733 +08:00 [INF] - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2021-06-18 13:03:25.733 +08:00 [INF] - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2021-06-18 13:03:25.733 +08:00 [INF] - Volo.Abp.Uow.AbpUnitOfWorkModule
+2021-06-18 13:03:25.733 +08:00 [INF] - Volo.Abp.Data.AbpDataModule
+2021-06-18 13:03:25.733 +08:00 [INF] - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Security.AbpSecurityModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Settings.AbpSettingsModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Timing.AbpTimingModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Json.AbpJsonModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Threading.AbpThreadingModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Auditing.AbpAuditingModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Http.AbpHttpAbstractionsModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Minify.AbpMinifyModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Http.AbpHttpModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Authorization.AbpAuthorizationModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.EventBus.AbpEventBusModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Guids.AbpGuidsModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Domain.AbpDddDomainModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Localization.AbpLocalizationModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.UI.AbpUiModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Validation.AbpValidationModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Application.AbpDddApplicationContractsModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Features.AbpFeaturesModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.Application.AbpDddApplicationModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2021-06-18 13:03:25.734 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.AuditLogging.AbpAuditLoggingDomainSharedModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.AuditLogging.AbpAuditLoggingDomainModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.AuditLogging.EntityFrameworkCore.AbpAuditLoggingEntityFrameworkCoreModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.Serialization.AbpSerializationModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.Caching.AbpCachingModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.PermissionManagement.EntityFrameworkCore.AbpPermissionManagementEntityFrameworkCoreModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementDomainModule
+2021-06-18 13:03:25.735 +08:00 [INF] - Volo.Abp.TenantManagement.EntityFrameworkCore.AbpTenantManagementEntityFrameworkCoreModule
+2021-06-18 13:03:25.735 +08:00 [INF] - ModelingService.Host.ModelingServiceHostModule
+2021-06-18 13:03:27.721 +08:00 [INF] Initialized all ABP modules.
+2021-06-18 13:03:27.978 +08:00 [INF] Now listening on: https://localhost:44344
+2021-06-18 13:03:27.980 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 13:03:27.980 +08:00 [INF] Hosting environment: Development
+2021-06-18 13:03:27.980 +08:00 [INF] Content root path: E:\code\net\Deer\DeerSoftware-EMS-master\microservices\ModelingService.Host
+2021-06-18 13:03:28.686 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/  
+2021-06-18 13:03:28.791 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:03:29.458 +08:00 [INF] Executing endpoint 'ModelingService.Host.Controllers.HomeController.Index (ModelingService.Host)'
+2021-06-18 13:03:29.607 +08:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller ModelingService.Host.Controllers.HomeController (ModelingService.Host).
+2021-06-18 13:03:29.822 +08:00 [INF] Executing action method ModelingService.Host.Controllers.HomeController.Index (ModelingService.Host) - Validation state: "Valid"
+2021-06-18 13:03:29.830 +08:00 [INF] Executed action method ModelingService.Host.Controllers.HomeController.Index (ModelingService.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.519ms.
+2021-06-18 13:03:29.840 +08:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2021-06-18 13:03:29.847 +08:00 [INF] Executed action ModelingService.Host.Controllers.HomeController.Index (ModelingService.Host) in 233.1894ms
+2021-06-18 13:03:29.848 +08:00 [INF] Executed endpoint 'ModelingService.Host.Controllers.HomeController.Index (ModelingService.Host)'
+2021-06-18 13:03:32.165 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 13:03:32.166 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 13:03:32.190 +08:00 [INF] Request finished in 3510.2541ms 302 
+2021-06-18 13:03:32.209 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger  
+2021-06-18 13:03:32.213 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:03:32.215 +08:00 [INF] Request finished in 5.8926ms 301 
+2021-06-18 13:03:32.223 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/index.html  
+2021-06-18 13:03:32.228 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:03:32.274 +08:00 [INF] Request finished in 51.5945ms 200 text/html;charset=utf-8
+2021-06-18 13:03:32.300 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/swagger-ui.css  
+2021-06-18 13:03:32.300 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/swagger-ui-bundle.js  
+2021-06-18 13:03:32.301 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/swagger-ui-standalone-preset.js  
+2021-06-18 13:03:32.303 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:03:32.303 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:03:32.303 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:03:32.345 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-06-18 13:03:32.345 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-06-18 13:03:32.345 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-06-18 13:03:32.346 +08:00 [INF] Request finished in 44.885ms 200 application/javascript
+2021-06-18 13:03:32.346 +08:00 [INF] Request finished in 45.4974ms 200 text/css
+2021-06-18 13:03:32.346 +08:00 [INF] Request finished in 45.4574ms 200 application/javascript
+2021-06-18 13:03:32.899 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/v1/swagger.json  
+2021-06-18 13:03:32.901 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:03:33.080 +08:00 [INF] Request finished in 181.6703ms 200 application/json;charset=utf-8
+2021-06-18 13:03:38.080 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/api/productManagement/GetInfo  
+2021-06-18 13:03:38.083 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:03:38.087 +08:00 [INF] Executing endpoint 'ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host)'
+2021-06-18 13:03:38.096 +08:00 [INF] Route matched with {area = "productManagement", action = "GetInfo", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] GetInfoAsync() on controller ModelingService.Host.ProductsController (ModelingService.Host).
+2021-06-18 13:03:38.210 +08:00 [INF] Executing action method ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host) - Validation state: "Valid"
+2021-06-18 13:03:38.214 +08:00 [INF] Executed action method ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3.1599ms.
+2021-06-18 13:03:38.221 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2021-06-18 13:03:38.222 +08:00 [INF] Executed action ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host) in 125.8692ms
+2021-06-18 13:03:38.222 +08:00 [INF] Executed endpoint 'ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host)'
+2021-06-18 13:03:38.256 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 13:03:38.256 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 13:03:38.258 +08:00 [INF] Request finished in 178.1652ms 200 text/plain; charset=utf-8
+2021-06-18 13:03:43.112 +08:00 [INF] Application is shutting down...
+2021-06-18 13:04:06.945 +08:00 [INF] Starting IdentityService.Host.
+2021-06-18 13:04:12.868 +08:00 [INF] Loaded ABP modules:
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Castle.AbpCastleCoreModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Autofac.AbpAutofacModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Uow.AbpUnitOfWorkModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Data.AbpDataModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Security.AbpSecurityModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Settings.AbpSettingsModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Timing.AbpTimingModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Json.AbpJsonModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Threading.AbpThreadingModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Auditing.AbpAuditingModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Http.AbpHttpAbstractionsModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Minify.AbpMinifyModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Http.AbpHttpModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Authorization.AbpAuthorizationModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.EventBus.AbpEventBusModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.Guids.AbpGuidsModule
+2021-06-18 13:04:12.870 +08:00 [INF] - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.Domain.AbpDddDomainModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.Localization.AbpLocalizationModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.UI.AbpUiModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.Validation.AbpValidationModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.Application.AbpDddApplicationContractsModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.Features.AbpFeaturesModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.Application.AbpDddApplicationModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.AuditLogging.AbpAuditLoggingDomainSharedModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.AuditLogging.AbpAuditLoggingDomainModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.AuditLogging.EntityFrameworkCore.AbpAuditLoggingEntityFrameworkCoreModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.Serialization.AbpSerializationModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.Caching.AbpCachingModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.PermissionManagement.EntityFrameworkCore.AbpPermissionManagementEntityFrameworkCoreModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementDomainModule
+2021-06-18 13:04:12.871 +08:00 [INF] - Volo.Abp.TenantManagement.EntityFrameworkCore.AbpTenantManagementEntityFrameworkCoreModule
+2021-06-18 13:04:12.871 +08:00 [INF] - ModelingService.Host.ModelingServiceHostModule
+2021-06-18 13:04:15.733 +08:00 [INF] Initialized all ABP modules.
+2021-06-18 13:04:15.887 +08:00 [INF] Now listening on: https://localhost:44344
+2021-06-18 13:04:15.888 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 13:04:15.888 +08:00 [INF] Hosting environment: Development
+2021-06-18 13:04:15.889 +08:00 [INF] Content root path: E:\code\net\Deer\DeerSoftware-EMS-master\microservices\ModelingService.Host
+2021-06-18 13:04:20.638 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/  
+2021-06-18 13:04:21.194 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:22.347 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/index.html  
+2021-06-18 13:04:22.886 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:23.158 +08:00 [WRN] The operation was canceled.
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.GetAsync(String key, CancellationToken token)
+   at Volo.Abp.Caching.DistributedCache`2.GetAsync(TCacheKey key, Nullable`1 hideErrors, Boolean considerUow, CancellationToken token)
+2021-06-18 13:04:28.693 +08:00 [ERR] Connection id "0HM9I2Q2QVT0F", Request id "0HM9I2Q2QVT0F:00000001": An unhandled exception was thrown by the application.
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.SetAsync(String key, Byte[] value, DistributedCacheEntryOptions options, CancellationToken token)
+   at Volo.Abp.Caching.DistributedCache`2.<>c__DisplayClass49_0.<<SetAsync>g__SetRealCache|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Volo.Abp.Caching.DistributedCache`2.<>c__DisplayClass49_0.<<SetAsync>g__SetRealCache|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Volo.Abp.Uow.UnitOfWork.OnCompletedAsync()
+   at Volo.Abp.Uow.UnitOfWork.CompleteAsync(CancellationToken cancellationToken)
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Volo.Abp.Settings.TenantSettingValueProvider.GetOrNullAsync(SettingDefinition setting)
+   at Volo.Abp.Settings.SettingProvider.GetOrNullValueFromProvidersAsync(IEnumerable`1 providers, SettingDefinition setting)
+   at Volo.Abp.Settings.SettingProvider.GetOrNullAsync(String name)
+   at Microsoft.AspNetCore.RequestLocalization.DefaultAbpRequestLocalizationOptionsProvider.GetLocalizationOptionsAsync()
+   at Microsoft.AspNetCore.RequestLocalization.AbpRequestLocalizationMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Volo.Abp.AspNetCore.Security.Claims.AbpClaimsMapMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Volo.Abp.AspNetCore.Tracing.AbpCorrelationIdMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2021-06-18 13:04:28.716 +08:00 [INF] Request finished in 8081.4429ms 0 
+2021-06-18 13:04:29.050 +08:00 [INF] Request finished in 6702.8177ms 200 text/html;charset=utf-8
+2021-06-18 13:04:29.199 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/swagger-ui.css  
+2021-06-18 13:04:29.202 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:29.298 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-06-18 13:04:29.300 +08:00 [INF] Request finished in 101.5731ms 200 text/css
+2021-06-18 13:04:30.487 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/v1/swagger.json  
+2021-06-18 13:04:30.487 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/favicon-32x32.png  
+2021-06-18 13:04:30.491 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:30.491 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:30.494 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-06-18 13:04:30.494 +08:00 [INF] Request finished in 8.0495ms 200 image/png
+2021-06-18 13:04:30.556 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/favicon-16x16.png  
+2021-06-18 13:04:30.559 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:30.560 +08:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2021-06-18 13:04:30.560 +08:00 [INF] Request finished in 6.8608ms 200 image/png
+2021-06-18 13:04:30.890 +08:00 [INF] Request finished in 409.9856ms 200 application/json;charset=utf-8
+2021-06-18 13:04:36.986 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/index.html  
+2021-06-18 13:04:36.992 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:37.000 +08:00 [INF] Request finished in 14.7522ms 200 text/html;charset=utf-8
+2021-06-18 13:04:37.042 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/swagger-ui.css  
+2021-06-18 13:04:37.045 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:37.056 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-06-18 13:04:37.057 +08:00 [INF] Request finished in 15.3077ms 200 text/css
+2021-06-18 13:04:37.260 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/v1/swagger.json  
+2021-06-18 13:04:37.265 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:37.273 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/favicon-32x32.png  
+2021-06-18 13:04:37.274 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:37.276 +08:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-06-18 13:04:37.276 +08:00 [INF] Request finished in 3.3171ms 200 image/png
+2021-06-18 13:04:37.283 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/favicon-16x16.png  
+2021-06-18 13:04:37.284 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:04:37.285 +08:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2021-06-18 13:04:37.286 +08:00 [INF] Request finished in 2.5917ms 200 image/png
+2021-06-18 13:04:37.293 +08:00 [INF] Request finished in 33.0242ms 200 application/json;charset=utf-8
+2021-06-18 13:05:16.865 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/api/productManagement/GetInfo  
+2021-06-18 13:05:16.868 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 13:05:16.888 +08:00 [INF] Executing endpoint 'ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host)'
+2021-06-18 13:05:17.011 +08:00 [INF] Route matched with {area = "productManagement", action = "GetInfo", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] GetInfoAsync() on controller ModelingService.Host.ProductsController (ModelingService.Host).
+2021-06-18 13:05:17.253 +08:00 [INF] Executing action method ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host) - Validation state: "Valid"
+2021-06-18 13:05:17.269 +08:00 [INF] Executed action method ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2.4428ms.
+2021-06-18 13:05:17.279 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2021-06-18 13:05:17.294 +08:00 [INF] Executed action ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host) in 275.579ms
+2021-06-18 13:05:17.294 +08:00 [INF] Executed endpoint 'ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host)'
+2021-06-18 13:05:18.402 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 13:05:18.403 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 13:05:18.482 +08:00 [INF] Request finished in 1617.2618ms 200 text/plain; charset=utf-8
+2021-06-18 13:06:46.487 +08:00 [INF] Application is shutting down...
+2021-06-18 15:51:13.010 +08:00 [INF] Starting IdentityService.Host.
+2021-06-18 15:51:18.822 +08:00 [INF] Loaded ABP modules:
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Castle.AbpCastleCoreModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Autofac.AbpAutofacModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Uow.AbpUnitOfWorkModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Data.AbpDataModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Security.AbpSecurityModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Settings.AbpSettingsModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Timing.AbpTimingModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Json.AbpJsonModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Threading.AbpThreadingModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Auditing.AbpAuditingModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Http.AbpHttpAbstractionsModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Minify.AbpMinifyModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Http.AbpHttpModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Authorization.AbpAuthorizationModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.EventBus.AbpEventBusModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Guids.AbpGuidsModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Domain.AbpDddDomainModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Localization.AbpLocalizationModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.UI.AbpUiModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.Validation.AbpValidationModule
+2021-06-18 15:51:18.824 +08:00 [INF] - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.Application.AbpDddApplicationContractsModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.Features.AbpFeaturesModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.Application.AbpDddApplicationModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.AuditLogging.AbpAuditLoggingDomainSharedModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.AuditLogging.AbpAuditLoggingDomainModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.AuditLogging.EntityFrameworkCore.AbpAuditLoggingEntityFrameworkCoreModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainSharedModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.Serialization.AbpSerializationModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.Caching.AbpCachingModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.PermissionManagement.AbpPermissionManagementDomainModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.PermissionManagement.EntityFrameworkCore.AbpPermissionManagementEntityFrameworkCoreModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.AspNetCore.MultiTenancy.AbpAspNetCoreMultiTenancyModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementDomainSharedModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.TenantManagement.AbpTenantManagementDomainModule
+2021-06-18 15:51:18.825 +08:00 [INF] - Volo.Abp.TenantManagement.EntityFrameworkCore.AbpTenantManagementEntityFrameworkCoreModule
+2021-06-18 15:51:18.825 +08:00 [INF] - ModelingService.Host.ModelingServiceHostModule
+2021-06-18 15:51:21.303 +08:00 [INF] Initialized all ABP modules.
+2021-06-18 15:51:21.452 +08:00 [INF] Now listening on: https://localhost:44344
+2021-06-18 15:51:21.454 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 15:51:21.454 +08:00 [INF] Hosting environment: Development
+2021-06-18 15:51:21.454 +08:00 [INF] Content root path: E:\code\net\Deer\DeerSoftware-EMS-master\microservices\ModelingService.Host
+2021-06-18 15:51:22.847 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/  
+2021-06-18 15:51:23.023 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:51:24.559 +08:00 [INF] Executing endpoint 'ModelingService.Host.Controllers.HomeController.Index (ModelingService.Host)'
+2021-06-18 15:51:24.729 +08:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller ModelingService.Host.Controllers.HomeController (ModelingService.Host).
+2021-06-18 15:51:25.178 +08:00 [INF] Executing action method ModelingService.Host.Controllers.HomeController.Index (ModelingService.Host) - Validation state: "Valid"
+2021-06-18 15:51:25.189 +08:00 [INF] Executed action method ModelingService.Host.Controllers.HomeController.Index (ModelingService.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 1.4151ms.
+2021-06-18 15:51:25.206 +08:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2021-06-18 15:51:25.233 +08:00 [INF] Executed action ModelingService.Host.Controllers.HomeController.Index (ModelingService.Host) in 493.3328ms
+2021-06-18 15:51:25.238 +08:00 [INF] Executed endpoint 'ModelingService.Host.Controllers.HomeController.Index (ModelingService.Host)'
+2021-06-18 15:51:28.093 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 15:51:28.094 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 15:51:28.123 +08:00 [INF] Request finished in 5280.3768ms 302 
+2021-06-18 15:51:28.201 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger  
+2021-06-18 15:51:28.205 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:51:28.207 +08:00 [INF] Request finished in 5.7117ms 301 
+2021-06-18 15:51:28.241 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/index.html  
+2021-06-18 15:51:28.258 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:51:28.317 +08:00 [INF] Request finished in 76.0492ms 200 text/html;charset=utf-8
+2021-06-18 15:51:28.382 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/swagger-ui.css  
+2021-06-18 15:51:28.385 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/swagger-ui-bundle.js  
+2021-06-18 15:51:28.386 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:51:28.393 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:51:28.393 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/swagger-ui-standalone-preset.js  
+2021-06-18 15:51:28.393 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:51:28.491 +08:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-06-18 15:51:28.492 +08:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-06-18 15:51:28.493 +08:00 [INF] Request finished in 111.0116ms 200 text/css
+2021-06-18 15:51:28.493 +08:00 [INF] Request finished in 99.8535ms 200 application/javascript
+2021-06-18 15:51:28.538 +08:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-06-18 15:51:28.539 +08:00 [INF] Request finished in 153.9753ms 200 application/javascript
+2021-06-18 15:51:29.455 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/swagger/v1/swagger.json  
+2021-06-18 15:51:29.459 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:51:29.667 +08:00 [INF] Request finished in 212.552ms 200 application/json;charset=utf-8
+2021-06-18 15:51:44.725 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44344/api/productManagement/GetInfo  
+2021-06-18 15:51:44.744 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:51:44.749 +08:00 [INF] Executing endpoint 'ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host)'
+2021-06-18 15:51:44.767 +08:00 [INF] Route matched with {area = "productManagement", action = "GetInfo", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] GetInfoAsync() on controller ModelingService.Host.ProductsController (ModelingService.Host).
+2021-06-18 15:51:45.206 +08:00 [INF] Executing action method ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host) - Validation state: "Valid"
+2021-06-18 15:51:45.224 +08:00 [INF] Executed action method ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 17.4581ms.
+2021-06-18 15:51:45.244 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2021-06-18 15:51:45.248 +08:00 [INF] Executed action ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host) in 480.9439ms
+2021-06-18 15:51:45.249 +08:00 [INF] Executed endpoint 'ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host)'
+2021-06-18 15:51:45.350 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 15:51:45.350 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 15:51:45.352 +08:00 [INF] Request finished in 627.9057ms 200 text/plain; charset=utf-8
+2021-06-18 15:52:21.812 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:44344/api/productManagement/GetInfo  0
+2021-06-18 15:52:21.815 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2021-06-18 15:52:21.819 +08:00 [INF] Executing endpoint 'ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host)'
+2021-06-18 15:52:21.822 +08:00 [INF] Route matched with {area = "productManagement", action = "GetInfo", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] GetInfoAsync() on controller ModelingService.Host.ProductsController (ModelingService.Host).
+2021-06-18 15:52:21.918 +08:00 [INF] Executing action method ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host) - Validation state: "Valid"
+2021-06-18 15:52:21.918 +08:00 [INF] Executed action method ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.2769ms.
+2021-06-18 15:52:21.921 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2021-06-18 15:52:21.947 +08:00 [INF] Executed action ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host) in 124.4868ms
+2021-06-18 15:52:21.947 +08:00 [INF] Executed endpoint 'ModelingService.Host.ProductsController.GetInfoAsync (ModelingService.Host)'
+2021-06-18 15:52:22.091 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 15:52:22.091 +08:00 [DBG] Added 0 entity changes to the current audit log
+2021-06-18 15:52:22.093 +08:00 [INF] Request finished in 280.9476ms 200 text/plain; charset=utf-8
+2021-06-19 10:11:58.779 +08:00 [INF] Starting IdentityService.Host.
