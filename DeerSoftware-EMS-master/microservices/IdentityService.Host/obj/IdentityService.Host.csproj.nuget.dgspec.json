@@ -1,35 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\IdentityService.Host.csproj": {}
+    "D:\\MES_Project\\Deer\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\IdentityService.Host.csproj": {}
   },
   "projects": {
-    "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\IdentityService.Host.csproj": {
+    "D:\\MES_Project\\Deer\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\IdentityService.Host.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\IdentityService.Host.csproj",
+        "projectUniqueName": "D:\\MES_Project\\Deer\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\IdentityService.Host.csproj",
         "projectName": "IdentityService.Host",
-        "projectPath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\IdentityService.Host.csproj",
-        "packagesPath": "C:\\Users\\wancm\\.nuget\\packages\\",
-        "outputPath": "D:\\工作文档\\Git\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\obj\\",
+        "projectPath": "D:\\MES_Project\\Deer\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\IdentityService.Host.csproj",
+        "packagesPath": "C:\\Users\\9200\\.nuget\\packages\\",
+        "outputPath": "D:\\MES_Project\\Deer\\Platform_EMS\\DeerSoftware-EMS-master\\microservices\\IdentityService.Host\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\wancm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\9200\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -40,8 +37,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "IdentityServer4.AccessTokenValidation": {
               "target": "Package",
@@ -49,75 +46,75 @@
             },
             "Microsoft.AspNetCore.DataProtection.StackExchangeRedis": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[5.0.7, )"
             },
             "Microsoft.Extensions.Caching.StackExchangeRedis": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[5.0.1, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",
-              "version": "[3.2.0, )"
+              "version": "[4.1.0, )"
             },
             "Serilog.Sinks.Async": {
               "target": "Package",
-              "version": "[1.4.0, )"
+              "version": "[1.5.0, )"
             },
             "Serilog.Sinks.Elasticsearch": {
               "target": "Package",
-              "version": "[8.1.0, )"
+              "version": "[8.4.1, )"
             },
             "Serilog.Sinks.File": {
               "target": "Package",
-              "version": "[4.1.0, )"
+              "version": "[5.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.5.1, )"
+              "version": "[6.1.4, )"
             },
             "Volo.Abp.AspNetCore.MultiTenancy": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             },
             "Volo.Abp.AuditLogging.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             },
             "Volo.Abp.Autofac": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             },
             "Volo.Abp.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             },
             "Volo.Abp.EventBus.RabbitMQ": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             },
             "Volo.Abp.Identity.Application": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             },
             "Volo.Abp.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             },
             "Volo.Abp.Identity.HttpApi": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             },
             "Volo.Abp.PermissionManagement.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             },
             "Volo.Abp.SettingManagement.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             },
             "Volo.Abp.TenantManagement.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[4.3.3, )"
             }
           },
           "imports": [
@@ -139,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

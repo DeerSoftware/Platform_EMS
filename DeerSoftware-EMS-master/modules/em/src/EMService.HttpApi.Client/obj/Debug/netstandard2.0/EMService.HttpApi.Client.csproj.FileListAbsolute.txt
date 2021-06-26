@@ -1,0 +1,14 @@
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\bin\Debug\netstandard2.0\EMService.HttpApi.Client.deps.json
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\bin\Debug\netstandard2.0\EMService.HttpApi.Client.dll
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\bin\Debug\netstandard2.0\EMService.HttpApi.Client.pdb
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\bin\Debug\netstandard2.0\EMService.Application.Contracts.dll
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\bin\Debug\netstandard2.0\EMService.Domain.Shared.dll
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\bin\Debug\netstandard2.0\EMService.Application.Contracts.pdb
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\bin\Debug\netstandard2.0\EMService.Domain.Shared.pdb
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\obj\Debug\netstandard2.0\EMService.HttpApi.Client.csproj.AssemblyReference.cache
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\obj\Debug\netstandard2.0\EMService.HttpApi.Client.AssemblyInfoInputs.cache
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\obj\Debug\netstandard2.0\EMService.HttpApi.Client.AssemblyInfo.cs
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\obj\Debug\netstandard2.0\EMService.HttpApi.Client.csproj.CoreCompileInputs.cache
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\obj\Debug\netstandard2.0\EMService.HttpApi.Client.csproj.CopyComplete
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\obj\Debug\netstandard2.0\EMService.HttpApi.Client.dll
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.HttpApi.Client\obj\Debug\netstandard2.0\EMService.HttpApi.Client.pdb

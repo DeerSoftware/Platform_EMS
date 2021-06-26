@@ -1,0 +1,9 @@
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.Domain.Shared\bin\Debug\netstandard2.0\EMService.Domain.Shared.deps.json
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.Domain.Shared\bin\Debug\netstandard2.0\EMService.Domain.Shared.dll
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.Domain.Shared\bin\Debug\netstandard2.0\EMService.Domain.Shared.pdb
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.Domain.Shared\obj\Debug\netstandard2.0\EMService.Domain.Shared.EmbeddedFilesManifest.cache
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.Domain.Shared\obj\Debug\netstandard2.0\EMService.Domain.Shared.AssemblyInfoInputs.cache
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.Domain.Shared\obj\Debug\netstandard2.0\EMService.Domain.Shared.AssemblyInfo.cs
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.Domain.Shared\obj\Debug\netstandard2.0\EMService.Domain.Shared.csproj.CoreCompileInputs.cache
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.Domain.Shared\obj\Debug\netstandard2.0\EMService.Domain.Shared.dll
+D:\MES_Project\Deer\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.Domain.Shared\obj\Debug\netstandard2.0\EMService.Domain.Shared.pdb

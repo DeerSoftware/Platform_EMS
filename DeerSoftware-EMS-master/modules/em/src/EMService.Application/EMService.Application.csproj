@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>EMService</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Account.Application" Version="4.3.3" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="4.3.3" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="4.3.3" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="4.3.3" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="4.3.3" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application" Version="4.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EMService.Application.Contracts\EMService.Application.Contracts.csproj" />
+    <ProjectReference Include="..\EMService.Domain\EMService.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
