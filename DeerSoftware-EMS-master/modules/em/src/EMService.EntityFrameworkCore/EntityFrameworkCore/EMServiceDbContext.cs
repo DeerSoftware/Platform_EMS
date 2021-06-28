@@ -5,6 +5,7 @@ using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.Identity;
 using Volo.Abp.Users.EntityFrameworkCore;
+using EMService.AssetTree;
 
 namespace EMService.EntityFrameworkCore
 {
@@ -22,6 +23,12 @@ namespace EMService.EntityFrameworkCore
     {
         public DbSet<AppUser> Users { get; set; }
 
+        public DbSet<Base> TreeBase { get; set; }
+
+        public DbSet<Device> Devices { get; set; }
+
+        public DbSet<Point> Points { get; set; }
+
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside EMServiceDbContextModelCreatingExtensions.ConfigureEMService
          */
@@ -29,7 +36,7 @@ namespace EMService.EntityFrameworkCore
         public EMServiceDbContext(DbContextOptions<EMServiceDbContext> options)
             : base(options)
         {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

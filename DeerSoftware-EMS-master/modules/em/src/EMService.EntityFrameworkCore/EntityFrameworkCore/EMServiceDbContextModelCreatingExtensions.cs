@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EMService.AssetTree;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
 
 namespace EMService.EntityFrameworkCore
@@ -17,6 +18,11 @@ namespace EMService.EntityFrameworkCore
             //    b.ConfigureByConvention(); //auto configure for the base class props
             //    //...
             //});
+
+            builder.Entity<Base>(b =>
+            {
+                b.ToTable("Tree_Base");
+            });
         }
     }
 }

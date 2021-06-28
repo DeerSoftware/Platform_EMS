@@ -95,7 +95,7 @@ namespace EMService
                 {
                     options.FileSets.ReplaceEmbeddedByPhysical<EMServiceDomainSharedModule>(
                         Path.Combine(hostingEnvironment.ContentRootPath,
-                            $"..{Path.DirectorySeparatorChar}EMService.Domain.Shared"));
+                            string.Format("..{0}..{0}modules{0}em{0}src{0}EMService.Domain.Shared", Path.DirectorySeparatorChar)));
                     options.FileSets.ReplaceEmbeddedByPhysical<EMServiceDomainModule>(
                         Path.Combine(hostingEnvironment.ContentRootPath,
                             $"..{Path.DirectorySeparatorChar}EMService.Domain"));
