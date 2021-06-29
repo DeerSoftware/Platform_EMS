@@ -1,18 +1,18 @@
 ﻿using System;
-using Volo.Abp.Domain.Entities.Auditing;
+using System.Collections.Generic;
+using System.Text;
 
-namespace EMService.AssetTree
+namespace EMService.AssetTree.Dto
 {
     /// <summary>
-    /// 设备树基础表
+    /// 设备树基础数据
     /// </summary>
-    public class Base : FullAuditedAggregateRoot<Guid>
+    public class BaseDto
     {
-        public Base(Guid key)
-            : base(key)
-        {
-
-        }
+        /// <summary>
+        /// 主键Id
+        /// </summary>
+        public Guid Id { get; set; }
 
         /// <summary>
         /// 父级Id
@@ -27,7 +27,7 @@ namespace EMService.AssetTree
         /// <summary>
         /// 设备类型
         /// </summary>
-        public DeviceType DeviceType { get; set; }
+        public int DeviceType { get; set; }
 
         /// <summary>
         /// 设备编码
