@@ -19,7 +19,7 @@ namespace EMService.EntityFrameworkCore
             //    //...
             //});
 
-            builder.Entity<Base>(b =>
+            builder.Entity<Foundation>(b =>
             {
                 b.ToTable("Tree_Base");
             });

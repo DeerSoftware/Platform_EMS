@@ -23,7 +23,7 @@ namespace EMService.EntityFrameworkCore
     {
         public DbSet<AppUser> Users { get; set; }
 
-        public DbSet<Base> TreeBase { get; set; }
+        public DbSet<Foundation> TreeBase { get; set; }
 
         public DbSet<Device> Devices { get; set; }
 
