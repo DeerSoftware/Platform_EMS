@@ -8,6 +8,10 @@ namespace EMService.AssetTree
     /// </summary>
     public class Foundation : FullAuditedAggregateRoot<Guid>
     {
+        public Foundation()
+        {
+
+        }
         public Foundation(Guid key)
             : base(key)
         {

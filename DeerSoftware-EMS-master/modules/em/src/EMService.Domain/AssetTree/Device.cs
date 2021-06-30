@@ -8,6 +8,11 @@ namespace EMService.AssetTree
     /// </summary>
     public class Device : AggregateRoot<Guid>
     {
+        public Device()
+        {
+
+        }
+
         public Device(Guid key)
             : base(key)
         {

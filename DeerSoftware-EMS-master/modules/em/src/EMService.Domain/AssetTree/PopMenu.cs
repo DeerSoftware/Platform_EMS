@@ -5,6 +5,10 @@ namespace EMService.AssetTree
 {
     public class PopMenu : FullAuditedAggregateRoot<Guid>
     {
+        public PopMenu()
+        {
+
+        }
         public PopMenu(Guid key)
             : base(key)
         {

@@ -8,6 +8,11 @@ namespace EMService.AssetTree
     /// </summary>
     public class Point : AggregateRoot<Guid>
     {
+        public Point()
+        {
+
+        }
+
         public Point(Guid key)
             : base(key)
         {
