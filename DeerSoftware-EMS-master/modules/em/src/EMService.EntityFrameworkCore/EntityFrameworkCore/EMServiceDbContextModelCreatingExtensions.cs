@@ -20,9 +20,33 @@ namespace EMService.EntityFrameworkCore
             //    //...
             //});
 
+            // 能源建模-资产基础表
             builder.Entity<Foundation>(b =>
             {
-                b.ToTable("Tree_Base");
+                b.ToTable("EMS_Modeling_Foundation");
+                b.Ignore(b => b.ExtraProperties);
+                b.Ignore(b => b.ConcurrencyStamp);
+                b.Property(b => b.NodeId).ValueGeneratedOnAdd();
+            });
+
+            // 能源建模-资产设备表
+            builder.Entity<Device>(b =>
+            {
+                b.ToTable("EMS_Modeling_Device");
+            });
+
+            // 能源建模-资产测点表
+            builder.Entity<Point>(b =>
+            {
+                b.ToTable("EMS_Modeling_Point");
+            });
+
+            // 能源建模-资产菜单表
+            builder.Entity<PopMenu>(b =>
+            {
+                b.ToTable("EMS_Modeling_PopMenu");
+                b.Ignore(b => b.ConcurrencyStamp);
+                b.Ignore(b => b.ExtraProperties);
             });
 
             builder.Entity<DevSystem>(b =>
