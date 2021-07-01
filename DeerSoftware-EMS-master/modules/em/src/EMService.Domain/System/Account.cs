@@ -4,25 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Entities.Auditing;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
+using System.ComponentModel.DataAnnotations;
 
 namespace EMService
 {
     /// <summary>
     /// 账号实体
     /// </summary>
+    [Table("EMS_Sys_Account")]
     public class Account : FullAuditedAggregateRoot<Guid>
     {
         /// <summary>
         /// 用户名
         ///// </summary>
+        [NotNull]
+        [Required]
         public string UserName { get; set; }
         /// <summary>
         /// 真实姓名
         /// </summary>
+        [NotNull]
+        [Required] 
         public string RealName { get; set; }
         /// <summary>
         /// 员工编码
         /// </summary>
+        [NotNull]
+        [Required] 
         public string UserCode { get; set; }
         /// <summary>
         /// 手机号
@@ -35,13 +45,15 @@ namespace EMService
         /// <summary>
         /// 角色Id
         /// </summary>
+        [NotNull]
+        [Required] 
         public Guid RoleId { get; set; }
         /// <summary>
         /// 组织Id
         /// </summary>
+        [NotNull]
+        [Required]
         public Guid OrgId { get; set; }
-
-
 
 
         /// <summary>

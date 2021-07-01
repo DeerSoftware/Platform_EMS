@@ -29,6 +29,9 @@ namespace EMService.EntityFrameworkCore
 
         public DbSet<Point> Points { get; set; }
 
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Sequence> Sequences { get; set; }
+
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside EMServiceDbContextModelCreatingExtensions.ConfigureEMService
          */
@@ -36,7 +39,7 @@ namespace EMService.EntityFrameworkCore
         public EMServiceDbContext(DbContextOptions<EMServiceDbContext> options)
             : base(options)
         {
-            
+
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -45,17 +48,17 @@ namespace EMService.EntityFrameworkCore
 
             /* Configure the shared tables (with included modules) here */
 
-            builder.Entity<AppUser>(b =>
-            {
-                b.ToTable(AbpIdentityDbProperties.DbTablePrefix + "Users"); //Sharing the same table "AbpUsers" with the IdentityUser
-                
-                b.ConfigureByConvention();
-                b.ConfigureAbpUser();
+            //builder.Entity<AppUser>(b =>
+            //{
+            //    b.ToTable(AbpIdentityDbProperties.DbTablePrefix + "Users"); //Sharing the same table "AbpUsers" with the IdentityUser
 
-                /* Configure mappings for your additional properties
-                 * Also see the EMServiceEfCoreEntityExtensionMappings class
-                 */
-            });
+            //    b.ConfigureByConvention();
+            //    b.ConfigureAbpUser();
+
+            //    /* Configure mappings for your additional properties
+            //     * Also see the EMServiceEfCoreEntityExtensionMappings class
+            //     */
+            //});
 
             /* Configure your own tables/entities inside the ConfigureEMService method */
 

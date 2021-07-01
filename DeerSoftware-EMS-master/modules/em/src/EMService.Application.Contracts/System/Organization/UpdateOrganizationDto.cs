@@ -1,27 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Volo.Abp;
-using Volo.Abp.Domain.Entities.Auditing;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
 namespace EMService
 {
     /// <summary>
-    /// 组织架构
+    /// 组织更新Dto
     /// </summary>
-    [Table("EMS_Sys_Organization")]
-    public class Organization : FullAuditedAggregateRoot<int>
+    public class UpdateOrganizationDto
     {
         /// <summary>
         /// 组织名称
         /// </summary>
-        [NotNull]
-        [Required]
         public string OrgName { get; set; }
         /// <summary>
         /// 组织昵称
@@ -30,8 +20,6 @@ namespace EMService
         /// <summary>
         /// 所属上级
         /// </summary>
-        [Required]
-        [NotNull]
         public int ParentId { get; set; }
         /// <summary>
         /// 组织编码
@@ -65,30 +53,5 @@ namespace EMService
         /// 备注
         /// </summary>
         public string Remark { get; set; }
-        /// <summary>
-        /// 所属层
-        /// </summary>
-        [NotNull]
-        public string Level { get; set; }
-        #region 构造函数
-        public Organization() { }
-        internal Organization(
-            int Id,
-            string OrgName,
-            string OrgNickName,
-            int ParentId,
-            string OrgCode,
-            string Phone,
-            string PhoneExt,
-            string Email,
-            int Sort,
-            Guid ResponsiblePerson,
-            string Address,
-            string Remark
-            )
-        {
-            Check.NotNullOrWhiteSpace(OrgName, nameof(OrgName));
-        }
-        #endregion 
     }
 }

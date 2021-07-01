@@ -4,9 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Entities.Auditing;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace EMService
 {
+    /// <summary>
+    /// 角色
+    /// </summary>
+    [Table("EMS_Sys_Menu")]
     public class Role : FullAuditedAggregateRoot<Guid>
     {
         /// <summary>

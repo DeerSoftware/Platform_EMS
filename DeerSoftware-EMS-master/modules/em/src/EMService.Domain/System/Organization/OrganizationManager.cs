@@ -15,25 +15,42 @@ namespace EMService
     public class OrganizationManager : DomainService
     {
         private readonly IRepository<Organization, int> _productRepository;
-        private readonly IRepository<Sequence,Guid>
-        public OrganizationManager(IRepository<Organization, int> productRepository)
+
+        /// <summary>
+        /// 构造器
+        /// </summary>
+        /// <param name="productRepository"></param>
+        /// <param name="sequenceRepository"></param>
+        public OrganizationManager(IRepository<Organization, int> organizationRepository)
         {
-            _productRepository = productRepository;
+            _productRepository = organizationRepository;
         }
         /// <summary>
         /// 创建新组织
         /// </summary>
         /// <param name="organization"></param>
         /// <returns></returns>
-        public async Task<Organization> CreateAsync(Organization organization)
+        public async Task<Organization> CreateAsync(Organization organization, int id)
         {
             var existingProduct = await _productRepository.FirstOrDefaultAsync(p => p.OrgCode == organization.OrgCode);
             if (existingProduct != null)
             {
                 throw new OrganizationCodeAlreadyExistsException(organization.OrgCode);
             }
-            organization.Id=
-            return await _productRepository.InsertAsync(organization);
+            return await _productRepository.InsertAsync(new Organization(
+                id,
+                organization.OrgName,
+                organization.OrgNickName,
+                organization.ParentId,
+                organization.OrgCode,
+                organization.Phone,
+                organization.PhoneExt,
+                organization.Email,
+                organization.Sort,
+                organization.ResponsiblePerson,
+                organization.Address,
+                organization.Remark
+                ));
         }
 
     }
