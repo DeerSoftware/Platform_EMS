@@ -21,9 +21,9 @@ namespace EMService.EntityFrameworkCore
     [ConnectionStringName("Default")]
     public class EMServiceDbContext : AbpDbContext<EMServiceDbContext>
     {
-        public DbSet<AppUser> Users { get; set; }
+        //public DbSet<AppUser> Users { get; set; }
 
-        public DbSet<Foundation> TreeBase { get; set; }
+        public DbSet<Foundation> Foundations { get; set; }
 
         public DbSet<Device> Devices { get; set; }
 
@@ -51,7 +51,7 @@ namespace EMService.EntityFrameworkCore
             //builder.Entity<AppUser>(b =>
             //{
             //    b.ToTable(AbpIdentityDbProperties.DbTablePrefix + "Users"); //Sharing the same table "AbpUsers" with the IdentityUser
-
+                
             //    b.ConfigureByConvention();
             //    b.ConfigureAbpUser();
 

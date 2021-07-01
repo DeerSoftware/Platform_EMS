@@ -6,12 +6,13 @@ namespace EMService.AssetTree
     /// <summary>
     /// 设备树基础表
     /// </summary>
-    public class Foundation : FullAuditedAggregateRoot<Guid>
+    public class Foundation : AuditedAggregateRoot<Guid>
     {
         public Foundation()
         {
 
         }
+
         public Foundation(Guid key)
             : base(key)
         {

@@ -3,12 +3,13 @@ using Volo.Abp.Domain.Entities.Auditing;
 
 namespace EMService.AssetTree
 {
-    public class PopMenu : FullAuditedAggregateRoot<Guid>
+    public class PopMenu : AuditedAggregateRoot<Guid>
     {
         public PopMenu()
         {
 
         }
+
         public PopMenu(Guid key)
             : base(key)
         {
