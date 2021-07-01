@@ -42,15 +42,27 @@ namespace EMService
         /// <returns></returns>
         public async Task<OrganizationDto> CreateAsync(CreateOrganizationDto input)
         {
-            var existingOrganization = await _OrganizationRepository.GetAsync(p => p.OrgCode == input.OrgCode);
-            if (existingOrganization != null)
+            Organization organization = default;
+            Sequence sequence = default;
+            try
             {
-                throw new OrganizationCodeAlreadyExistsException(input.OrgCode);
+                var existingOrganization = await _OrganizationRepository.GetListAsync(p => p.OrgCode.Equals(input.OrgCode));
+                if (existingOrganization.FirstOrDefault() != null)
+                {
+                    throw new OrganizationCodeAlreadyExistsException(input.OrgCode);
+                }
+                sequence = await _sequenceManager.GetSequenceAsync<Organization>();
+                organization = ObjectMapper.Map<CreateOrganizationDto, Organization>(input);
+
+                var parentOrg = await _OrganizationRepository.GetAsync(organization.ParentId);
+
+                //其它数据
+                organization.Level = parentOrg.Level + sequence.Value + ",";
             }
-            var sequence = await _sequenceManager.GetSequenceAsync<Organization>();
-
-            Organization organization = ObjectMapper.Map<CreateOrganizationDto, Organization>(input);
-
+            catch (Exception e)
+            {
+                throw e;
+            }
             return ObjectMapper.Map<Organization, OrganizationDto>(await _organizationManager.CreateAsync(organization, sequence.Value));
         }
         /// <summary>

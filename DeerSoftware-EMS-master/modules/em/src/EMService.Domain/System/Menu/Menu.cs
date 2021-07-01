@@ -47,6 +47,32 @@ namespace EMService
         /// <summary>
         /// 状态
         /// </summary>
-        public int Status { get; set; }
+        public Status Status { get; set; }
+
+        /// <summary>
+        /// 构造
+        /// </summary>
+        public Menu() { }
+        /// <summary>
+        /// 构造
+        /// </summary>
+        /// <param name="name">菜单名称</param>
+        /// <param name="url">菜单地址</param>
+        /// <param name="parentId">所属上级</param>
+        /// <param name="sort">排序</param>
+        /// <param name="nickName">菜单昵称</param>
+        /// <param name="icon">Icon</param>
+        /// <param name="status">Status</param>
+        public Menu(Guid id, string name, string url, Guid parentId, int sort, string nickName, string icon, Status status)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Url = url;
+            this.ParentId = parentId;
+            this.Sort = sort;
+            this.NickName = nickName;
+            this.Icon = icon;
+            this.Status = status;
+        }
     }
 }

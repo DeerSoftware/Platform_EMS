@@ -5,14 +5,10 @@ using System.Text;
 namespace EMService
 {
     /// <summary>
-    /// 组织Dto
+    /// 组强新增Dto
     /// </summary>
-    public class OrganizationDto
+    public class CreateMenuDto
     {
-        /// <summary>
-        /// Id
-        /// </summary>
-        public int Id { get; set; }
         /// <summary>
         /// 组织名称
         /// </summary>

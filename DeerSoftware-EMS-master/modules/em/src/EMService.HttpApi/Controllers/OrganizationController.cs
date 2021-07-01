@@ -36,7 +36,7 @@ namespace EMService.Controllers
         [Route("CreateAsync")]
         public Task<OrganizationDto> CreateAsync(CreateOrganizationDto input)
         {
-            throw new NotImplementedException();
+            return _organizationAppService.CreateAsync(input);
         }
         /// <summary>
         /// 根据Id删除组织
@@ -91,7 +91,7 @@ namespace EMService.Controllers
         [Route("UpdateAsync")]
         public Task<OrganizationDto> UpdateAsync(int id, UpdateOrganizationDto input)
         {
-            throw new NotImplementedException();
+            return _organizationAppService.UpdateAsync(id, input);
         }
     }
 }
