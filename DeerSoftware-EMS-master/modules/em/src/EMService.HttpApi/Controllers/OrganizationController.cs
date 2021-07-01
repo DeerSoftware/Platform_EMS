@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.AspNetCore.Mvc;
 
@@ -11,6 +13,9 @@ namespace EMService.Controllers
     /// <summary>
     /// 组织API
     /// </summary>
+    [RemoteService]
+    [Area("Organization")]
+    [Route("api/Organization")]
     public class OrganizationController : AbpController, IOrganizationAppService
     {
         private readonly IOrganizationAppService _organizationAppService;
@@ -27,6 +32,8 @@ namespace EMService.Controllers
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
+        [HttpPost]
+        [Route("CreateAsync")]
         public Task<OrganizationDto> CreateAsync(CreateOrganizationDto input)
         {
             throw new NotImplementedException();
@@ -36,6 +43,8 @@ namespace EMService.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [HttpPost]
+        [Route("DeleteAsync")]
         public Task DeleteAsync(int id)
         {
             return _organizationAppService.DeleteAsync(id);
@@ -45,6 +54,8 @@ namespace EMService.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [HttpGet]
+        [Route("GetAsync")]
         public Task<OrganizationDto> GetAsync(int id)
         {
             return _organizationAppService.GetAsync(id);
@@ -53,6 +64,8 @@ namespace EMService.Controllers
         /// 查询组织列表
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
+        //[Route("GetListAsync")]
         public Task<ListResultDto<OrganizationDto>> GetListAsync()
         {
             return _organizationAppService.GetListAsync();
@@ -62,6 +75,8 @@ namespace EMService.Controllers
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
+        [HttpGet]
+        [Route("GetListPagedAsync")]
         public Task<PagedResultDto<OrganizationDto>> GetListPagedAsync(PagedAndSortedResultRequestDto input)
         {
             return _organizationAppService.GetListPagedAsync(input);
@@ -72,6 +87,8 @@ namespace EMService.Controllers
         /// <param name="id"></param>
         /// <param name="input"></param>
         /// <returns></returns>
+        [HttpPost]
+        [Route("UpdateAsync")]
         public Task<OrganizationDto> UpdateAsync(int id, UpdateOrganizationDto input)
         {
             throw new NotImplementedException();

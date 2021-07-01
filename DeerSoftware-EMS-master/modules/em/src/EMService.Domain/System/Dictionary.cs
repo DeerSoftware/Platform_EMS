@@ -20,19 +20,23 @@ namespace EMService
         /// 字典名称
         /// </summary>
         [NotNull]
-        [Required] 
+        [Required]
         public string Name { get; set; }
         /// <summary>
         /// 字典编码
         /// </summary>
         [NotNull]
-        [Required] 
+        [Required]
         public string Code { get; set; }
+        /// <summary>
+        /// 排序
+        /// </summary>
+        public int Sort { get; set; }
         /// <summary>
         /// 字典类型
         /// </summary>
         [NotNull]
-        [Required] 
+        [Required]
         public Guid DictionaryType { get; set; }
 
     }
