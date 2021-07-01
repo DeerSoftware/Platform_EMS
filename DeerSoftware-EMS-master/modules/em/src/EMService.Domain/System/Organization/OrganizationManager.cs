@@ -32,25 +32,34 @@ namespace EMService
         /// <returns></returns>
         public async Task<Organization> CreateAsync(Organization organization, int id)
         {
-            var existingProduct = await _productRepository.FirstOrDefaultAsync(p => p.OrgCode == organization.OrgCode);
-            if (existingProduct != null)
+            try
             {
-                throw new OrganizationCodeAlreadyExistsException(organization.OrgCode);
+                var existingProduct = await _productRepository.FirstOrDefaultAsync(p => p.OrgCode == organization.OrgCode);
+                if (existingProduct != null)
+                {
+                    throw new OrganizationCodeAlreadyExistsException(organization.OrgCode);
+                }
+                return await _productRepository.InsertAsync(new Organization(
+                    id,
+                    organization.OrgName,
+                    organization.OrgNickName,
+                    organization.ParentId,
+                    organization.OrgCode,
+                    organization.Phone,
+                    organization.PhoneExt,
+                    organization.Email,
+                    organization.Sort,
+                    organization.ResponsiblePerson,
+                    organization.Address,
+                    organization.Remark,
+                    organization.Level
+                    ));
             }
-            return await _productRepository.InsertAsync(new Organization(
-                id,
-                organization.OrgName,
-                organization.OrgNickName,
-                organization.ParentId,
-                organization.OrgCode,
-                organization.Phone,
-                organization.PhoneExt,
-                organization.Email,
-                organization.Sort,
-                organization.ResponsiblePerson,
-                organization.Address,
-                organization.Remark
-                ));
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         }
 
     }

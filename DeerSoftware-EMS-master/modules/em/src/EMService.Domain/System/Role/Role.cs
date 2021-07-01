@@ -31,5 +31,23 @@ namespace EMService
         /// 备注
         /// </summary>
         public string Remark { get; set; }
+
+
+        public Role() { }
+        /// <summary>
+        /// 构造
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="name">角色名称</param>
+        /// <param name="code">角色编码</param>
+        /// <param name="status">状态</param>
+        /// <param name="remark">备注</param>
+        public Role(Guid id, string name, string code, Status status, string remark)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Status = status;
+            this.Remark = remark;
+        }
     }
 }

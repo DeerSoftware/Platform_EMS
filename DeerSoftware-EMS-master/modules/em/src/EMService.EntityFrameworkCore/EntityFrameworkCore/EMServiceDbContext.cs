@@ -22,7 +22,6 @@ namespace EMService.EntityFrameworkCore
     public class EMServiceDbContext : AbpDbContext<EMServiceDbContext>
     {
         //public DbSet<AppUser> Users { get; set; }
-
         public DbSet<Foundation> Foundations { get; set; }
 
         public DbSet<Device> Devices { get; set; }

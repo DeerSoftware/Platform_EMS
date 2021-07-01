@@ -10,10 +10,6 @@ namespace EMService
     public class CreateOrganizationDto
     {
         /// <summary>
-        /// 主键
-        /// </summary>
-        public int Id { get; set; }
-        /// <summary>
         /// 组织名称
         /// </summary>
         public string OrgName { get; set; }
