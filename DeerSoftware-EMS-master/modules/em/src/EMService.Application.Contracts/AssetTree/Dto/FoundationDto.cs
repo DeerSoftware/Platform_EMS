@@ -17,7 +17,7 @@ namespace EMService.AssetTree.Dto
         /// <summary>
         /// 父级Id
         /// </summary>
-        public Guid ParentId { get; set; }
+        public Guid? ParentId { get; set; }
 
         /// <summary>
         /// 节点Id
@@ -53,5 +53,7 @@ namespace EMService.AssetTree.Dto
         /// 排序
         /// </summary>
         public int Sort { get; set; }
+
+        public List<FoundationDto> TreeChildren { set; get; }
     }
 }

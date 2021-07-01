@@ -35,7 +35,7 @@ namespace EMService.AssetTree
         public string Specialty { get; set; }
 
         /// <summary>
-        /// 工艺参数标签
+        /// 测点工艺位号
         /// </summary>
         public string ProcessCode { get; set; }
 
@@ -69,10 +69,10 @@ namespace EMService.AssetTree
         /// </summary>
         public string MeasureDirect { get; set; }
 
-        /// <summary>
-        /// 电源(对应数据字典的编码)
-        /// </summary>
-        public string Power { get; set; }
+        ///// <summary>
+        ///// 电源(对应数据字典的编码)
+        ///// </summary>
+        //public string Power { get; set; }
 
     }
 }

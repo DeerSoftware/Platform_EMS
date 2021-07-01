@@ -1,20 +1,15 @@
 ﻿using System;
-using Volo.Abp.Domain.Entities.Auditing;
+using System.Collections.Generic;
+using System.Text;
 
-namespace EMService.AssetTree
+namespace EMService.AssetTree.Dto
 {
-    public class PopMenu : AuditedAggregateRoot<Guid>
+    public class PopMenuDto
     {
-        public PopMenu()
-        {
-
-        }
-
-        public PopMenu(Guid key)
-            : base(key)
-        {
-
-        }
+        /// <summary>
+        /// 主键Id
+        /// </summary>
+        public Guid Id { get; set; }
 
         /// <summary>
         /// 父级Id

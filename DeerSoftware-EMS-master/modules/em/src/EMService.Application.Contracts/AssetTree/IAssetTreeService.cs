@@ -13,13 +13,20 @@ namespace EMService.AssetTree
     public interface IAssetTreeService : IApplicationService
     {
         /// <summary>
-        /// 极据上级节点查询资产数据,包括设备和测点数据
+        /// 极据上级节点查询所有下级设备数据
         /// </summary>
-        /// <param name="DeviceType">设备类型</param>
         /// <param name="pNodeId">上级节点Id</param>
         /// <param name="filter">过滤条件</param>
         /// <returns></returns>
-        Task<List<dynamic>> getChildrenAssetDataByParentId(int deviceType, int pNodeId, string filter = null);
+        Task<List<DeviceDto>> getChildrenDeviceData(int pNodeId, string filter = null);
+
+        /// <summary>
+        /// 极据上级节点查询所有下级测点数据
+        /// </summary>
+        /// <param name="pNodeId">上级节点Id</param>
+        /// <param name="filter">过滤条件</param>
+        /// <returns></returns>
+        Task<List<PointDto>> getChildrenPointData(int pNodeId, string filter = null);
 
         /// <summary>
         /// 根据主键Id查询资产数据
@@ -36,18 +43,31 @@ namespace EMService.AssetTree
         Task<List<FoundationDto>> getAssetTreeData(int deviceType = 10);
 
         /// <summary>
-        /// 新增或修改资产节点数据
+        /// 新增资产节点数据
         /// </summary>
         /// <param name="assetData"></param>
         /// <returns></returns>
-        Task<bool> AddOrUpdateAssetNode(dynamic assetData);
+        Task CreateAssetNode(int deviceType, dynamic assetData);
+
+        /// <summary>
+        /// 修改资产节点数据
+        /// </summary>
+        /// <param name="assetData"></param>
+        /// <returns></returns>
+        Task UpdateAssetNode(int deviceType, FoundationDto assetData);
 
         /// <summary>
         /// 删除资产节点数据
         /// </summary>
         /// <param name="assetData"></param>
         /// <returns></returns>
-        Task<bool> DelAssetNode(Guid idKey);
+        Task DelAssetNode(int deviceType, Guid idKey);
+
+        /// <summary>
+        /// 获取右击菜单设备类型的数据
+        /// </summary>
+        /// <returns></returns>
+        Task<List<PopMenuDto>> getPopMenuData();
     }
 
 }

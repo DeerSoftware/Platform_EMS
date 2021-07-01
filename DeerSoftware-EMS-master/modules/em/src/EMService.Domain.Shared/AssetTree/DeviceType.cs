@@ -43,10 +43,36 @@ namespace EMService.AssetTree
         /// 零部件
         /// </summary>
         Component = 50,
+     
+        /// <summary>
+        /// 观察量
+        /// </summary>
+        Observe = 100,
 
         /// <summary>
-        /// 测点
+        /// 转速量
         /// </summary>
-        Point = 60
+        Speed = 110,
+
+        /// <summary>
+        /// 温度量
+        /// </summary>
+        Temperature = 120,
+
+        /// <summary>
+        /// 工艺量
+        /// </summary>
+        Technology = 130,
+
+        /// <summary>
+        /// 开关量
+        /// </summary>
+        Switch = 140,   
+
+        /// <summary>
+        /// 动态量
+        /// </summary>
+        Dynamic = 150,
+
     }
 }
