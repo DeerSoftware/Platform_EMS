@@ -36,7 +36,7 @@ namespace EMService.EntityFrameworkCore
                 b.Property(q => q.SystemClass).IsRequired().HasMaxLength(50);
             });
 
-            builder.Entity<SystemClass>(
+            builder.Entity<DeviceClass>(
                 b =>
                 {
                     b.ToTable(EMServiceConsts.DbTablePrefix+"Tree_System_Class",EMServiceConsts.DbSchema);
@@ -44,6 +44,7 @@ namespace EMService.EntityFrameworkCore
                     b.Property(q=>q.ParentId).HasMaxLength(50);
                     b.Property(q=>q.Name).IsRequired().HasMaxLength(50);
                     b.Property(q => q.Code).IsRequired().HasMaxLength(50);
+                    b.Property(q => q.DeviceType).IsRequired().HasColumnType("innter");
                 });
 
         }
