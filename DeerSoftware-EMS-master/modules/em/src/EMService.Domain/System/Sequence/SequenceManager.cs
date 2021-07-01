@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.Domain.Services;
 
 namespace EMService
 {
     /// <summary>
     /// 序列号管理器
     /// </summary>
-    public class SequenceManager
+    public class SequenceManager : DomainService
     {
         private readonly IRepository<Sequence, Guid> _sequnceRepository;
         public SequenceManager(IRepository<Sequence, Guid> sequnceRepository)

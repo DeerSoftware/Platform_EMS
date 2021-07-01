@@ -28,5 +28,13 @@ namespace EMService
         [NotNull]
         [Required]
         public string Code { get; set; }
+        /// <summary>
+        /// 排序
+        /// </summary>
+        public int Sort { get; set; }
+        /// <summary>
+        /// 上级
+        /// </summary>
+        public Guid ParentId { get; set; }
     }
 }

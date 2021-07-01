@@ -18,6 +18,20 @@ namespace EMService
         private readonly SequenceManager _sequenceManager;
         private readonly IRepository<Sequence, Guid> _SequenceRepository;
         /// <summary>
+        /// 构造
+        /// </summary>
+        /// <param name="sequenceManager"></param>
+        /// <param name="organizationManager"></param>
+        /// <param name="organizationRepository"></param>
+        public SequenceAppService(
+            SequenceManager sequenceManager,
+            IRepository<Sequence, Guid> SequenceRepository
+            )
+        {
+            _sequenceManager = sequenceManager;
+            _SequenceRepository = SequenceRepository;
+        }
+        /// <summary>
         /// 获取序列号
         /// 根据对象进行查询、更新、新增
         /// </summary>
