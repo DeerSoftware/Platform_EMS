@@ -11,8 +11,12 @@ using Volo.Abp.Domain.Entities;
 namespace EMService.AssetTree
 {
     [DisplayName("设备系统")]
-   public class DevSystem:AggregateRoot<Guid>
+   public class DevSystem: AggregateRoot<Guid>
     {
+        public DevSystem()
+        {
+
+        }
         public DevSystem(Guid Key):base(Key)
         {
 
@@ -20,8 +24,6 @@ namespace EMService.AssetTree
       
         [DisplayName("系统分组")]
         public string SystemGroup { get; set; }
-
-       
         [DisplayName("系统分类")]
         public string SystemClass { get; set; }
         [DisplayName("描述")]

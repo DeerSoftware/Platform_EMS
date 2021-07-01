@@ -28,6 +28,9 @@ namespace EMService.EntityFrameworkCore
         public DbSet<Device> Devices { get; set; }
 
         public DbSet<Point> Points { get; set; }
+        public DbSet<DeviceClass> DeviceClasses { get; set; }
+
+        public DbSet<DevSystem> DevSystems { get; set; }
 
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside EMServiceDbContextModelCreatingExtensions.ConfigureEMService

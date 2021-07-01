@@ -36,7 +36,7 @@ namespace EMService.EntityFrameworkCore
                 b.Property(q => q.SystemClass).IsRequired().HasMaxLength(50);
             });
 
-            builder.Entity<SystemClass>(
+            builder.Entity<DeviceClass>(
                 b =>
                 {
                     b.ToTable(EMServiceConsts.DbTablePrefix+"Tree_System_Class",EMServiceConsts.DbSchema);
