@@ -6,9 +6,13 @@ namespace EMService.AssetTree
     /// <summary>
     /// 设备树基础表
     /// </summary>
-    public class Base : FullAuditedAggregateRoot<Guid>
+    public class Foundation : FullAuditedAggregateRoot<Guid>
     {
-        public Base(Guid key)
+        public Foundation()
+        {
+
+        }
+        public Foundation(Guid key)
             : base(key)
         {
 
@@ -27,7 +31,7 @@ namespace EMService.AssetTree
         /// <summary>
         /// 设备类型
         /// </summary>
-        public DeviceType DeviceType { get; set; }
+        public int DeviceType { get; set; }
 
         /// <summary>
         /// 设备编码

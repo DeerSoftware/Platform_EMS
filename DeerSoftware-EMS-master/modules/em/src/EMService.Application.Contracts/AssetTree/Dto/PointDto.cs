@@ -1,24 +1,11 @@
 ﻿using System;
-using Volo.Abp.Domain.Entities;
+using System.Collections.Generic;
+using System.Text;
 
-namespace EMService.AssetTree
+namespace EMService.AssetTree.Dto
 {
-    /// <summary>
-    /// 测点表
-    /// </summary>
-    public class Point : AggregateRoot<Guid>
+    public class PointDto : FoundationDto
     {
-        public Point()
-        {
-
-        }
-
-        public Point(Guid key)
-            : base(key)
-        {
-
-        }
-
         /// <summary>
         /// 固定编码
         /// </summary>
@@ -73,6 +60,5 @@ namespace EMService.AssetTree
         /// 电源(对应数据字典的编码)
         /// </summary>
         public string Power { get; set; }
-
     }
 }

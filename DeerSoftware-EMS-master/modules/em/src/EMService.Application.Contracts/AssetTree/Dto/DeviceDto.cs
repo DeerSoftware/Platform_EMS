@@ -7,7 +7,7 @@ namespace EMService.AssetTree.Dto
     /// <summary>
     /// 设备数据
     /// </summary>
-    public class DeviceDto
+    public class DeviceDto : FoundationDto
     {
         /// <summary>
         /// 位置码
