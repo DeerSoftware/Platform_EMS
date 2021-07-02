@@ -53,11 +53,8 @@ namespace EMService.EntityFrameworkCore
             {
                 //Configure table & schema name
                 b.ToTable("EMS_Modeling_System");
-                b.ConfigureByConvention();
-
-                //Properties
-                b.Property(q => q.SystemGroup).HasMaxLength(50);
-                b.Property(q => q.SystemClass).IsRequired().HasMaxLength(50);
+                b.Ignore(b => b.ExtraProperties);
+                b.Ignore(b => b.ConcurrencyStamp);
             });
 
         }

@@ -33,17 +33,20 @@ namespace EMService
         public async Task DelAssetNode(Guid idKey)
         {
             var chrildDevice = getAssetDataByParentId(idKey);
-            if (chrildDevice.Result.Count>0)
+            if (chrildDevice.Result.Count > 0)
             {
                 throw new UserFriendlyException("当前数据存在子级！");
             }
+
+
             await _DevSystemRepository.DeleteAsync(idKey);
+            await _FoundationsRepository.DeleteAsync(idKey);
         }
 
         public async Task<DevSystemDto> getAssetDataById(int deviceType, Guid idKey)
         {
             var deviceSystem = await _DevSystemRepository.GetAsync(idKey);
-            return ObjectMapper.Map<DeviceSystem, DevSystemDto>(deviceSystem);
+            return ObjectMapper.Map<DeviceSystem,DevSystemDto>(deviceSystem);
         }
 
         public async Task<List<dynamic>> getAssetDataByParentId(Guid idKey)
