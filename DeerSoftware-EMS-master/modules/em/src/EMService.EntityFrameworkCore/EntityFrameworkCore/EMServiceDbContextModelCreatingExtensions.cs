@@ -1,6 +1,7 @@
 ﻿using EMService.AssetTree;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace EMService.EntityFrameworkCore
 {
@@ -47,6 +48,18 @@ namespace EMService.EntityFrameworkCore
                 b.Ignore(b => b.ConcurrencyStamp);
                 b.Ignore(b => b.ExtraProperties);
             });
+
+            builder.Entity<DevSystem>(b =>
+            {
+                //Configure table & schema name
+                b.ToTable(EMServiceConsts.DbTablePrefix+"Tree_System",EMServiceConsts.DbSchema);
+                b.ConfigureByConvention();
+
+                //Properties
+                b.Property(q => q.SystemGroup).IsRequired().HasMaxLength(50);
+                b.Property(q => q.SystemClass).IsRequired().HasMaxLength(50);
+            });
+
         }
     }
 }

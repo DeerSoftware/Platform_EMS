@@ -22,12 +22,16 @@ namespace EMService.EntityFrameworkCore
     public class EMServiceDbContext : AbpDbContext<EMServiceDbContext>
     {
         //public DbSet<AppUser> Users { get; set; }
-
         public DbSet<Foundation> Foundations { get; set; }
 
         public DbSet<Device> Devices { get; set; }
 
         public DbSet<Point> Points { get; set; }
+
+        public DbSet<DevSystem> DevSystems { get; set; }
+
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Sequence> Sequences { get; set; }
 
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside EMServiceDbContextModelCreatingExtensions.ConfigureEMService
@@ -36,7 +40,7 @@ namespace EMService.EntityFrameworkCore
         public EMServiceDbContext(DbContextOptions<EMServiceDbContext> options)
             : base(options)
         {
-            
+
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
