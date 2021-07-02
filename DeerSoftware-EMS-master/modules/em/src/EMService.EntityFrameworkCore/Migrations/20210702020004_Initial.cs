@@ -4,41 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EMService.Migrations
 {
-    public partial class org : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "AppTree_System",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    SystemGroup = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    SystemClass = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: true),
-                    ExtraProperties = table.Column<string>(type: "text", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AppTree_System", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AppTree_System_Class",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ParentId = table.Column<Guid>(type: "uuid", maxLength: 50, nullable: false),
-                    Name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    Code = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    DeviceType = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AppTree_System_Class", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "EMS_Modeling_Device",
                 columns: table => new
@@ -137,6 +106,22 @@ namespace EMService.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EMS_Modeling_System",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    SystemGroup = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    SystemClass = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    ExtraProperties = table.Column<string>(type: "text", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EMS_Modeling_System", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "EMS_Sys_Organization",
                 columns: table => new
                 {
@@ -195,12 +180,6 @@ namespace EMService.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AppTree_System");
-
-            migrationBuilder.DropTable(
-                name: "AppTree_System_Class");
-
-            migrationBuilder.DropTable(
                 name: "EMS_Modeling_Device");
 
             migrationBuilder.DropTable(
@@ -211,6 +190,9 @@ namespace EMService.Migrations
 
             migrationBuilder.DropTable(
                 name: "EMS_Modeling_PopMenu");
+
+            migrationBuilder.DropTable(
+                name: "EMS_Modeling_System");
 
             migrationBuilder.DropTable(
                 name: "EMS_Sys_Organization");

@@ -28,7 +28,7 @@ namespace EMService.EntityFrameworkCore
 
         public DbSet<Point> Points { get; set; }
 
-        public DbSet<DevSystem> DevSystems { get; set; }
+        public DbSet<DeviceSystem> DeviceSystems { get; set; }
 
         public DbSet<Organization> Organizations { get; set; }
         public DbSet<Sequence> Sequences { get; set; }
