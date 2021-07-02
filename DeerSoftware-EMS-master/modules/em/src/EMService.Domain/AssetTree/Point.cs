@@ -69,10 +69,29 @@ namespace EMService.AssetTree
         /// </summary>
         public string MeasureDirect { get; set; }
 
-        ///// <summary>
-        ///// 电源(对应数据字典的编码)
-        ///// </summary>
-        //public string Power { get; set; }
+        /// <summary>
+        /// 电源(对应数据字典的编码)
+        /// </summary>
+        public string Power { get; set; }
 
+        /// <summary>
+        /// 是否生成停机
+        /// </summary>
+        public bool IsStoppingSignal { get; set; }
+
+        /// <summary>
+        /// 最大值 
+        /// </summary>
+        public decimal MaxValue { get; set; }
+
+        /// <summary>
+        /// 最小值 
+        /// </summary>
+        public decimal MinValue { get; set; }
+
+        /// <summary>
+        /// 参考值 
+        /// </summary>
+        public decimal ReferenceValue { get; set; }
     }
 }

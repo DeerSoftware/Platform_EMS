@@ -33,12 +33,16 @@ namespace EMService.EntityFrameworkCore
             builder.Entity<Device>(b =>
             {
                 b.ToTable("EMS_Modeling_Device");
+                b.Ignore(b => b.ExtraProperties);
+                b.Ignore(b => b.ConcurrencyStamp);
             });
 
             // 能源建模-资产测点表
             builder.Entity<Point>(b =>
             {
                 b.ToTable("EMS_Modeling_Point");
+                b.Ignore(b => b.ExtraProperties);
+                b.Ignore(b => b.ConcurrencyStamp);
             });
 
             // 能源建模-资产菜单表

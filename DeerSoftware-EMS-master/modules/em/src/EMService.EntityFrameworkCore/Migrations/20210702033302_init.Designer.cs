@@ -11,8 +11,8 @@ using Volo.Abp.EntityFrameworkCore;
 namespace EMService.Migrations
 {
     [DbContext(typeof(EMServiceDbContext))]
-    [Migration("20210701072320_usr")]
-    partial class usr
+    [Migration("20210702033302_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,12 +61,6 @@ namespace EMService.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)")
-                        .HasColumnName("ConcurrencyStamp");
-
                     b.Property<string>("ControlLevel")
                         .HasColumnType("text");
 
@@ -81,10 +75,6 @@ namespace EMService.Migrations
 
                     b.Property<string>("ErpCode")
                         .HasColumnType("text");
-
-                    b.Property<string>("ExtraProperties")
-                        .HasColumnType("text")
-                        .HasColumnName("ExtraProperties");
 
                     b.Property<string>("LocationCode")
                         .HasColumnType("text");
@@ -116,33 +106,6 @@ namespace EMService.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("EMS_Modeling_Device");
-                });
-
-            modelBuilder.Entity("EMService.AssetTree.DeviceClass", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<int>("DeviceType")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<Guid>("ParentId")
-                        .HasMaxLength(50)
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppTree_System_Class");
                 });
 
             modelBuilder.Entity("EMService.AssetTree.Foundation", b =>
@@ -183,7 +146,7 @@ namespace EMService.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<Guid>("ParentId")
+                    b.Property<Guid?>("ParentId")
                         .HasColumnType("uuid");
 
                     b.Property<int>("Sort")
@@ -205,12 +168,6 @@ namespace EMService.Migrations
                     b.Property<string>("AccessMode")
                         .HasColumnType("text");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)")
-                        .HasColumnName("ConcurrencyStamp");
-
                     b.Property<string>("ControlLevel")
                         .HasColumnType("text");
 
@@ -220,12 +177,14 @@ namespace EMService.Migrations
                     b.Property<string>("EngineeringUnit")
                         .HasColumnType("text");
 
-                    b.Property<string>("ExtraProperties")
-                        .HasColumnType("text")
-                        .HasColumnName("ExtraProperties");
-
                     b.Property<string>("FixedCode")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsStoppingSignal")
+                        .HasColumnType("boolean");
+
+                    b.Property<decimal>("MaxValue")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("MeasWay")
                         .HasColumnType("text");
@@ -233,11 +192,17 @@ namespace EMService.Migrations
                     b.Property<string>("MeasureDirect")
                         .HasColumnType("text");
 
+                    b.Property<decimal>("MinValue")
+                        .HasColumnType("numeric");
+
                     b.Property<string>("Power")
                         .HasColumnType("text");
 
                     b.Property<string>("ProcessCode")
                         .HasColumnType("text");
+
+                    b.Property<decimal>("ReferenceValue")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("Specialty")
                         .HasColumnType("text");
@@ -280,7 +245,7 @@ namespace EMService.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("ParentId")
+                    b.Property<Guid?>("ParentId")
                         .HasColumnType("uuid");
 
                     b.Property<int>("Sort")
@@ -438,81 +403,6 @@ namespace EMService.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("EMS_Sys_Sequence");
-                });
-
-            modelBuilder.Entity("EMService.Users.AppUser", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)")
-                        .HasColumnName("ConcurrencyStamp");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("timestamp without time zone")
-                        .HasColumnName("CreationTime");
-
-                    b.Property<Guid?>("CreatorId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("CreatorId");
-
-                    b.Property<Guid?>("DeleterId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("DeleterId");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("timestamp without time zone")
-                        .HasColumnName("DeletionTime");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("ExtraProperties")
-                        .HasColumnType("text")
-                        .HasColumnName("ExtraProperties");
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("IsDeleted");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("timestamp without time zone")
-                        .HasColumnName("LastModificationTime");
-
-                    b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("LastModifierId");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Surname")
-                        .HasColumnType("text");
-
-                    b.Property<Guid?>("TenantId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("TenantId");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
