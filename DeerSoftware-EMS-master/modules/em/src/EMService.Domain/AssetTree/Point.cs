@@ -35,7 +35,7 @@ namespace EMService.AssetTree
         public string Specialty { get; set; }
 
         /// <summary>
-        /// 工艺参数标签
+        /// 测点工艺位号
         /// </summary>
         public string ProcessCode { get; set; }
 
@@ -74,5 +74,24 @@ namespace EMService.AssetTree
         /// </summary>
         public string Power { get; set; }
 
+        /// <summary>
+        /// 是否生成停机
+        /// </summary>
+        public bool IsStoppingSignal { get; set; }
+
+        /// <summary>
+        /// 最大值 
+        /// </summary>
+        public decimal MaxValue { get; set; }
+
+        /// <summary>
+        /// 最小值 
+        /// </summary>
+        public decimal MinValue { get; set; }
+
+        /// <summary>
+        /// 参考值 
+        /// </summary>
+        public decimal ReferenceValue { get; set; }
     }
 }

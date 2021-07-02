@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EMService.Migrations
 {
-    public partial class org : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -25,21 +25,6 @@ namespace EMService.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppTree_System_Class",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ParentId = table.Column<Guid>(type: "uuid", maxLength: 50, nullable: false),
-                    Name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    Code = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    DeviceType = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AppTree_System_Class", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "EMS_Modeling_Device",
                 columns: table => new
                 {
@@ -57,9 +42,7 @@ namespace EMService.Migrations
                     ResponsibleUserId = table.Column<Guid>(type: "uuid", nullable: false),
                     ResponsibleEngineer = table.Column<Guid>(type: "uuid", nullable: false),
                     UsedState = table.Column<int>(type: "integer", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: true),
-                    ExtraProperties = table.Column<string>(type: "text", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true)
+                    Description = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,7 +54,7 @@ namespace EMService.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ParentId = table.Column<Guid>(type: "uuid", nullable: false),
+                    ParentId = table.Column<Guid>(type: "uuid", nullable: true),
                     NodeId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     DeviceType = table.Column<int>(type: "integer", nullable: false),
@@ -106,8 +89,10 @@ namespace EMService.Migrations
                     MeasWay = table.Column<string>(type: "text", nullable: true),
                     MeasureDirect = table.Column<string>(type: "text", nullable: true),
                     Power = table.Column<string>(type: "text", nullable: true),
-                    ExtraProperties = table.Column<string>(type: "text", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true)
+                    IsStoppingSignal = table.Column<bool>(type: "boolean", nullable: false),
+                    MaxValue = table.Column<decimal>(type: "numeric", nullable: false),
+                    MinValue = table.Column<decimal>(type: "numeric", nullable: false),
+                    ReferenceValue = table.Column<decimal>(type: "numeric", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -119,7 +104,7 @@ namespace EMService.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    ParentId = table.Column<Guid>(type: "uuid", nullable: false),
+                    ParentId = table.Column<Guid>(type: "uuid", nullable: true),
                     Code = table.Column<string>(type: "text", nullable: true),
                     Name = table.Column<string>(type: "text", nullable: true),
                     DeviceType = table.Column<int>(type: "integer", nullable: false),
@@ -196,9 +181,6 @@ namespace EMService.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AppTree_System");
-
-            migrationBuilder.DropTable(
-                name: "AppTree_System_Class");
 
             migrationBuilder.DropTable(
                 name: "EMS_Modeling_Device");

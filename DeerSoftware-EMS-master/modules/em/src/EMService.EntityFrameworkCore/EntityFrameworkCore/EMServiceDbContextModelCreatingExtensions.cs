@@ -33,12 +33,16 @@ namespace EMService.EntityFrameworkCore
             builder.Entity<Device>(b =>
             {
                 b.ToTable("EMS_Modeling_Device");
+                b.Ignore(b => b.ExtraProperties);
+                b.Ignore(b => b.ConcurrencyStamp);
             });
 
             // 能源建模-资产测点表
             builder.Entity<Point>(b =>
             {
                 b.ToTable("EMS_Modeling_Point");
+                b.Ignore(b => b.ExtraProperties);
+                b.Ignore(b => b.ConcurrencyStamp);
             });
 
             // 能源建模-资产菜单表
@@ -49,15 +53,12 @@ namespace EMService.EntityFrameworkCore
                 b.Ignore(b => b.ExtraProperties);
             });
 
-            builder.Entity<DevSystem>(b =>
+            builder.Entity<DeviceSystem>(b =>
             {
                 //Configure table & schema name
-                b.ToTable(EMServiceConsts.DbTablePrefix+"Tree_System",EMServiceConsts.DbSchema);
-                b.ConfigureByConvention();
-
-                //Properties
-                b.Property(q => q.SystemGroup).IsRequired().HasMaxLength(50);
-                b.Property(q => q.SystemClass).IsRequired().HasMaxLength(50);
+                b.ToTable("EMS_Modeling_System");
+                b.Ignore(b => b.ExtraProperties);
+                b.Ignore(b => b.ConcurrencyStamp);
             });
 
         }

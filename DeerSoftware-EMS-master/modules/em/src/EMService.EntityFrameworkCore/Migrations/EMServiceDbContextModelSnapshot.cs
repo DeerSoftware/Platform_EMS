@@ -21,49 +21,10 @@ namespace EMService.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("EMService.AssetTree.DevSystem", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)")
-                        .HasColumnName("ConcurrencyStamp");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<string>("ExtraProperties")
-                        .HasColumnType("text")
-                        .HasColumnName("ExtraProperties");
-
-                    b.Property<string>("SystemClass")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<string>("SystemGroup")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AppTree_System");
-                });
-
             modelBuilder.Entity("EMService.AssetTree.Device", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)")
-                        .HasColumnName("ConcurrencyStamp");
 
                     b.Property<string>("ControlLevel")
                         .HasColumnType("text");
@@ -79,10 +40,6 @@ namespace EMService.Migrations
 
                     b.Property<string>("ErpCode")
                         .HasColumnType("text");
-
-                    b.Property<string>("ExtraProperties")
-                        .HasColumnType("text")
-                        .HasColumnName("ExtraProperties");
 
                     b.Property<string>("LocationCode")
                         .HasColumnType("text");
@@ -154,7 +111,7 @@ namespace EMService.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<Guid>("ParentId")
+                    b.Property<Guid?>("ParentId")
                         .HasColumnType("uuid");
 
                     b.Property<int>("Sort")
@@ -176,12 +133,6 @@ namespace EMService.Migrations
                     b.Property<string>("AccessMode")
                         .HasColumnType("text");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)")
-                        .HasColumnName("ConcurrencyStamp");
-
                     b.Property<string>("ControlLevel")
                         .HasColumnType("text");
 
@@ -191,12 +142,14 @@ namespace EMService.Migrations
                     b.Property<string>("EngineeringUnit")
                         .HasColumnType("text");
 
-                    b.Property<string>("ExtraProperties")
-                        .HasColumnType("text")
-                        .HasColumnName("ExtraProperties");
-
                     b.Property<string>("FixedCode")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsStoppingSignal")
+                        .HasColumnType("boolean");
+
+                    b.Property<decimal>("MaxValue")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("MeasWay")
                         .HasColumnType("text");
@@ -204,11 +157,17 @@ namespace EMService.Migrations
                     b.Property<string>("MeasureDirect")
                         .HasColumnType("text");
 
+                    b.Property<decimal>("MinValue")
+                        .HasColumnType("numeric");
+
                     b.Property<string>("Power")
                         .HasColumnType("text");
 
                     b.Property<string>("ProcessCode")
                         .HasColumnType("text");
+
+                    b.Property<decimal>("ReferenceValue")
+                        .HasColumnType("numeric");
 
                     b.Property<string>("Specialty")
                         .HasColumnType("text");
@@ -251,7 +210,7 @@ namespace EMService.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("ParentId")
+                    b.Property<Guid?>("ParentId")
                         .HasColumnType("uuid");
 
                     b.Property<int>("Sort")

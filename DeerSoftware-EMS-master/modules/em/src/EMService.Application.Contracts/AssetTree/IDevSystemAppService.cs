@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EMService.AssetTree.Dto;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace EMService
         /// <param name="deviceType">设备类型</param>
         /// <param name="id">设备id</param>
         /// <returns></returns>
-        Task<dynamic> getAssetDataById(int deviceType, Guid idKey);
+        Task<DevSystemDto> getAssetDataById(int deviceType, Guid idKey);
         /// <summary>
         /// 根据父级查询子级
         /// </summary>

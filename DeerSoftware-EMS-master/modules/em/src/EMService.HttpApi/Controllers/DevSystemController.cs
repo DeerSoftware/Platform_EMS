@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EMService.AssetTree.Dto;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,7 @@ namespace EMService.Controllers
         }
         [HttpPost]
         [Route("GetAssetDataById")]
-        public Task<dynamic> getAssetDataById(int deviceType, Guid idKey)
+        public Task<DevSystemDto> getAssetDataById(int deviceType, Guid idKey)
         {
             return _devSystemAppService.getAssetDataById(deviceType,idKey);
         }
