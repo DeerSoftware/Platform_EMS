@@ -9,6 +9,14 @@ namespace EMService
     /// </summary>
     public class MenuTreeDto
     {
+        public MenuTreeDto()
+        {
+            children = new List<MenuTreeDto>();
+        }
+        /// <summary>
+        /// Id
+        /// </summary>
+        public Guid Id { get; set; }
         /// <summary>
         /// 菜单名称
         /// </summary>
@@ -21,6 +29,11 @@ namespace EMService
         /// 菜单展示对象
         /// </summary>
         public MetaDto meta { get; set; }
+        /// <summary>
+        /// 页面路径
+        /// </summary>
+        public string component { get; set; }
+
         /// <summary>
         /// 菜单子级
         /// </summary>

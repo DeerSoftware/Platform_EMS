@@ -225,15 +225,24 @@ namespace EMService
         /// 获取菜单树
         /// </summary>
         /// <returns></returns>
-        public async Task<Result<MenuTreeDto>> GetMenuTree()
+        public async Task<Result<List<MenuTreeDto>>> GetMenuTree()
         {
-            Result<MenuTreeDto> result = new Result<MenuTreeDto>();
-
-            var menus = await _menuRepository.GetListAsync();
-
-            List<MenuTreeDto> menuTreeDtos = await GetMenuTreeNode(menus);
-
-
+            Result<List<MenuTreeDto>> result = new Result<List<MenuTreeDto>>();
+            try
+            {
+                var menus = await _menuRepository.GetListAsync();
+                List<MenuTreeDto> menuTreeDtos = await GetMenuTreeNode(menus);
+                result.Code = "920007";
+                result.Message = "查询成功";
+                result.ResultType = ResultType.Succeed;
+                result.Data = menuTreeDtos;
+            }
+            catch (Exception)
+            {
+                result.Code = "920007";
+                result.Message = "查询失败，失败编码为：" + result.Code;
+                result.ResultType = ResultType.Error;
+            }
             return result;
         }
 
@@ -245,16 +254,57 @@ namespace EMService
         /// <returns></returns>
         private async Task<List<MenuTreeDto>> GetMenuTreeNode(List<Menu> menus)
         {
-            List<MenuTreeDto> fNodes = new List<MenuTreeDto>();
-            //List<MenuTreeDto> fNodes = menus.Where(p => p.ParentId == null).ToList().Select(new MenuTreeDto() { 
-            //}) ;
-            
-            //foreach (var item in fnodes)
-            //{
 
-            //}
+            List<MenuTreeDto> fNodes = menus.Where(p => p.ParentId == Guid.Empty).Select(p => new MenuTreeDto()
+            {
+                Id = p.Id,
+                name = string.IsNullOrEmpty(p.NickName) ? p.Name : p.NickName,
+                path = "/" + p.Url,
+                meta = new MetaDto()
+                {
+                    icon = p.Icon,
+                    title = string.IsNullOrEmpty(p.NickName) ? p.Name : p.NickName,
+                },
+                component = p.Url
+            }).ToList();
+
+            foreach (MenuTreeDto item in fNodes)
+            {
+                GetTreeNodeItems(item, menus);
+            }
             return fNodes;
         }
+        /// <summary>
+        /// 处理节点里子节点
+        /// </summary>
+        /// <param name="menuTreeDto"></param>
+        /// <param name="menus"></param>
+        private MenuTreeDto GetTreeNodeItems(MenuTreeDto menuTreeDto, List<Menu> menus)
+        {
+            List<MenuTreeDto> parents = menus.Where(p => p.ParentId == menuTreeDto.Id).Select(p => new MenuTreeDto()
+            {
+                Id = p.Id,
+                name = string.IsNullOrEmpty(p.NickName) ? p.Name : p.NickName,
+                path = "/" + p.Url,
+                meta = new MetaDto()
+                {
+                    icon = p.Icon,
+                    title = string.IsNullOrEmpty(p.NickName) ? p.Name : p.NickName,
+                },
+                component = p.Url
+            }).ToList();
+
+            if (parents.Count > 0)
+            {
+                foreach (MenuTreeDto item in parents)
+                {
+                    menuTreeDto.children.Add(GetTreeNodeItems(item, menus));
+                }
+            }
+            return menuTreeDto;
+        }
+
+
 
 
         /// <summary>

@@ -52,7 +52,7 @@ namespace EMService.Controllers
             return _menuAppService.GetListPagedAsync(input);
         }
         [HttpGet]
-        public Task<Result<MenuTreeDto>> GetMenuTree()
+        public Task<Result<List<MenuTreeDto>>> GetMenuTree()
         {
             return _menuAppService.GetMenuTree();
         }

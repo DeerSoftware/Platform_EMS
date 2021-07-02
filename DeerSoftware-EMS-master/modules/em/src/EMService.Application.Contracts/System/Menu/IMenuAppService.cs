@@ -51,6 +51,6 @@ namespace EMService
         /// <summary>
         /// 获取菜单树
         /// </summary>
-        Task<Result<MenuTreeDto>> GetMenuTree();
+        Task<Result<List<MenuTreeDto>>> GetMenuTree();
     }
 }
