@@ -1,4 +1,5 @@
-﻿using EMService.AssetTree;
+﻿using AutoMapper;
+using EMService.AssetTree;
 using EMService.AssetTree.Dto;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,12 @@ namespace EMService
     public class DevSystemAppService : ApplicationService, IDevSystemAppService
     {
 
-        private readonly IRepository<DevSystem, Guid> _DevSystemRepository;
+        private readonly IRepository<DeviceSystem, Guid> _DevSystemRepository;
         private readonly IRepository<Foundation, Guid> _FoundationsRepository;
 
-        public DevSystemAppService(IRepository<DevSystem, Guid> devSystemRepository, IRepository<Foundation, Guid> foundationRepository)
+        public DevSystemAppService(IRepository<DeviceSystem, Guid> deviceSystemRepository, IRepository<Foundation, Guid> foundationRepository)
         {
-            _DevSystemRepository = devSystemRepository;
+            _DevSystemRepository = deviceSystemRepository;
             _FoundationsRepository = foundationRepository;
         }
 
@@ -31,25 +32,21 @@ namespace EMService
 
         public async Task DelAssetNode(Guid idKey)
         {
-            var device =await _DevSystemRepository.GetAsync(p => p.Id == idKey);
-
-            if (device==null)
-            {
-                throw new UserFriendlyException("当前数据不存在！");
-            }
-
             var chrildDevice = getAssetDataByParentId(idKey);
-
-            if (chrildDevice.Result.Count>0)
+            if (chrildDevice.Result.Count > 0)
             {
                 throw new UserFriendlyException("当前数据存在子级！");
             }
+
+
             await _DevSystemRepository.DeleteAsync(idKey);
+            await _FoundationsRepository.DeleteAsync(idKey);
         }
 
-        public Task<dynamic> getAssetDataById(int deviceType, Guid idKey)
+        public async Task<DevSystemDto> getAssetDataById(int deviceType, Guid idKey)
         {
-            throw new NotImplementedException();
+            var deviceSystem = await _DevSystemRepository.GetAsync(idKey);
+            return ObjectMapper.Map<DeviceSystem,DevSystemDto>(deviceSystem);
         }
 
         public async Task<List<dynamic>> getAssetDataByParentId(Guid idKey)
