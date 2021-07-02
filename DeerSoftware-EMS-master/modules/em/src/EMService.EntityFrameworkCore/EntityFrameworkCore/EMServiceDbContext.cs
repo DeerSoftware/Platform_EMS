@@ -32,6 +32,8 @@ namespace EMService.EntityFrameworkCore
 
         public DbSet<Organization> Organizations { get; set; }
         public DbSet<Sequence> Sequences { get; set; }
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside EMServiceDbContextModelCreatingExtensions.ConfigureEMService
@@ -52,7 +54,7 @@ namespace EMService.EntityFrameworkCore
             //builder.Entity<AppUser>(b =>
             //{
             //    b.ToTable(AbpIdentityDbProperties.DbTablePrefix + "Users"); //Sharing the same table "AbpUsers" with the IdentityUser
-                
+
             //    b.ConfigureByConvention();
             //    b.ConfigureAbpUser();
 
