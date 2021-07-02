@@ -10,7 +10,7 @@ using Volo.Abp.Domain.Services;
 namespace EMService
 {
     /// <summary>
-    /// 组织管理器
+    /// 角色管理器
     /// </summary>
     public class RoleManager : DomainService
     {

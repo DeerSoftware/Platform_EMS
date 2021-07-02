@@ -13,6 +13,10 @@ namespace EMService
              * into multiple profile classes for a better organization. */
             CreateMap<CreateOrganizationDto, Organization>();
             CreateMap<Organization, OrganizationDto>();
+            
+            CreateMap<CreateMenuDto, Menu>();
+            CreateMap<Menu, MenuDto>();
+
         }
     }
 }

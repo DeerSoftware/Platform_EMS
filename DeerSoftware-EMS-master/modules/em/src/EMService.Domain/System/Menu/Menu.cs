@@ -63,7 +63,7 @@ namespace EMService
         /// <param name="nickName">菜单昵称</param>
         /// <param name="icon">Icon</param>
         /// <param name="status">Status</param>
-        public Menu(Guid id, string name, string url, Guid parentId, int sort, string nickName, string icon, Status status)
+        public Menu(Guid id,[NotNull] string name, [NotNull] string url, [NotNull] Guid parentId, int sort, string nickName, string icon, Status status)
         {
             this.Id = id;
             this.Name = name;

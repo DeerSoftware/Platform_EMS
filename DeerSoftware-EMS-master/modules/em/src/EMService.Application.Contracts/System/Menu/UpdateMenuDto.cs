@@ -7,7 +7,7 @@ using System.Text;
 namespace EMService
 {
     /// <summary>
-    /// 组织更新Dto
+    /// 菜单更新Dto
     /// </summary>
     public class UpdateMenuDto
     {

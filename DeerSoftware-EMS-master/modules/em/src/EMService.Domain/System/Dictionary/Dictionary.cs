@@ -39,5 +39,24 @@ namespace EMService
         [Required]
         public Guid DictionaryType { get; set; }
 
+        public Dictionary() { }
+        /// <summary>
+        /// 构造
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="name">字典名称</param>
+        /// <param name="code">字典编码</param>
+        /// <param name="sort">排序</param>
+        /// <param name="dictionaryType">字典类型</param>
+        public Dictionary(Guid id, string name, string code, int sort, Guid dictionaryType)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Code = code;
+            this.Sort = sort;
+            this.DictionaryType = dictionaryType;
+        }
+
+
     }
 }

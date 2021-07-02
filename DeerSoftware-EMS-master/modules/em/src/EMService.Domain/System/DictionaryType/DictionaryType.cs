@@ -36,5 +36,29 @@ namespace EMService
         /// 上级
         /// </summary>
         public Guid ParentId { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark { get; set; }
+
+        public DictionaryType() { }
+        /// <summary>
+        /// 构造
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <param name="name">类型名称</param>
+        /// <param name="code">类型编码</param>
+        /// <param name="sort">排序</param>
+        /// <param name="parentId">上级</param>
+        /// <param name="remark">备注</param>
+        public DictionaryType(Guid id, string name, string code, int sort, Guid parentId, string remark)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Code = code;
+            this.Sort = sort;
+            this.ParentId = parentId;
+            this.Remark = remark;
+        }
     }
 }

@@ -28,5 +28,19 @@ namespace EMService
         [NotNull]
         [Required]
         public Guid RoleId { get; set; }
+
+        public AccountRole() { }
+        /// <summary>
+        /// 有参构造函数
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="accountId">账号Id</param>
+        /// <param name="roleId">角色id</param>
+        public AccountRole(Guid id, Guid accountId, Guid roleId)
+        {
+            this.Id = id;
+            this.AccountId = accountId;
+            this.RoleId = roleId;
+        }
     }
 }
