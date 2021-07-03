@@ -26,13 +26,13 @@ namespace EMService
         /// 真实姓名
         /// </summary>
         [NotNull]
-        [Required] 
+        [Required]
         public string RealName { get; set; }
         /// <summary>
         /// 员工编码
         /// </summary>
         [NotNull]
-        [Required] 
+        [Required]
         public string UserCode { get; set; }
         /// <summary>
         /// 手机号
@@ -46,16 +46,14 @@ namespace EMService
         /// 角色Id
         /// </summary>
         [NotNull]
-        [Required] 
+        [Required]
         public Guid RoleId { get; set; }
         /// <summary>
         /// 组织Id
         /// </summary>
         [NotNull]
         [Required]
-        public Guid OrgId { get; set; }
-
-
+        public int OrgId { get; set; }
         /// <summary>
         /// 电子邮箱
         /// </summary>
@@ -75,10 +73,61 @@ namespace EMService
         /// <summary>
         /// 账号状态
         /// </summary>
-        public Status Status  { get; set; }
+        public Status Status { get; set; }
         /// <summary>
         /// 备注
         /// </summary>
         public string Remark { get; set; }
+
+        public Account() { }
+        /// <summary>
+        /// 有参构造函数
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="userName">用户名</param>
+        /// <param name="realName">真实姓名</param>
+        /// <param name="userCode">员工编码</param>
+        /// <param name="mobile">手机号</param>
+        /// <param name="password">密码</param>
+        /// <param name="roleId">角色Id</param>
+        /// <param name="orgId">组织Id</param>
+        /// <param name="email">电子邮箱</param>
+        /// <param name="position">职位</param>
+        /// <param name="telephone">电话</param>
+        /// <param name="gender">性别</param>
+        /// <param name="status">账号状态</param>
+        /// <param name="remark">备注</param>
+        public Account(
+            Guid id,
+            string userName,
+            string realName,
+            string userCode,
+            string mobile,
+            string password,
+            Guid roleId,
+            int orgId,
+            string email,
+            string position,
+            string telephone,
+            int gender,
+            Status status,
+            string remark
+            )
+        {
+            this.Id = id;
+            this.UserName = userName;
+            this.RealName = realName;
+            this.UserCode = userCode;
+            this.Mobile = mobile;
+            this.Password = password;
+            this.RoleId = roleId;
+            this.OrgId = orgId;
+            this.Email = email;
+            this.Position = position;
+            this.Telephone = telephone;
+            this.Gender = gender;
+            this.Status = status;
+            this.Remark = remark;
+        }
     }
 }

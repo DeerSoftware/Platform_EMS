@@ -12,7 +12,7 @@ namespace EMService
     /// <summary>
     /// 角色
     /// </summary>
-    [Table("EMS_Sys_Menu")]
+    [Table("EMS_Sys_Role")]
     public class Role : FullAuditedAggregateRoot<Guid>
     {
         /// <summary>

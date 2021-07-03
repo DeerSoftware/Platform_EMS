@@ -81,7 +81,8 @@ namespace EMService
         /// <returns></returns>
         public async Task<OrganizationDto> GetAsync(int id)
         {
-            var organization = await _OrganizationRepository.GetAsync(id);
+            Organization organization = await _OrganizationRepository.FirstOrDefaultAsync(p => p.Id == id);
+
             return ObjectMapper.Map<Organization, OrganizationDto>(organization);
         }
         /// <summary>

@@ -7,7 +7,7 @@ using System.Text;
 namespace EMService
 {
     /// <summary>
-    /// 组织更新Dto
+    /// 菜单更新Dto
     /// </summary>
     public class UpdateMenuDto
     {
@@ -24,8 +24,6 @@ namespace EMService
         /// <summary>
         /// 所属上级
         /// </summary>
-        [NotNull]
-        [Required]
         public Guid ParentId { get; set; }
         /// <summary>
         /// 排序

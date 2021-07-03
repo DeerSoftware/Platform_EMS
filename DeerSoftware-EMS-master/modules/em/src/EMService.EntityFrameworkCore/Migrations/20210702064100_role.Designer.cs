@@ -3,6 +3,7 @@ using System;
 using EMService.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Volo.Abp.EntityFrameworkCore;
@@ -10,9 +11,10 @@ using Volo.Abp.EntityFrameworkCore;
 namespace EMService.Migrations
 {
     [DbContext(typeof(EMServiceDbContext))]
-    partial class EMServiceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210702064100_role")]
+    partial class role
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,12 +27,6 @@ namespace EMService.Migrations
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)")
-                        .HasColumnName("ConcurrencyStamp");
 
                     b.Property<string>("ControlLevel")
                         .HasColumnType("text");
@@ -59,10 +55,10 @@ namespace EMService.Migrations
                     b.Property<string>("Profession")
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("ResponsibleEngineer")
+                    b.Property<Guid>("ResponsibleEngineer")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("ResponsibleUserId")
+                    b.Property<Guid>("ResponsibleUserId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Spec")
@@ -71,7 +67,7 @@ namespace EMService.Migrations
                     b.Property<string>("Specialty")
                         .HasColumnType("text");
 
-                    b.Property<int?>("UsedState")
+                    b.Property<int>("UsedState")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -84,22 +80,14 @@ namespace EMService.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
 
-                    b.Property<int>("DeviceType")
-                        .HasColumnType("integer");
+                    b.Property<string>("SystemClass")
+                        .HasColumnType("text");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<Guid>("ParentId")
-                        .HasMaxLength(50)
-                        .HasColumnType("uuid");
+                    b.Property<string>("SystemGroup")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -113,12 +101,6 @@ namespace EMService.Migrations
 
                     b.Property<string>("Code")
                         .HasColumnType("text");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)")
-                        .HasColumnName("ConcurrencyStamp");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("timestamp without time zone")
@@ -153,7 +135,7 @@ namespace EMService.Migrations
                     b.Property<Guid?>("ParentId")
                         .HasColumnType("uuid");
 
-                    b.Property<int?>("Sort")
+                    b.Property<int>("Sort")
                         .HasColumnType("integer");
 
                     b.Property<string>("TreeArea")
@@ -172,12 +154,6 @@ namespace EMService.Migrations
                     b.Property<string>("AccessMode")
                         .HasColumnType("text");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)")
-                        .HasColumnName("ConcurrencyStamp");
-
                     b.Property<string>("ControlLevel")
                         .HasColumnType("text");
 
@@ -190,10 +166,10 @@ namespace EMService.Migrations
                     b.Property<string>("FixedCode")
                         .HasColumnType("text");
 
-                    b.Property<bool?>("IsStoppingSignal")
+                    b.Property<bool>("IsStoppingSignal")
                         .HasColumnType("boolean");
 
-                    b.Property<decimal?>("MaxValue")
+                    b.Property<decimal>("MaxValue")
                         .HasColumnType("numeric");
 
                     b.Property<string>("MeasWay")
@@ -202,7 +178,7 @@ namespace EMService.Migrations
                     b.Property<string>("MeasureDirect")
                         .HasColumnType("text");
 
-                    b.Property<decimal?>("MinValue")
+                    b.Property<decimal>("MinValue")
                         .HasColumnType("numeric");
 
                     b.Property<string>("Power")
@@ -211,7 +187,7 @@ namespace EMService.Migrations
                     b.Property<string>("ProcessCode")
                         .HasColumnType("text");
 
-                    b.Property<decimal?>("ReferenceValue")
+                    b.Property<decimal>("ReferenceValue")
                         .HasColumnType("numeric");
 
                     b.Property<string>("Specialty")
@@ -228,24 +204,17 @@ namespace EMService.Migrations
             modelBuilder.Entity("EMService.AssetTree.PopMenu", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Code")
                         .HasColumnType("text");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("character varying(40)")
-                        .HasColumnName("ConcurrencyStamp");
-
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("timestamp without time zone")
-                        .HasColumnName("CreationTime");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid?>("CreatorId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("CreatorId");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -254,12 +223,10 @@ namespace EMService.Migrations
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("timestamp without time zone")
-                        .HasColumnName("LastModificationTime");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("LastModifierId");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
@@ -267,7 +234,7 @@ namespace EMService.Migrations
                     b.Property<Guid?>("ParentId")
                         .HasColumnType("uuid");
 
-                    b.Property<int?>("Sort")
+                    b.Property<int>("Sort")
                         .HasColumnType("integer");
 
                     b.Property<string>("TreeArea")
