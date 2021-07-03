@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using Newtonsoft.Json;
+using AutoMapper;
 
 namespace EMService.AssetTree
 {
@@ -85,7 +86,7 @@ namespace EMService.AssetTree
 
         public Task<List<DeviceDto>> getChildrenDeviceData(int pNodeId, string filter = null)
         {
-            dynamic assetData = null;
+            List<DeviceDto> assetData = new List<DeviceDto>();
 
             var foundation = _foundationRepository.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
                                              (b.DeviceType == (int)DeviceType.Device || b.DeviceType == (int)DeviceType.Component));
@@ -98,18 +99,13 @@ namespace EMService.AssetTree
 
             var deviceData = foundation.Join(_deviceRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }); ;
 
-            var deviceList = new List<Device>();
-            var foundationList = new List<Foundation>();
-
             foreach (var item in deviceData)
             {
-                deviceList.Add(item.d);
-                foundationList.Add(item.b);
+                var deviceDto = ObjectMapper.Map<(Foundation, Device), DeviceDto>((item.b, item.d));
+                assetData.Add(deviceDto);
             }
 
-            assetData = ObjectMapper.Map<(List<Foundation>, List<Device>), List<DeviceDto>>((foundationList, deviceList));
-
-            return assetData;
+            return Task.FromResult(assetData);
         }
 
         /// <summary>
@@ -117,10 +113,9 @@ namespace EMService.AssetTree
         /// </summary>
         /// <param name="pNodeId">上级节点Id</param>
         /// <param name="filter">过滤条件</param>
-        [HttpGet]
         public Task<List<PointDto>> getChildrenPointData(int pNodeId, string filter = null)
         {
-            dynamic assetData = null;
+            List<PointDto> assetData = new List<PointDto>();
 
             var foundation = _foundationRepository.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
                                       (b.DeviceType >= (int)DeviceType.Observe));
@@ -137,13 +132,11 @@ namespace EMService.AssetTree
 
             foreach (var item in pointData)
             {
-                pointList.Add(item.d);
-                foundationList.Add(item.b);
+                var pointDto = ObjectMapper.Map<(Foundation, Point), PointDto>((item.b, item.d));
+                assetData.Add(pointDto);
             }
 
-            assetData = ObjectMapper.Map<(List<Foundation>, List<Point>), List<PointDto>>((foundationList, pointList));
-
-            return assetData;
+            return Task.FromResult(assetData);
         }
 
         public async Task CreateAssetNode(dynamic assetData)
@@ -151,6 +144,10 @@ namespace EMService.AssetTree
             if (assetData is JsonElement)
             {
                 var foundationDto = JsonConvert.DeserializeObject<FoundationDto>(assetData.ToString());
+
+                string key = Guid.NewGuid().ToString("D");
+                foundationDto.Id = Guid.Parse(key);
+
                 var foundation = ObjectMapper.Map<FoundationDto, Foundation>(foundationDto);
 
                 switch (foundation.DeviceType)
@@ -168,6 +165,7 @@ namespace EMService.AssetTree
                     case (int)DeviceType.Component:
 
                         var deviceDto = JsonConvert.DeserializeObject<DeviceDto>(assetData.ToString());
+                        deviceDto.Id = Guid.Parse(key);
                         var device = ObjectMapper.Map<DeviceDto, Device>(deviceDto);
 
                         await _foundationRepository.InsertAsync(foundation);
@@ -177,6 +175,7 @@ namespace EMService.AssetTree
                     default:
 
                         var pointDto = JsonConvert.DeserializeObject<DeviceDto>(assetData.ToString());
+                        pointDto.Id = Guid.Parse(key);
                         var point = ObjectMapper.Map<PointDto, Point>(pointDto);
 
                         await _foundationRepository.InsertAsync(foundation);
@@ -264,8 +263,8 @@ namespace EMService.AssetTree
                         break;
                 }
             }
-    
-            
+
+
         }
 
         public async Task DelAssetNode(int deviceType, Guid idKey)
