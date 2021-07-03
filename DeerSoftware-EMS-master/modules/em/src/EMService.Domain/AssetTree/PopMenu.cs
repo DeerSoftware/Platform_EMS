@@ -49,6 +49,7 @@ namespace EMService.AssetTree
         /// <summary>
         /// 排序
         /// </summary>
-        public int Sort { get; set; }
+        public int? Sort { get; set; }
+
     }
 }

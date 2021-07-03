@@ -77,21 +77,26 @@ namespace EMService.AssetTree
         /// <summary>
         /// 是否生成停机
         /// </summary>
-        public bool IsStoppingSignal { get; set; }
+        public bool? IsStoppingSignal { get; set; }
 
         /// <summary>
         /// 最大值 
         /// </summary>
-        public decimal MaxValue { get; set; }
+        public decimal? MaxValue { get; set; }
 
         /// <summary>
         /// 最小值 
         /// </summary>
-        public decimal MinValue { get; set; }
+        public decimal? MinValue { get; set; }
 
         /// <summary>
         /// 参考值 
         /// </summary>
-        public decimal ReferenceValue { get; set; }
+        public decimal? ReferenceValue { get; set; }
+
+        /// <summary>
+        /// 能源类型(对应数据字典的编码)
+        /// </summary>
+        public string EnergyType { get; set; }
     }
 }

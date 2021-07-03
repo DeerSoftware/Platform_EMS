@@ -9,22 +9,6 @@ namespace EMService.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "AppTree_System",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    SystemGroup = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    SystemClass = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: true),
-                    ExtraProperties = table.Column<string>(type: "text", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AppTree_System", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "EMS_Modeling_Device",
                 columns: table => new
                 {
@@ -39,10 +23,11 @@ namespace EMService.Migrations
                     Spec = table.Column<string>(type: "text", nullable: true),
                     Model = table.Column<string>(type: "text", nullable: true),
                     MeasureUnit = table.Column<string>(type: "text", nullable: true),
-                    ResponsibleUserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    ResponsibleEngineer = table.Column<Guid>(type: "uuid", nullable: false),
-                    UsedState = table.Column<int>(type: "integer", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: true)
+                    ResponsibleUserId = table.Column<Guid>(type: "uuid", nullable: true),
+                    ResponsibleEngineer = table.Column<Guid>(type: "uuid", nullable: true),
+                    UsedState = table.Column<int>(type: "integer", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,7 +47,8 @@ namespace EMService.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     TreeArea = table.Column<string>(type: "text", nullable: true),
                     JianPin = table.Column<string>(type: "text", nullable: true),
-                    Sort = table.Column<int>(type: "integer", nullable: false),
+                    Sort = table.Column<int>(type: "integer", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true),
                     CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     CreatorId = table.Column<Guid>(type: "uuid", nullable: true),
                     LastModificationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
@@ -89,10 +75,11 @@ namespace EMService.Migrations
                     MeasWay = table.Column<string>(type: "text", nullable: true),
                     MeasureDirect = table.Column<string>(type: "text", nullable: true),
                     Power = table.Column<string>(type: "text", nullable: true),
-                    IsStoppingSignal = table.Column<bool>(type: "boolean", nullable: false),
-                    MaxValue = table.Column<decimal>(type: "numeric", nullable: false),
-                    MinValue = table.Column<decimal>(type: "numeric", nullable: false),
-                    ReferenceValue = table.Column<decimal>(type: "numeric", nullable: false)
+                    IsStoppingSignal = table.Column<bool>(type: "boolean", nullable: true),
+                    MaxValue = table.Column<decimal>(type: "numeric", nullable: true),
+                    MinValue = table.Column<decimal>(type: "numeric", nullable: true),
+                    ReferenceValue = table.Column<decimal>(type: "numeric", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -110,7 +97,8 @@ namespace EMService.Migrations
                     DeviceType = table.Column<int>(type: "integer", nullable: false),
                     TreeArea = table.Column<string>(type: "text", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    Sort = table.Column<int>(type: "integer", nullable: false),
+                    Sort = table.Column<int>(type: "integer", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true),
                     CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     CreatorId = table.Column<Guid>(type: "uuid", nullable: true),
                     LastModificationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
@@ -119,6 +107,21 @@ namespace EMService.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EMS_Modeling_PopMenu", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EMS_Modeling_System",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    SystemGroup = table.Column<string>(type: "text", nullable: true),
+                    SystemClass = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EMS_Modeling_System", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -180,9 +183,6 @@ namespace EMService.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AppTree_System");
-
-            migrationBuilder.DropTable(
                 name: "EMS_Modeling_Device");
 
             migrationBuilder.DropTable(
@@ -193,6 +193,9 @@ namespace EMService.Migrations
 
             migrationBuilder.DropTable(
                 name: "EMS_Modeling_PopMenu");
+
+            migrationBuilder.DropTable(
+                name: "EMS_Modeling_System");
 
             migrationBuilder.DropTable(
                 name: "EMS_Sys_Organization");

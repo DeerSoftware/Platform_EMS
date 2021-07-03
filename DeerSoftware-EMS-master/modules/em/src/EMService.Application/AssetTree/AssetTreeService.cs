@@ -1,5 +1,7 @@
 ﻿using EMService.AssetTree.Dto;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using System.Text.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using Newtonsoft.Json;
 
 namespace EMService.AssetTree
 {
@@ -26,7 +29,7 @@ namespace EMService.AssetTree
             this._foundationRepository = foundationRepository;
         }
 
-        
+
         public async Task<dynamic> getAssetDataById(int deviceType, Guid idKey)
         {
             dynamic assetData = null;
@@ -66,10 +69,18 @@ namespace EMService.AssetTree
 
         public Task<List<FoundationDto>> getAssetTreeData(int deviceType = 10)
         {
-            var foundation = _foundationRepository.Where(b => b.DeviceType <= deviceType).ToList();
+            var foundation = _foundationRepository.Where(b => b.DeviceType <= deviceType).OrderBy(b => b.Sort).ToList();
             var foundationDto = ObjectMapper.Map<List<Foundation>, List<FoundationDto>>(foundation);
 
             return Task.FromResult(TransformTreeData(foundationDto));
+        }
+
+        public Task<List<FoundationDto>> getAssetTreeDataByParentId(Guid pId)
+        {
+            var foundation = _foundationRepository.Where(b => b.ParentId == pId).OrderBy(b => b.Sort).ToList();
+            var foundationDto = ObjectMapper.Map<List<Foundation>, List<FoundationDto>>(foundation);
+
+            return Task.FromResult(foundationDto);
         }
 
         public Task<List<DeviceDto>> getChildrenDeviceData(int pNodeId, string filter = null)
@@ -135,82 +146,126 @@ namespace EMService.AssetTree
             return assetData;
         }
 
-        public async Task CreateAssetNode(int deviceType, dynamic assetData)
+        public async Task CreateAssetNode(dynamic assetData)
         {
-            var foundation = ObjectMapper.Map<FoundationDto, Foundation>(assetData);
-
-            switch (deviceType)
+            if (assetData is JsonElement)
             {
-                case (int)DeviceType.Organization:
-                case (int)DeviceType.Base:
-                case (int)DeviceType.Factory:
-                case (int)DeviceType.Area:
-                case (int)DeviceType.System:
+                var foundationDto = JsonConvert.DeserializeObject<FoundationDto>(assetData.ToString());
+                var foundation = ObjectMapper.Map<FoundationDto, Foundation>(foundationDto);
 
-                    await _foundationRepository.InsertAsync(foundation);
-                    break;
+                switch (foundation.DeviceType)
+                {
+                    case (int)DeviceType.Organization:
+                    case (int)DeviceType.Base:
+                    case (int)DeviceType.Factory:
+                    case (int)DeviceType.Area:
+                    case (int)DeviceType.System:
 
-                case (int)DeviceType.Device:
-                case (int)DeviceType.Component:
+                        await _foundationRepository.InsertAsync(foundation);
+                        break;
 
-                    var device = ObjectMapper.Map<DeviceDto, Device>(assetData);
+                    case (int)DeviceType.Device:
+                    case (int)DeviceType.Component:
 
-                    await _foundationRepository.InsertAsync(foundation);
-                    await _deviceRepository.InsertAsync(device);
+                        var deviceDto = JsonConvert.DeserializeObject<DeviceDto>(assetData.ToString());
+                        var device = ObjectMapper.Map<DeviceDto, Device>(deviceDto);
 
-                    break;
-                default:
+                        await _foundationRepository.InsertAsync(foundation);
+                        await _deviceRepository.InsertAsync(device);
 
-                    var point = ObjectMapper.Map<PointDto, Point>(assetData);
+                        break;
+                    default:
 
-                    await _foundationRepository.InsertAsync(foundation);
-                    await _deviceRepository.InsertAsync(point);
+                        var pointDto = JsonConvert.DeserializeObject<DeviceDto>(assetData.ToString());
+                        var point = ObjectMapper.Map<PointDto, Point>(pointDto);
 
-                    break;
+                        await _foundationRepository.InsertAsync(foundation);
+                        await _pointRepository.InsertAsync(point);
+
+                        break;
+                }
             }
+
         }
 
-        public async Task UpdateAssetNode(int deviceType, FoundationDto assetData)
+        public async Task UpdateAssetNode(dynamic assetData)
         {
-            var foundation = await _foundationRepository.FindAsync(b => b.Id == assetData.Id);
-            foundation = ObjectMapper.Map<FoundationDto, Foundation>(assetData);
-
-            switch (deviceType)
+            if (assetData is JsonElement)
             {
-                case (int)DeviceType.Organization:
-                case (int)DeviceType.Base:
-                case (int)DeviceType.Factory:
-                case (int)DeviceType.Area:
-                case (int)DeviceType.System:
+                FoundationDto foundationDto = JsonConvert.DeserializeObject<FoundationDto>(assetData.ToString());
+                var foundation = await _foundationRepository.FindAsync(b => b.Id == foundationDto.Id);
 
-                    await _foundationRepository.UpdateAsync(foundation);
+                foundation.ParentId = foundationDto.ParentId;
+                foundation.Name = foundationDto.Name;
+                foundation.Code = foundationDto.Code;
+                foundation.JianPin = foundationDto.JianPin;
+                foundation.Sort = foundationDto.Sort;
 
-                    break;
+                switch (foundation.DeviceType)
+                {
+                    case (int)DeviceType.Organization:
+                    case (int)DeviceType.Base:
+                    case (int)DeviceType.Factory:
+                    case (int)DeviceType.Area:
+                    case (int)DeviceType.System:
 
-                case (int)DeviceType.Device:
-                case (int)DeviceType.Component:
+                        await _foundationRepository.UpdateAsync(foundation);
 
-                    var device = await _deviceRepository.FindAsync(b => b.Id == assetData.Id);
-                    var deviceData = (DeviceDto)assetData;
+                        break;
 
-                    device = ObjectMapper.Map<DeviceDto, Device>(deviceData);
+                    case (int)DeviceType.Device:
+                    case (int)DeviceType.Component:
 
-                    await _foundationRepository.UpdateAsync(foundation);
-                    await _deviceRepository.InsertAsync(device);
+                        DeviceDto deviceDto = JsonConvert.DeserializeObject<DeviceDto>(assetData.ToString());
+                        var device = await _deviceRepository.FindAsync(b => b.Id == deviceDto.Id);
 
-                    break;
-                default:
+                        device.LocationCode = deviceDto.LocationCode;
+                        device.ErpCode = deviceDto.ErpCode;
+                        device.Specialty = deviceDto.Specialty;
+                        device.ControlLevel = deviceDto.ControlLevel;
+                        device.DeviceCategory = deviceDto.DeviceCategory;
+                        device.DeviceKind = deviceDto.DeviceKind;
+                        device.Profession = deviceDto.Profession;
+                        device.Spec = deviceDto.Spec;
+                        device.Model = deviceDto.Model;
+                        device.MeasureUnit = deviceDto.MeasureUnit;
+                        device.ResponsibleUserId = deviceDto.ResponsibleUserId;
+                        device.ResponsibleEngineer = deviceDto.ResponsibleEngineer;
+                        device.UsedState = deviceDto.UsedState;
+                        device.Description = deviceDto.Description;
 
-                    var point = await _pointRepository.FindAsync(b => b.Id == assetData.Id);
-                    var pointData = (PointDto)assetData;
+                        await _foundationRepository.UpdateAsync(foundation);
+                        await _deviceRepository.UpdateAsync(device);
 
-                    point = ObjectMapper.Map<PointDto, Point>(pointData);
+                        break;
+                    default:
 
-                    await _foundationRepository.UpdateAsync(foundation);
-                    await _pointRepository.InsertAsync(point);
+                        PointDto pointDto = JsonConvert.DeserializeObject<PointDto>(assetData.ToString());
+                        var point = await _pointRepository.FindAsync(b => b.Id == pointDto.Id);
 
-                    break;
+                        point.FixedCode = pointDto.FixedCode;
+                        point.ProcessCode = pointDto.ProcessCode;
+                        point.Specialty = pointDto.Specialty;
+                        point.ControlLevel = pointDto.ControlLevel;
+                        point.AccessMode = pointDto.AccessMode;
+                        point.UnitType = pointDto.UnitType;
+                        point.EngineeringUnit = pointDto.EngineeringUnit;
+                        point.MeasWay = pointDto.MeasWay;
+                        point.MeasureDirect = pointDto.MeasureDirect;
+                        point.IsStoppingSignal = pointDto.IsStoppingSignal;
+                        point.MaxValue = pointDto.MaxValue;
+                        point.MinValue = pointDto.MinValue;
+                        point.ReferenceValue = pointDto.ReferenceValue;
+                        point.EnergyType = pointDto.EnergyType;
+
+                        await _foundationRepository.UpdateAsync(foundation);
+                        await _pointRepository.UpdateAsync(point);
+
+                        break;
+                }
             }
+    
+            
         }
 
         public async Task DelAssetNode(int deviceType, Guid idKey)
@@ -243,11 +298,11 @@ namespace EMService.AssetTree
             }
         }
 
-        public async Task<List<PopMenuDto>> getPopMenuData()
+        public Task<List<PopMenuDto>> getPopMenuData()
         {
-            var popMenuData = await _popMenuRepository.ToListAsync();
+            var popMenuData = _popMenuRepository.OrderBy(b => b.Sort).ToList();
 
-            return ObjectMapper.Map<List<PopMenu>, List<PopMenuDto>>(popMenuData);
+            return Task.FromResult(ObjectMapper.Map<List<PopMenu>, List<PopMenuDto>>(popMenuData));
         }
 
         /// <summary>

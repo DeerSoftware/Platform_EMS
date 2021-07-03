@@ -25,7 +25,6 @@ namespace EMService.EntityFrameworkCore
             {
                 b.ToTable("EMS_Modeling_Foundation");
                 b.Ignore(b => b.ExtraProperties);
-                b.Ignore(b => b.ConcurrencyStamp);
                 b.Property(b => b.NodeId).ValueGeneratedOnAdd();
             });
 
@@ -34,7 +33,6 @@ namespace EMService.EntityFrameworkCore
             {
                 b.ToTable("EMS_Modeling_Device");
                 b.Ignore(b => b.ExtraProperties);
-                b.Ignore(b => b.ConcurrencyStamp);
             });
 
             // 能源建模-资产测点表
@@ -42,14 +40,12 @@ namespace EMService.EntityFrameworkCore
             {
                 b.ToTable("EMS_Modeling_Point");
                 b.Ignore(b => b.ExtraProperties);
-                b.Ignore(b => b.ConcurrencyStamp);
             });
 
             // 能源建模-资产菜单表
             builder.Entity<PopMenu>(b =>
             {
                 b.ToTable("EMS_Modeling_PopMenu");
-                b.Ignore(b => b.ConcurrencyStamp);
                 b.Ignore(b => b.ExtraProperties);
             });
 
@@ -58,7 +54,6 @@ namespace EMService.EntityFrameworkCore
                 //Configure table & schema name
                 b.ToTable("EMS_Modeling_System");
                 b.Ignore(b => b.ExtraProperties);
-                b.Ignore(b => b.ConcurrencyStamp);
             });
 
         }

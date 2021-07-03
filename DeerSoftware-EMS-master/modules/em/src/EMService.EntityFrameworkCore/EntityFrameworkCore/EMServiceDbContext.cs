@@ -28,9 +28,12 @@ namespace EMService.EntityFrameworkCore
 
         public DbSet<Point> Points { get; set; }
 
+        public DbSet<PopMenu> PopMenus { get; set; }
+
         public DbSet<DeviceSystem> DeviceSystems { get; set; }
 
         public DbSet<Organization> Organizations { get; set; }
+
         public DbSet<Sequence> Sequences { get; set; }
 
         /* Add DbSet properties for your Aggregate Roots / Entities here.

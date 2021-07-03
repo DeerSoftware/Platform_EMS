@@ -7,7 +7,7 @@ namespace EMService.AssetTree.Dto
     /// <summary>
     /// 设备树基础数据
     /// </summary>
-    public class FoundationDto
+    public class FoundationDto:BaseDto
     {
         /// <summary>
         /// 主键Id

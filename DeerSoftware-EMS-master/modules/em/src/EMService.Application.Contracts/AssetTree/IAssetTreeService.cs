@@ -47,14 +47,14 @@ namespace EMService.AssetTree
         /// </summary>
         /// <param name="assetData"></param>
         /// <returns></returns>
-        Task CreateAssetNode(int deviceType, dynamic assetData);
+        Task CreateAssetNode(dynamic assetData);
 
         /// <summary>
         /// 修改资产节点数据
         /// </summary>
         /// <param name="assetData"></param>
         /// <returns></returns>
-        Task UpdateAssetNode(int deviceType, FoundationDto assetData);
+        Task UpdateAssetNode(dynamic assetData);
 
         /// <summary>
         /// 删除资产节点数据
