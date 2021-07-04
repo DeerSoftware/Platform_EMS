@@ -43,6 +43,13 @@ namespace EMService.AssetTree
         Task<List<FoundationDto>> getAssetTreeData(int deviceType = 10);
 
         /// <summary>
+        /// 根据上级节点Id查询子级数据
+        /// </summary>
+        /// <param name="pId">上级节点Id</param>
+        /// <returns></returns>
+        Task<List<FoundationDto>> getAssetTreeDataByParentId(Guid pId);
+
+        /// <summary>
         /// 新增资产节点数据
         /// </summary>
         /// <param name="assetData"></param>
