@@ -386,3 +386,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
+/DeerSoftware-EMS-master/microservices/EMService.Host/.config/dotnet-tools.json

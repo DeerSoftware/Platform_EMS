@@ -71,6 +71,10 @@ namespace EMService
             CreateMap<PopMenu, PopMenuDto>();
             CreateMap<PopMenuDto, PopMenu>();
 
+            CreateMap<CreateOrganizationDto, Organization>();
+            CreateMap<Organization, OrganizationDto>();
+            CreateMap<DeviceSystem, DevSystemDto>();
+
             #endregion
             CreateMap<CreateOrganizationDto, Organization>();
             CreateMap<Organization, OrganizationDto>();

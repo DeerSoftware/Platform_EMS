@@ -28,9 +28,12 @@ namespace EMService.EntityFrameworkCore
 
         public DbSet<Point> Points { get; set; }
 
+        public DbSet<PopMenu> PopMenus { get; set; }
+
         public DbSet<DeviceSystem> DeviceSystems { get; set; }
 
         public DbSet<Organization> Organizations { get; set; }
+
         public DbSet<Sequence> Sequences { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Role> Roles { get; set; }

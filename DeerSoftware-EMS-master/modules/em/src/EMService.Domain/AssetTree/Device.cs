@@ -72,17 +72,17 @@ namespace EMService.AssetTree
         /// <summary>
         /// 负责人
         /// </summary>
-        public Guid ResponsibleUserId { get; set; }
+        public Guid? ResponsibleUserId { get; set; }
 
         /// <summary>
         /// 负责工程师
         /// </summary>
-        public Guid ResponsibleEngineer { get; set; }
+        public Guid? ResponsibleEngineer { get; set; }
 
         /// <summary>
         /// 使用状态
         /// </summary>
-        public int UsedState { get; set; }
+        public int? UsedState { get; set; }
 
         /// <summary>
         /// 描述
