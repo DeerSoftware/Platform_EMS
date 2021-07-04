@@ -11,6 +11,7 @@ using Volo.Abp.Domain.Repositories;
 using Newtonsoft.Json;
 
 using EMService.AssetTree.Dto;
+using EMService.Extensions;
 
 namespace EMService.AssetTree
 {
@@ -84,20 +85,25 @@ namespace EMService.AssetTree
             return foundationDto;
         }
 
-        public async Task<List<DeviceDto>> getChildrenDeviceData(int pNodeId, string filter = null)
+        public async Task<List<DeviceDto>> getChildrenDeviceData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
         {
             List<DeviceDto> assetData = new List<DeviceDto>();
 
-            var foundation = _foundationRepository.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
+            var foundation = await _foundationRepository.GetAllPagedAsync(query =>
+            {
+                query = query.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
                                             (b.DeviceType == (int)DeviceType.Device || b.DeviceType == (int)DeviceType.Component));
 
+                if (!string.IsNullOrWhiteSpace(filter))
+                {
+                    query = query.Where(b => b.Name.Contains(filter) || b.Code.Contains(filter));
+                }
 
-            if (!string.IsNullOrWhiteSpace(filter))
-            {
-                foundation = foundation.Where(b => b.Name.Contains(filter) || b.Code.Contains(filter));
-            }
+                return query;
 
-            var deviceData = await foundation.Join(_deviceRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToListAsync();
+            }, pageIndex, pageSize);
+
+            var deviceData = foundation.Join(_deviceRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToList();
 
             foreach (var item in deviceData)
             {
@@ -113,19 +119,25 @@ namespace EMService.AssetTree
         /// </summary>
         /// <param name="pNodeId">上级节点Id</param>
         /// <param name="filter">过滤条件</param>
-        public async Task<List<PointDto>> getChildrenPointData(int pNodeId, string filter = null)
+        public async Task<List<PointDto>> getChildrenPointData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
         {
             List<PointDto> assetData = new List<PointDto>();
 
-            var foundation = _foundationRepository.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
-                                      (b.DeviceType >= (int)DeviceType.Observe));
+            var foundation = await _foundationRepository.GetAllPagedAsync(query =>
+                  {
+                      query = query.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
+                                        (b.DeviceType >= (int)DeviceType.Observe));
 
-            if (!string.IsNullOrWhiteSpace(filter))
-            {
-                foundation = foundation.Where(b => b.Name.Contains(filter) || b.Code.Contains(filter));
-            }
+                      if (!string.IsNullOrWhiteSpace(filter))
+                      {
+                          query = query.Where(b => b.Name.Contains(filter) || b.Code.Contains(filter));
+                      }
 
-            var pointData = await foundation.Join(_pointRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToListAsync();
+                      return query;
+
+                  }, pageIndex, pageSize);
+
+            var pointData = foundation.Join(_pointRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToList();
 
             foreach (var item in pointData)
             {

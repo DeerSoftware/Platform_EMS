@@ -14,7 +14,7 @@ namespace EMService.Extensions
     {
         public static async Task<List<TEntity>> GetAllPagedAsync<TEntity>(this IQueryable<TEntity> repository,
                                                                         Func<IQueryable<TEntity>, Task<IQueryable<TEntity>>> func = null,
-                                                                        int pageIndex = 0, int pageSize = int.MaxValue)
+                                                                        int pageIndex = 1, int pageSize = int.MaxValue)
         {
             var query = func != null ? await func(repository) : repository;
 
@@ -23,7 +23,7 @@ namespace EMService.Extensions
 
         public static async Task<List<TEntity>> GetAllPagedAsync<TEntity>(this IQueryable<TEntity> repository,
                                                                         Func<IQueryable<TEntity>, IQueryable<TEntity>> func = null,
-                                                                        int pageIndex = 0, int pageSize = int.MaxValue)
+                                                                        int pageIndex = 1, int pageSize = int.MaxValue)
 
         {
             var query = func != null ? func(repository) : repository;
@@ -31,7 +31,7 @@ namespace EMService.Extensions
             return await query?.ToPagedListAsync(pageIndex, pageSize);
         }
 
-        public static async Task<List<TEntity>> ToPagedListAsync<TEntity>(this IQueryable<TEntity> source, int pageIndex = 0, int pageSize = int.MaxValue)
+        public static async Task<List<TEntity>> ToPagedListAsync<TEntity>(this IQueryable<TEntity> source, int pageIndex = 1, int pageSize = int.MaxValue)
         {
             if (source == null)
                 return null;
@@ -43,7 +43,7 @@ namespace EMService.Extensions
 
             var data = new List<TEntity>();
 
-            data.AddRange(await source.Skip(pageIndex * pageSize).Take(pageSize).ToListAsync());
+            data.AddRange(await source.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToListAsync());
 
             return data;
         }
@@ -51,7 +51,7 @@ namespace EMService.Extensions
         public static async Task<IPagedResult<TDestination>> GetAllPagedAsync<TSource, TDestination>(this IQueryable<TSource> repository,
                                                                                         Func<IQueryable<TSource>, Task<IQueryable<TSource>>> func = null,
                                                                                         Func<List<TSource>, List<TDestination>> mapFunc = null,
-                                                                                        int pageIndex = 0, int pageSize = int.MaxValue)
+                                                                                        int pageIndex = 1, int pageSize = int.MaxValue)
         {
             var query = func != null ? await func(repository) : repository;
 
@@ -61,7 +61,7 @@ namespace EMService.Extensions
         public static async Task<IPagedResult<TDestination>> GetAllPagedAsync<TSource, TDestination>(this IQueryable<TSource> repository,
                                                                                 Func<IQueryable<TSource>, IQueryable<TSource>> func = null,
                                                                                 Func<List<TSource>, List<TDestination>> mapFunc = null,
-                                                                                int pageIndex = 0, int pageSize = int.MaxValue)
+                                                                                int pageIndex = 1, int pageSize = int.MaxValue)
         {
             var query = func != null ? func(repository) : repository;
 
@@ -69,7 +69,7 @@ namespace EMService.Extensions
         }
 
         public static async Task<IPagedResult<TDestination>> ToPagedListAsync<TSource, TDestination>(this IQueryable<TSource> source, Func<List<TSource>, List<TDestination>> func,
-                                                int pageIndex = 0, int pageSize = int.MaxValue)
+                                                int pageIndex = 1, int pageSize = int.MaxValue)
         {
             if (source == null)
                 return null;
@@ -81,7 +81,7 @@ namespace EMService.Extensions
 
             var data = new List<TSource>();
 
-            data.AddRange(await source.Skip(pageIndex * pageSize).Take(pageSize).ToListAsync());
+            data.AddRange(await source.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToListAsync());
 
             List<TDestination> destinations = func(data);
 
