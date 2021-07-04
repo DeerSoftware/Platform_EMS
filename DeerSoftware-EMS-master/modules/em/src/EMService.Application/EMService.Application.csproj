@@ -20,8 +20,4 @@
     <ProjectReference Include="..\EMService.Domain\EMService.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="System\Role\" />
-  </ItemGroup>
-
 </Project>
