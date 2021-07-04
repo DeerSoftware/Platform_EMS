@@ -1,6 +1,5 @@
-﻿using EMService.AssetTree.Dto;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
+﻿
+using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,8 @@ using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using Newtonsoft.Json;
-using AutoMapper;
+
+using EMService.AssetTree.Dto;
 
 namespace EMService.AssetTree
 {
@@ -68,28 +68,28 @@ namespace EMService.AssetTree
             return assetData;
         }
 
-        public Task<List<FoundationDto>> getAssetTreeData(int deviceType = 10)
+        public async Task<List<FoundationDto>> getAssetTreeData(int deviceType = 10)
         {
-            var foundation = _foundationRepository.Where(b => b.DeviceType <= deviceType).OrderBy(b => b.Sort).ToList();
+            var foundation = await _foundationRepository.Where(b => b.DeviceType <= deviceType).OrderBy(b => b.Sort).ToListAsync();
             var foundationDto = ObjectMapper.Map<List<Foundation>, List<FoundationDto>>(foundation);
 
-            return Task.FromResult(TransformTreeData(foundationDto));
+            return TransformTreeData(foundationDto);
         }
 
-        public Task<List<FoundationDto>> getAssetTreeDataByParentId(Guid pId)
+        public async Task<List<FoundationDto>> getAssetTreeDataByParentId(Guid pId)
         {
-            var foundation = _foundationRepository.Where(b => b.ParentId == pId).OrderBy(b => b.Sort).ToList();
+            var foundation = await _foundationRepository.Where(b => b.ParentId == pId).OrderBy(b => b.Sort).ToListAsync();
             var foundationDto = ObjectMapper.Map<List<Foundation>, List<FoundationDto>>(foundation);
 
-            return Task.FromResult(foundationDto);
+            return foundationDto;
         }
 
-        public Task<List<DeviceDto>> getChildrenDeviceData(int pNodeId, string filter = null)
+        public async Task<List<DeviceDto>> getChildrenDeviceData(int pNodeId, string filter = null)
         {
             List<DeviceDto> assetData = new List<DeviceDto>();
 
             var foundation = _foundationRepository.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
-                                             (b.DeviceType == (int)DeviceType.Device || b.DeviceType == (int)DeviceType.Component));
+                                            (b.DeviceType == (int)DeviceType.Device || b.DeviceType == (int)DeviceType.Component));
 
 
             if (!string.IsNullOrWhiteSpace(filter))
@@ -97,7 +97,7 @@ namespace EMService.AssetTree
                 foundation = foundation.Where(b => b.Name.Contains(filter) || b.Code.Contains(filter));
             }
 
-            var deviceData = foundation.Join(_deviceRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }); ;
+            var deviceData = await foundation.Join(_deviceRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToListAsync();
 
             foreach (var item in deviceData)
             {
@@ -105,7 +105,7 @@ namespace EMService.AssetTree
                 assetData.Add(deviceDto);
             }
 
-            return Task.FromResult(assetData);
+            return assetData;
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace EMService.AssetTree
         /// </summary>
         /// <param name="pNodeId">上级节点Id</param>
         /// <param name="filter">过滤条件</param>
-        public Task<List<PointDto>> getChildrenPointData(int pNodeId, string filter = null)
+        public async Task<List<PointDto>> getChildrenPointData(int pNodeId, string filter = null)
         {
             List<PointDto> assetData = new List<PointDto>();
 
@@ -125,10 +125,7 @@ namespace EMService.AssetTree
                 foundation = foundation.Where(b => b.Name.Contains(filter) || b.Code.Contains(filter));
             }
 
-            var pointData = foundation.Join(_pointRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToList();
-
-            var pointList = new List<Point>();
-            var foundationList = new List<Foundation>();
+            var pointData = await foundation.Join(_pointRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToListAsync();
 
             foreach (var item in pointData)
             {
@@ -136,7 +133,7 @@ namespace EMService.AssetTree
                 assetData.Add(pointDto);
             }
 
-            return Task.FromResult(assetData);
+            return assetData;
         }
 
         public async Task CreateAssetNode(dynamic assetData)
@@ -297,11 +294,11 @@ namespace EMService.AssetTree
             }
         }
 
-        public Task<List<PopMenuDto>> getPopMenuData()
+        public async Task<List<PopMenuDto>> getPopMenuData()
         {
-            var popMenuData = _popMenuRepository.OrderBy(b => b.Sort).ToList();
+            var popMenuData = await _popMenuRepository.OrderBy(b => b.Sort).ToListAsync();
 
-            return Task.FromResult(ObjectMapper.Map<List<PopMenu>, List<PopMenuDto>>(popMenuData));
+            return ObjectMapper.Map<List<PopMenu>, List<PopMenuDto>>(popMenuData);
         }
 
         /// <summary>
