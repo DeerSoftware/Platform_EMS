@@ -26,6 +26,12 @@ namespace EMService.EntityFrameworkCore
                 b.ToTable("EMS_Modeling_Foundation");
                 b.Ignore(b => b.ExtraProperties);
                 b.Property(b => b.NodeId).ValueGeneratedOnAdd();
+                b.HasOne(b => b.Device)
+                   .WithOne(d => d.Foundation)
+                   .HasForeignKey<Device>(p => p.Id);
+                b.HasOne(b => b.Point)
+                   .WithOne(d => d.Foundation)
+                   .HasForeignKey<Point>(p => p.Id);
             });
 
             // 能源建模-资产设备表

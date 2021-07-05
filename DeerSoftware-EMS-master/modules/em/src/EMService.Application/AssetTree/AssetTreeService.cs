@@ -92,7 +92,7 @@ namespace EMService.AssetTree
             var foundation = await _foundationRepository.GetAllPagedAsync(query =>
             {
                 query = query.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
-                                            (b.DeviceType == (int)DeviceType.Device || b.DeviceType == (int)DeviceType.Component));
+                                            (b.DeviceType == (int)DeviceType.Device || b.DeviceType == (int)DeviceType.Component)).Include(p => p.Device);
 
                 if (!string.IsNullOrWhiteSpace(filter))
                 {
@@ -103,11 +103,11 @@ namespace EMService.AssetTree
 
             }, pageIndex, pageSize);
 
-            var deviceData = foundation.Join(_deviceRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToList();
+            //var deviceData = foundation.Join(_deviceRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToList();
 
-            foreach (var item in deviceData)
+            foreach (var item in foundation)
             {
-                var deviceDto = ObjectMapper.Map<(Foundation, Device), DeviceDto>((item.b, item.d));
+                var deviceDto = ObjectMapper.Map<(Foundation, Device), DeviceDto>((item, item.Device));
                 assetData.Add(deviceDto);
             }
 
@@ -118,30 +118,33 @@ namespace EMService.AssetTree
         /// 极据上级节点查询所有下级设备数据
         /// </summary>
         /// <param name="pNodeId">上级节点Id</param>
+        /// <param name="pageIndex">分页索引</param>
+        /// <param name="pageSize">分页大小</param>
         /// <param name="filter">过滤条件</param>
+        /// <returns></returns>
         public async Task<List<PointDto>> getChildrenPointData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
         {
             List<PointDto> assetData = new List<PointDto>();
 
             var foundation = await _foundationRepository.GetAllPagedAsync(query =>
-                  {
-                      query = query.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
-                                        (b.DeviceType >= (int)DeviceType.Observe));
-
-                      if (!string.IsNullOrWhiteSpace(filter))
-                      {
-                          query = query.Where(b => b.Name.Contains(filter) || b.Code.Contains(filter));
-                      }
-
-                      return query;
-
-                  }, pageIndex, pageSize);
-
-            var pointData = foundation.Join(_pointRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToList();
-
-            foreach (var item in pointData)
             {
-                var pointDto = ObjectMapper.Map<(Foundation, Point), PointDto>((item.b, item.d));
+                query = query.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
+                                (b.DeviceType >= (int)DeviceType.Observe)).Include(p => p.Point);
+
+                if (!string.IsNullOrWhiteSpace(filter))
+                {
+                    query = query.Where(b => b.Name.Contains(filter) || b.Code.Contains(filter));
+                }
+
+                return query;
+
+            }, pageIndex, pageSize);
+
+            //var pointData = foundation.Join(_pointRepository, b => b.Id, d => d.Id, (b, d) => new { b, d }).ToList();
+
+            foreach (var item in foundation)
+            {
+                var pointDto = ObjectMapper.Map<(Foundation, Point), PointDto>((item, item.Point));
                 assetData.Add(pointDto);
             }
 

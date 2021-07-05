@@ -88,5 +88,7 @@ namespace EMService.AssetTree
         /// 描述
         /// </summary>
         public string Description { get; set; }
+
+        public Foundation Foundation { get; set; }
     }
 }
