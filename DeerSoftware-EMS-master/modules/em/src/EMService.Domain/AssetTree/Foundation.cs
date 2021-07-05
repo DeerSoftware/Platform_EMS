@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace EMService.AssetTree
@@ -58,5 +59,9 @@ namespace EMService.AssetTree
         /// 排序
         /// </summary>
         public int? Sort { get; set; }
+
+        public Device Device { get; set; }
+
+        public Point Point { get; set; }
     }
 }

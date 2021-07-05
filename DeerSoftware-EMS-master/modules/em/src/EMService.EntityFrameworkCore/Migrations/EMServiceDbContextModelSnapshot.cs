@@ -84,22 +84,20 @@ namespace EMService.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasMaxLength(40)
+                        .HasColumnType("character varying(40)")
+                        .HasColumnName("ConcurrencyStamp");
 
-                    b.Property<int>("DeviceType")
-                        .HasColumnType("integer");
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                    b.Property<string>("SystemClass")
+                        .HasColumnType("text");
 
-                    b.Property<Guid>("ParentId")
-                        .HasMaxLength(50)
-                        .HasColumnType("uuid");
+                    b.Property<string>("SystemGroup")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -182,6 +180,9 @@ namespace EMService.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ElecTag")
+                        .HasColumnType("text");
+
+                    b.Property<string>("EnergyType")
                         .HasColumnType("text");
 
                     b.Property<string>("EngineeringUnit")
@@ -556,6 +557,35 @@ namespace EMService.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("EMS_Sys_Sequence");
+                });
+
+            modelBuilder.Entity("EMService.AssetTree.Device", b =>
+                {
+                    b.HasOne("EMService.AssetTree.Foundation", "Foundation")
+                        .WithOne("Device")
+                        .HasForeignKey("EMService.AssetTree.Device", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Foundation");
+                });
+
+            modelBuilder.Entity("EMService.AssetTree.Point", b =>
+                {
+                    b.HasOne("EMService.AssetTree.Foundation", "Foundation")
+                        .WithOne("Point")
+                        .HasForeignKey("EMService.AssetTree.Point", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Foundation");
+                });
+
+            modelBuilder.Entity("EMService.AssetTree.Foundation", b =>
+                {
+                    b.Navigation("Device");
+
+                    b.Navigation("Point");
                 });
 #pragma warning restore 612, 618
         }

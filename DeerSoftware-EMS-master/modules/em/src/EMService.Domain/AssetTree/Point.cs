@@ -98,5 +98,7 @@ namespace EMService.AssetTree
         /// 能源类型(对应数据字典的编码)
         /// </summary>
         public string EnergyType { get; set; }
+
+        public Foundation Foundation { get; set; }
     }
 }
