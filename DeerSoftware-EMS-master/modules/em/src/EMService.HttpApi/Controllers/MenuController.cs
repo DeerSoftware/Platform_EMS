@@ -47,9 +47,9 @@ namespace EMService.Controllers
             return _menuAppService.GetListAsync(keyword);
         }
         [HttpGet]
-        public Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId)
+        public Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId,string Filers)
         {
-            return _menuAppService.GetListByParentIdAsync(parentId);
+            return _menuAppService.GetListByParentIdAsync(parentId, Filers);
         }
 
         [HttpGet]

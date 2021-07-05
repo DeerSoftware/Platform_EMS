@@ -11,7 +11,6 @@ namespace EMService
     /// </summary>
     public class UpdateRoleDto
     {
-        public Guid Id { get; set; }
         /// <summary>
         /// ID
         /// </summary>
