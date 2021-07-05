@@ -41,7 +41,7 @@ namespace EMService
         /// <param name="id">组织Id</param>
         /// <param name="input">更新实体</param>
         /// <returns></returns>
-        Task<Result<DictionaryTypeDto>> UpdateAsync(Guid id, UpdateDictionaryTypeDto input);
+        Task<Result<DictionaryTypeDto>> UpdateAsync(UpdateDictionaryTypeDto input);
         /// <summary>
         /// 删除菜单对象
         /// </summary>

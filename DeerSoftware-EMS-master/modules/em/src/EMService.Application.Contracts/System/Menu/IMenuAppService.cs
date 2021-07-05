@@ -47,7 +47,7 @@ namespace EMService
         /// <param name="id">组织Id</param>
         /// <param name="input">更新实体</param>
         /// <returns></returns>
-        Task<Result<EquipmentPowerDto>> UpdateAsync(Guid id, UpdateMenuDto input);
+        Task<Result<EquipmentPowerDto>> UpdateAsync(UpdateMenuDto input);
         /// <summary>
         /// 删除菜单对象
         /// </summary>

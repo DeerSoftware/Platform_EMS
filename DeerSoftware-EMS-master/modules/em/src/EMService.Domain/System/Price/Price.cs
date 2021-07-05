@@ -17,25 +17,29 @@ namespace EMService.System.Price
         [NotNull]
         [Required]
         public string PriceType { get; set; }
+        public string PriceTypeName { get; set; }
         //类型编码
         public string TypeCode { get; set; }
         //单价
         public string UnitPrice { get; set; }
         //基地 Base
         public Guid BaseId { get; set; }
-
+        //基地名称
+        public string BaseName { get; set; }
         public Price()
         {
 
         }
 
-        public Price(Guid id,string priceType,string typeCode,string unitPrice,Guid baseId)
+        public Price(Guid id,string priceType,string priceTypeName, string typeCode,string unitPrice,Guid baseId,string baseName)
         {
             this.Id = id;
             this.PriceType = priceType;
+            this.PriceTypeName = priceTypeName;
             this.TypeCode = typeCode;
             this.UnitPrice = unitPrice;
             this.BaseId = baseId;
+            this.BaseName = baseName;
         } 
 
 

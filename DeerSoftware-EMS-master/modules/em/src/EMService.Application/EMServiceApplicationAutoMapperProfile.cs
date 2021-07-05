@@ -2,6 +2,7 @@
 using AutoMapper.Configuration;
 using EMService.AssetTree;
 using EMService.AssetTree.Dto;
+using EMService.System.Price;
 
 namespace EMService
 {
@@ -82,6 +83,8 @@ namespace EMService
             CreateMap<CreateMenuDto, Menu>();
             CreateMap<Menu, EquipmentPowerDto>();
 
+            CreateMap<CreatePriceDto,Price>();
+            CreateMap<Price, PriceDto>();
         }
     }
 }
