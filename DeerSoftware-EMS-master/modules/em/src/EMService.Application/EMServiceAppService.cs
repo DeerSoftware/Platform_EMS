@@ -14,5 +14,11 @@ namespace EMService
         {
             LocalizationResource = typeof(EMServiceResource);
         }
+
+        protected TDestination Map<TSource, TDestination>(TSource source)
+        {
+            //use AutoMapper for mapping objects
+            return ObjectMapper.Map<TSource, TDestination>(source);
+        }
     }
 }
