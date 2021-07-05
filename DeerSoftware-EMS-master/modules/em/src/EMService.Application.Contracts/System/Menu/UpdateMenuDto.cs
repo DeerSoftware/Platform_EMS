@@ -12,6 +12,10 @@ namespace EMService
     public class UpdateMenuDto
     {
         /// <summary>
+        /// ID
+        /// </summary>
+        public Guid Id { get; set; }
+        /// <summary>
         /// 菜单名称
         /// </summary>
         [NotNull]

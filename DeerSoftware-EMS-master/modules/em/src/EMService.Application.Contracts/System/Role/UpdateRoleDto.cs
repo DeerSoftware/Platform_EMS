@@ -12,6 +12,10 @@ namespace EMService
     public class UpdateRoleDto
     {
         /// <summary>
+        /// ID
+        /// </summary>
+        public Guid Id { get; set; }
+        /// <summary>
         /// 角色名称
         /// </summary>
         public string Name { get; set; }
