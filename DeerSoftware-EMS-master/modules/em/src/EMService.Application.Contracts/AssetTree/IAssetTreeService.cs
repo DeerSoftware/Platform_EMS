@@ -1,4 +1,5 @@
 ﻿using EMService.AssetTree.Dto;
+using EMService.Result;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,7 +19,7 @@ namespace EMService.AssetTree
         /// <param name="pNodeId">上级节点Id</param>
         /// <param name="filter">过滤条件</param>
         /// <returns></returns>
-        Task<List<DeviceDto>> getChildrenDeviceData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null);
+        Task<ServiceResult<List<DeviceDto>>> getChildrenDeviceData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null);
 
         /// <summary>
         /// 极据上级节点查询所有下级测点数据
@@ -26,7 +27,7 @@ namespace EMService.AssetTree
         /// <param name="pNodeId">上级节点Id</param>
         /// <param name="filter">过滤条件</param>
         /// <returns></returns>
-        Task<List<PointDto>> getChildrenPointData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null);
+        Task<ServiceResult<List<PointDto>>> getChildrenPointData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null);
 
         /// <summary>
         /// 根据主键Id查询资产数据
