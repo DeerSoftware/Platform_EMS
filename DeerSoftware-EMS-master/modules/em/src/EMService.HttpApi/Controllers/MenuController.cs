@@ -46,6 +46,12 @@ namespace EMService.Controllers
         {
             return _menuAppService.GetListAsync(keyword);
         }
+
+        public Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId)
+        {
+            return _menuAppService.GetListByParentIdAsync(parentId);
+        }
+
         [HttpGet]
         public Task<Result<PagedResultDto<EquipmentPowerDto>>> GetListPagedAsync(PagedAndSortedResultRequestDto input)
         {

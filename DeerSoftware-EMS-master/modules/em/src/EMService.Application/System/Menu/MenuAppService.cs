@@ -157,7 +157,41 @@ namespace EMService
             }
             return result;
         }
+        /// <summary>
+        /// 根据上级Id查询下级数据
+        /// </summary>
+        /// <param name="parentId"></param>
+        /// <returns></returns>
+        public async Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId)
+        {
+            Result<ListResultDto<EquipmentPowerDto>> result = new Result<ListResultDto<EquipmentPowerDto>>();
+            try
+            {
+                List<Menu> menus = default;
+                Expression<Func<Menu, bool>> where = p => p.Status == Status.Activate;
+                if (!string.IsNullOrEmpty(parentId))
+                {
+                    var pid = Guid.Parse(parentId);
+                    where = where.And(p => p.ParentId == pid);
+                }
+                menus = await _menuRepository.GetListAsync(where);
+                var menuList = ObjectMapper.Map<List<Menu>, List<EquipmentPowerDto>>(menus);
+                var data = new ListResultDto<EquipmentPowerDto>(menuList);
 
+                result.Code = "920004";
+                result.Message = "查询成功";
+                result.ResultType = ResultType.Succeed;
+                result.Data = data;
+            }
+            catch (Exception)
+            {
+                result.Code = "920004";
+                result.Message = "查询失败，失败编码为：" + result.Code;
+                result.ResultType = ResultType.Error;
+            }
+            return result;
+
+        }
         /// <summary>
         /// 带分页查询组织对象列表
         /// </summary>
@@ -259,7 +293,7 @@ namespace EMService
         /// 组装树型结构
         /// </summary>
         /// <returns></returns>
-        private async  Task<List<MenuTreeDto>> GetMenuTreeNode(List<Menu> menus)
+        private async Task<List<MenuTreeDto>> GetMenuTreeNode(List<Menu> menus)
         {
 
             List<MenuTreeDto> fNodes = menus.Where(p => p.ParentId == Guid.Empty).Select(p => new MenuTreeDto()

@@ -24,6 +24,12 @@ namespace EMService
         /// <returns></returns>
         Task<Result<ListResultDto<EquipmentPowerDto>>> GetListAsync(string keyword);
         /// <summary>
+        /// 查询菜单下级对象对象列表
+        /// </summary>
+        /// <param name="parentId">上级ID</param>
+        /// <returns></returns>
+        Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId);
+        /// <summary>
         /// 根据Id查询菜单对象
         /// </summary>
         /// <param name="id">组织Id</param>
