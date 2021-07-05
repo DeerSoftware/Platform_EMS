@@ -10,7 +10,7 @@ namespace EMService
     /// <summary>
     /// 菜单服务接口
     /// </summary>
-    public interface IMenuAppService : IApplicationService
+    public interface IEquipmentPowerAppService : IApplicationService
     {
         /// <summary>
         /// 带分页查询菜单对象列表

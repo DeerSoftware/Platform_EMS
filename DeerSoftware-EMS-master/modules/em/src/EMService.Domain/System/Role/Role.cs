@@ -46,6 +46,7 @@ namespace EMService
         {
             this.Id = id;
             this.Name = name;
+            this.Code = code;
             this.Status = status;
             this.Remark = remark;
         }

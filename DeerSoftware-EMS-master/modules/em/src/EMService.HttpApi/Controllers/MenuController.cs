@@ -27,7 +27,7 @@ namespace EMService.Controllers
             _menuAppService = menuAppService;
         }
         [HttpPost]
-        public Task<Result<MenuDto>> CreateAsync(CreateMenuDto input)
+        public Task<Result<EquipmentPowerDto>> CreateAsync(CreateMenuDto input)
         {
             return _menuAppService.CreateAsync(input);
         }
@@ -37,17 +37,17 @@ namespace EMService.Controllers
             return _menuAppService.DeleteAsync(id);
         }
         [HttpGet]
-        public Task<Result<MenuDto>> GetAsync(Guid id)
+        public Task<Result<EquipmentPowerDto>> GetAsync(Guid id)
         {
             return _menuAppService.GetAsync(id);
         }
         [HttpGet]
-        public Task<Result<ListResultDto<MenuDto>>> GetListAsync()
+        public Task<Result<ListResultDto<EquipmentPowerDto>>> GetListAsync(string keyword)
         {
-            return _menuAppService.GetListAsync();
+            return _menuAppService.GetListAsync(keyword);
         }
         [HttpGet]
-        public Task<Result<PagedResultDto<MenuDto>>> GetListPagedAsync(PagedAndSortedResultRequestDto input)
+        public Task<Result<PagedResultDto<EquipmentPowerDto>>> GetListPagedAsync(PagedAndSortedResultRequestDto input)
         {
             return _menuAppService.GetListPagedAsync(input);
         }
@@ -57,7 +57,7 @@ namespace EMService.Controllers
             return _menuAppService.GetMenuTree();
         }
         [HttpPost]
-        public Task<Result<MenuDto>> UpdateAsync(Guid id, UpdateMenuDto input)
+        public Task<Result<EquipmentPowerDto>> UpdateAsync(Guid id, UpdateMenuDto input)
         {
             return _menuAppService.UpdateAsync(id, input);
         }

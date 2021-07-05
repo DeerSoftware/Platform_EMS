@@ -17,36 +17,36 @@ namespace EMService
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<PagedResultDto<MenuDto>> GetListPagedAsync(PagedAndSortedResultRequestDto input);
+        Task<Result<PagedResultDto<RoleDto>>> GetListPagedAsync(PagedAndSortedResultRequestDto input);
         /// <summary>
         /// 查询菜单对象列表
         /// </summary>
         /// <returns></returns>
-        Task<ListResultDto<MenuDto>> GetListAsync();
+        Task<Result<ListResultDto<RoleDto>>> GetListAsync();
         /// <summary>
         /// 根据Id查询菜单对象
         /// </summary>
         /// <param name="id">组织Id</param>
         /// <returns></returns>
-        Task<MenuDto> GetAsync(int id);
+        Task<Result<RoleDto>> GetAsync(Guid id);
         /// <summary>
         /// 创建菜单对象
         /// </summary>
         /// <param name="input">组织对象</param>
         /// <returns></returns>
-        Task<MenuDto> CreateAsync(CreateMenuDto input);
+        Task<Result<RoleDto>> CreateAsync(CreateRoleDto input);
         /// <summary>
         /// 更新菜单对象
         /// </summary>
         /// <param name="id">组织Id</param>
         /// <param name="input">更新实体</param>
         /// <returns></returns>
-        Task<MenuDto> UpdateAsync(int id, UpdateMenuDto input);
+        Task<Result<RoleDto>> UpdateAsync(Guid id, UpdateRoleDto input);
         /// <summary>
         /// 删除菜单对象
         /// </summary>
         /// <param name="id">组织Id</param>
         /// <returns></returns>
-        Task DeleteAsync(int id);
+        Task<Result<int>> DeleteAsync(Guid id);
     }
 }

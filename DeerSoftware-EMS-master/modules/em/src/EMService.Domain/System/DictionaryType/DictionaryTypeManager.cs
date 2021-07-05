@@ -14,22 +14,22 @@ namespace EMService
     /// </summary>
     public class DictionaryTypeManager : DomainService
     {
-        private readonly IRepository<Dictionary, Guid> _dictionaryRepository;
+        private readonly IRepository<DictionaryType, Guid> _dictionaryRepository;
 
         /// <summary>
         /// 构造器
         /// </summary>
         /// <param name="dictionaryRepository"></param>
-        public DictionaryTypeManager(IRepository<Dictionary, Guid> dictionaryRepository)
+        public DictionaryTypeManager(IRepository<DictionaryType, Guid> dictionaryTypeRepository)
         {
-            _dictionaryRepository = dictionaryRepository;
+            _dictionaryRepository = dictionaryTypeRepository;
         }
         /// <summary>
         /// 创建新字典
         /// </summary>
         /// <param name="organization"></param>
         /// <returns></returns>
-        public async Task<Dictionary> CreateAsync(Dictionary dictionary)
+        public async Task<DictionaryType> CreateAsync(DictionaryType dictionary)
         {
             try
             {
@@ -38,12 +38,13 @@ namespace EMService
                 {
                     throw new OrganizationCodeAlreadyExistsException(dictionary.Name);
                 }
-                return await _dictionaryRepository.InsertAsync(new Dictionary(
+                return await _dictionaryRepository.InsertAsync(new DictionaryType(
                     GuidGenerator.Create(),
                     dictionary.Name,
                     dictionary.Code,
                     dictionary.Sort,
-                    dictionary.DictionaryType
+                    dictionary.ParentId,
+                    dictionary.Remark
                     ));
             }
             catch (Exception e)

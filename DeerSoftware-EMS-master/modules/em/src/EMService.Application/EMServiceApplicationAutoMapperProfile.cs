@@ -80,7 +80,7 @@ namespace EMService
             CreateMap<Organization, OrganizationDto>();
             
             CreateMap<CreateMenuDto, Menu>();
-            CreateMap<Menu, MenuDto>();
+            CreateMap<Menu, EquipmentPowerDto>();
 
         }
     }
