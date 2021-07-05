@@ -11,7 +11,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace EMService.Migrations
 {
     [DbContext(typeof(EMServiceDbContext))]
-    [Migration("20210705013559_init")]
+    [Migration("20210705042214_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

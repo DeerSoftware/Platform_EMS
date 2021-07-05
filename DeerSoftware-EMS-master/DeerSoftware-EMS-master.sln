@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EMService.HttpApi.Client", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EMService.Host", "microservices\EMService.Host\EMService.Host.csproj", "{EC0FF542-A13D-4EA5-82F2-94C7B055CF84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMService.Core", "modules\em\src\EMService.Core\EMService.Core.csproj", "{697F2596-0241-4B37-AA28-AA8DCDBE9AFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,10 @@ Global
 		{EC0FF542-A13D-4EA5-82F2-94C7B055CF84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC0FF542-A13D-4EA5-82F2-94C7B055CF84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC0FF542-A13D-4EA5-82F2-94C7B055CF84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{697F2596-0241-4B37-AA28-AA8DCDBE9AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{697F2596-0241-4B37-AA28-AA8DCDBE9AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{697F2596-0241-4B37-AA28-AA8DCDBE9AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{697F2596-0241-4B37-AA28-AA8DCDBE9AFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +142,7 @@ Global
 		{4F131A6C-7FF7-4B40-B371-19FF6ECB4268} = {96AEFFB9-55A2-429E-9719-A2A9840AFACB}
 		{657FE901-E9BC-43BB-93FF-C7A7EB5DE216} = {96AEFFB9-55A2-429E-9719-A2A9840AFACB}
 		{EC0FF542-A13D-4EA5-82F2-94C7B055CF84} = {62619AC5-AC67-472E-8FE7-B084F296BAE9}
+		{697F2596-0241-4B37-AA28-AA8DCDBE9AFE} = {96AEFFB9-55A2-429E-9719-A2A9840AFACB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41B0E2A7-6FC5-4BF7-BA8E-BF32FAACA60D}

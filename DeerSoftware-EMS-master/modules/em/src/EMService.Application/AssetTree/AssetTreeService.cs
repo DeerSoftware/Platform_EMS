@@ -11,11 +11,11 @@ using Volo.Abp.Domain.Repositories;
 using Newtonsoft.Json;
 
 using EMService.AssetTree.Dto;
-using EMService.Extensions;
+using EMService.Core.Extensions;
 
 namespace EMService.AssetTree
 {
-    public class AssetTreeService : ApplicationService, IAssetTreeService
+    public class AssetTreeService : EMServiceAppService, IAssetTreeService
     {
         private readonly IRepository<Point, Guid> _pointRepository;
         private readonly IRepository<Device, Guid> _deviceRepository;
@@ -46,7 +46,7 @@ namespace EMService.AssetTree
                 case (int)DeviceType.Area:
                 case (int)DeviceType.System:
 
-                    assetData = ObjectMapper.Map<Foundation, FoundationDto>(foundation);
+                    assetData = this.Map<Foundation, FoundationDto>(foundation);
 
                     break;
                 case (int)DeviceType.Device:
@@ -54,14 +54,14 @@ namespace EMService.AssetTree
 
                     var device = await _deviceRepository.FindAsync(b => b.Id == idKey);
 
-                    assetData = ObjectMapper.Map<(Foundation, Device), DeviceDto>((foundation, device));
+                    assetData = this.Map<(Foundation, Device), DeviceDto>((foundation, device));
 
                     break;
                 default:
 
                     var point = await _pointRepository.FindAsync(b => b.Id == idKey);
 
-                    assetData = ObjectMapper.Map<(Foundation, Point), PointDto>((foundation, point));
+                    assetData = this.Map<(Foundation, Point), PointDto>((foundation, point));
 
                     break;
             }
@@ -72,7 +72,7 @@ namespace EMService.AssetTree
         public async Task<List<FoundationDto>> getAssetTreeData(int deviceType = 10)
         {
             var foundation = await _foundationRepository.Where(b => b.DeviceType <= deviceType).OrderBy(b => b.Sort).ToListAsync();
-            var foundationDto = ObjectMapper.Map<List<Foundation>, List<FoundationDto>>(foundation);
+            var foundationDto = this.Map<List<Foundation>, List<FoundationDto>>(foundation);
 
             return TransformTreeData(foundationDto);
         }
@@ -80,7 +80,7 @@ namespace EMService.AssetTree
         public async Task<List<FoundationDto>> getAssetTreeDataByParentId(Guid pId)
         {
             var foundation = await _foundationRepository.Where(b => b.ParentId == pId).OrderBy(b => b.Sort).ToListAsync();
-            var foundationDto = ObjectMapper.Map<List<Foundation>, List<FoundationDto>>(foundation);
+            var foundationDto = this.Map<List<Foundation>, List<FoundationDto>>(foundation);
 
             return foundationDto;
         }
@@ -107,7 +107,7 @@ namespace EMService.AssetTree
 
             foreach (var item in foundation)
             {
-                var deviceDto = ObjectMapper.Map<(Foundation, Device), DeviceDto>((item, item.Device));
+                var deviceDto = this.Map<(Foundation, Device), DeviceDto>((item, item.Device));
                 assetData.Add(deviceDto);
             }
 
@@ -144,7 +144,7 @@ namespace EMService.AssetTree
 
             foreach (var item in foundation)
             {
-                var pointDto = ObjectMapper.Map<(Foundation, Point), PointDto>((item, item.Point));
+                var pointDto = this.Map<(Foundation, Point), PointDto>((item, item.Point));
                 assetData.Add(pointDto);
             }
 
@@ -160,7 +160,7 @@ namespace EMService.AssetTree
                 string key = Guid.NewGuid().ToString("D");
                 foundationDto.Id = Guid.Parse(key);
 
-                var foundation = ObjectMapper.Map<FoundationDto, Foundation>(foundationDto);
+                var foundation = this.Map<FoundationDto, Foundation>(foundationDto);
 
                 switch (foundation.DeviceType)
                 {
@@ -178,7 +178,7 @@ namespace EMService.AssetTree
 
                         var deviceDto = JsonConvert.DeserializeObject<DeviceDto>(assetData.ToString());
                         deviceDto.Id = Guid.Parse(key);
-                        var device = ObjectMapper.Map<DeviceDto, Device>(deviceDto);
+                        var device = this.Map<DeviceDto, Device>(deviceDto);
 
                         await _foundationRepository.InsertAsync(foundation);
                         await _deviceRepository.InsertAsync(device);
@@ -188,7 +188,7 @@ namespace EMService.AssetTree
 
                         var pointDto = JsonConvert.DeserializeObject<DeviceDto>(assetData.ToString());
                         pointDto.Id = Guid.Parse(key);
-                        var point = ObjectMapper.Map<PointDto, Point>(pointDto);
+                        var point = this.Map<PointDto, Point>(pointDto);
 
                         await _foundationRepository.InsertAsync(foundation);
                         await _pointRepository.InsertAsync(point);
@@ -313,7 +313,7 @@ namespace EMService.AssetTree
         {
             var popMenuData = await _popMenuRepository.OrderBy(b => b.Sort).ToListAsync();
 
-            return ObjectMapper.Map<List<PopMenu>, List<PopMenuDto>>(popMenuData);
+            return this.Map<List<PopMenu>, List<PopMenuDto>>(popMenuData);
         }
 
         /// <summary>

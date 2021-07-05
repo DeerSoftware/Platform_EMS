@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EMService.Application.Contracts\EMService.Application.Contracts.csproj" />
+    <ProjectReference Include="..\EMService.Core\EMService.Core.csproj" />
     <ProjectReference Include="..\EMService.Domain\EMService.Domain.csproj" />
   </ItemGroup>
 
