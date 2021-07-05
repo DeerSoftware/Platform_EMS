@@ -63,9 +63,9 @@ namespace EMService.Controllers
             return _menuAppService.GetMenuTree();
         }
         [HttpPost]
-        public Task<Result<EquipmentPowerDto>> UpdateAsync(Guid id, UpdateMenuDto input)
+        public Task<Result<EquipmentPowerDto>> UpdateAsync( UpdateMenuDto input)
         {
-            return _menuAppService.UpdateAsync(id, input);
+            return _menuAppService.UpdateAsync(input);
         }
     }
 }

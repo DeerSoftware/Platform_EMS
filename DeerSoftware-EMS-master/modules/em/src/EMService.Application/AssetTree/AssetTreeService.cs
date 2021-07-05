@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 
 using EMService.AssetTree.Dto;
 using EMService.Core.Extensions;
+using EMService.Result;
 
 namespace EMService.AssetTree
 {
@@ -85,7 +86,7 @@ namespace EMService.AssetTree
             return foundationDto;
         }
 
-        public async Task<List<DeviceDto>> getChildrenDeviceData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
+        public async Task<ServiceResult<List<DeviceDto>>> getChildrenDeviceData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
         {
             List<DeviceDto> assetData = new List<DeviceDto>();
 
@@ -111,7 +112,7 @@ namespace EMService.AssetTree
                 assetData.Add(deviceDto);
             }
 
-            return assetData;
+            return ServiceResultCode.Succeed.ServiceResultSuccess(assetData);
         }
 
         /// <summary>
@@ -122,7 +123,7 @@ namespace EMService.AssetTree
         /// <param name="pageSize">分页大小</param>
         /// <param name="filter">过滤条件</param>
         /// <returns></returns>
-        public async Task<List<PointDto>> getChildrenPointData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
+        public async Task<ServiceResult<List<PointDto>>> getChildrenPointData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
         {
             List<PointDto> assetData = new List<PointDto>();
 
@@ -148,7 +149,7 @@ namespace EMService.AssetTree
                 assetData.Add(pointDto);
             }
 
-            return assetData;
+            return ServiceResultCode.Succeed.ServiceResultSuccess(assetData);
         }
 
         public async Task CreateAssetNode(dynamic assetData)

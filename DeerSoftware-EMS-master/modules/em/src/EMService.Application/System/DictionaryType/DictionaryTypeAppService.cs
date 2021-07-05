@@ -200,12 +200,12 @@ namespace EMService
         /// <param name="id">组织Id</param>
         /// <param name="input">更新实体</param>
         /// <returns></returns>
-        public async Task<Result<DictionaryTypeDto>> UpdateAsync(Guid id, UpdateDictionaryTypeDto input)
+        public async Task<Result<DictionaryTypeDto>> UpdateAsync(UpdateDictionaryTypeDto input)
         {
             Result<DictionaryTypeDto> result = new Result<DictionaryTypeDto>();
             try
             {
-                var dictionaryType = await _dictionaryTypeRepository.GetAsync(id);
+                var dictionaryType = await _dictionaryTypeRepository.GetAsync(input.Id);
                 dictionaryType.Name = input.Name;
                 dictionaryType.Code = input.Code;
                 dictionaryType.ParentId = input.ParentId;

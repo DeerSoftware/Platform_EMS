@@ -11,6 +11,7 @@ namespace EMService
     /// </summary>
     public class CreateMenuDto
     {
+    
         /// <summary>
         /// 菜单名称
         /// </summary>
