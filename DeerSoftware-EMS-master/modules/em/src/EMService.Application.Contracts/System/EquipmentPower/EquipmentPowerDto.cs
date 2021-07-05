@@ -11,8 +11,6 @@ namespace EMService
     /// </summary>
     public class EquipmentPowerDto
     {
-
-        public Guid Id { get; set; }
         /// <summary>
         /// ID
         /// </summary>
