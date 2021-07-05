@@ -250,15 +250,21 @@ namespace EMService
         /// 查询组织树数据
         /// </summary>
         /// <returns></returns>
-        public async Task<Result<OrganizationTreeDto>> GetOrganizationTree()
+        public async Task<Result<List<OrganizationTreeDto>>> GetOrganizationTree()
         {
-            Result<OrganizationTreeDto> result = new Result<OrganizationTreeDto>();
+            Result<List<OrganizationTreeDto>> result = new Result<List<OrganizationTreeDto>>();
 
             try
             {
                 List<Organization> organizations = await _OrganizationRepository.GetListAsync(p => p.IsDeleted == false);
 
-                await GetOrganizationTreeNode(organizations);
+                var data=await GetOrganizationTreeNode(organizations);
+
+                result.Code = "910006";
+                result.Message = "更新成功";
+                result.ResultType = ResultType.Succeed;
+                result.Data = data;
+
             }
             catch (Exception)
             {

@@ -52,6 +52,6 @@ namespace EMService
         /// 获取组织树
         /// </summary>
         /// <returns></returns>
-        Task<Result<OrganizationTreeDto>> GetOrganizationTree();
+        Task<Result<List<OrganizationTreeDto>>> GetOrganizationTree();
     }
 }
