@@ -13,6 +13,10 @@ namespace EMService
     {
         public Guid Id { get; set; }
         /// <summary>
+        /// ID
+        /// </summary>
+        public Guid Id { get; set; }
+        /// <summary>
         /// 类型名称
         /// </summary>
         [NotNull]

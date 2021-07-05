@@ -13,6 +13,10 @@ namespace EMService
     {
         public Guid Id { get; set; }
         /// <summary>
+        /// ID
+        /// </summary>
+        public Guid Id { get; set; }
+        /// <summary>
         /// 角色名称
         /// </summary>
         public string Name { get; set; }

@@ -11,8 +11,11 @@ namespace EMService
     /// </summary>
     public class EquipmentPowerDto
     {
-
+        /// <summary>
+        /// ID
+        /// </summary>
         public Guid Id { get; set; }
+
         /// <summary>
         /// 菜单名称
         /// </summary>

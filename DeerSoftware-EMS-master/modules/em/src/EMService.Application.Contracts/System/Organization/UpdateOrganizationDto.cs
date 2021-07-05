@@ -10,6 +10,10 @@ namespace EMService
     public class UpdateOrganizationDto
     {
         /// <summary>
+        /// ID
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// 组织名称
         /// </summary>
         public string OrgName { get; set; }

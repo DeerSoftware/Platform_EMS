@@ -11,6 +11,9 @@ namespace EMService
     /// </summary>
     public class RolePowerDto
     {
-        
+        /// <summary>
+        /// ID
+        /// </summary>
+        public Guid Id { get; set; }
     }
 }

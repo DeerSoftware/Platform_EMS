@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using System.Linq.Expressions;
 
 namespace EMService
 {
@@ -40,8 +41,10 @@ namespace EMService
         /// </summary>
         /// <param name="input">组织对象</param>
         /// <returns></returns>
-        public async Task<OrganizationDto> CreateAsync(CreateOrganizationDto input)
+        public async Task<Result<OrganizationDto>> CreateAsync(CreateOrganizationDto input)
         {
+            Result<OrganizationDto> result = new Result<OrganizationDto>();
+
             Organization organization = default;
             Sequence sequence = default;
             try
@@ -54,46 +57,102 @@ namespace EMService
                 sequence = await _sequenceManager.GetSequenceAsync<Organization>();
                 organization = ObjectMapper.Map<CreateOrganizationDto, Organization>(input);
 
-                var parentOrg = await _OrganizationRepository.GetAsync(organization.ParentId);
+                var parentOrg = await _OrganizationRepository.FirstOrDefaultAsync(p => p.Id == organization.ParentId);
 
                 //其它数据
-                organization.Level = parentOrg.Level + sequence.Value + ",";
+                organization.Level = parentOrg == null ? sequence.Value + "," : parentOrg.Level + sequence.Value + ",";
+
+                var data = ObjectMapper.Map<Organization, OrganizationDto>(await _organizationManager.CreateAsync(organization, sequence.Value));
+
+                result.Code = "910001";
+                result.Message = "新增成功";
+                result.ResultType = ResultType.Succeed;
+                result.Data = data;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                result.Code = "910001";
+                result.Message = "新增失败，失败编码为：" + result.Code;
+                result.ResultType = ResultType.Error;
             }
-            return ObjectMapper.Map<Organization, OrganizationDto>(await _organizationManager.CreateAsync(organization, sequence.Value));
+            return result;
         }
         /// <summary>
         /// 删除组织对象
         /// </summary>
         /// <param name="id">组织Id</param>
         /// <returns></returns>
-        public async Task DeleteAsync(int id)
+        public async Task<Result<int>> DeleteAsync(int id)
         {
-            await _OrganizationRepository.DeleteAsync(id);
+            Result<int> result = new Result<int>();
+            try
+            {
+                await _OrganizationRepository.DeleteAsync(id);
+
+                result.Code = "910002";
+                result.Message = "删除成功";
+                result.ResultType = ResultType.Succeed;
+            }
+            catch (Exception)
+            {
+                result.Code = "910002";
+                result.Message = "删除失败，失败编码为：" + result.Code;
+                result.ResultType = ResultType.Error;
+            }
+            return result;
         }
         /// <summary>
         /// 根据Id查询组织对象
         /// </summary>
         /// <param name="id">组织Id</param>
         /// <returns></returns>
-        public async Task<OrganizationDto> GetAsync(int id)
+        public async Task<Result<OrganizationDto>> GetAsync(int id)
         {
-            Organization organization = await _OrganizationRepository.FirstOrDefaultAsync(p => p.Id == id);
+            Result<OrganizationDto> result = new Result<OrganizationDto>();
+            try
+            {
+                Organization organization = await _OrganizationRepository.FirstOrDefaultAsync(p => p.Id == id);
+                var data = ObjectMapper.Map<Organization, OrganizationDto>(organization);
 
-            return ObjectMapper.Map<Organization, OrganizationDto>(organization);
+                result.Code = "910003";
+                result.Message = "查询成功";
+                result.ResultType = ResultType.Succeed;
+                result.Data = data;
+            }
+            catch (Exception)
+            {
+                result.Code = "910003";
+                result.Message = "查询失败，失败编码为：" + result.Code;
+                result.ResultType = ResultType.Error;
+            }
+            return result;
         }
         /// <summary>
         /// 查询组织对象列表
         /// </summary>
         /// <returns></returns>
-        public async Task<ListResultDto<OrganizationDto>> GetListAsync()
+        public async Task<Result<ListResultDto<OrganizationDto>>> GetListAsync(string keyword)
         {
-            var organizations = await _OrganizationRepository.GetListAsync();
-            var organizationList = ObjectMapper.Map<List<Organization>, List<OrganizationDto>>(organizations);
-            return new ListResultDto<OrganizationDto>(organizationList);
+            Result<ListResultDto<OrganizationDto>> result = new Result<ListResultDto<OrganizationDto>>();
+
+            try
+            {
+                var organizations = await _OrganizationRepository.GetListAsync();
+                var organizationList = ObjectMapper.Map<List<Organization>, List<OrganizationDto>>(organizations);
+                var data = new ListResultDto<OrganizationDto>(organizationList);
+
+                result.Code = "910004";
+                result.Message = "查询成功";
+                result.ResultType = ResultType.Succeed;
+                result.Data = data;
+            }
+            catch (Exception)
+            {
+                result.Code = "910004";
+                result.Message = "查询失败，失败编码为：" + result.Code;
+                result.ResultType = ResultType.Error;
+            }
+            return result;
         }
 
         /// <summary>
@@ -101,47 +160,160 @@ namespace EMService
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<PagedResultDto<OrganizationDto>> GetListPagedAsync(PagedAndSortedResultRequestDto input)
+        public async Task<Result<PagedResultDto<OrganizationDto>>> GetListPagedAsync(PagedAndSortedResultRequestDto input, int parentId)
         {
-            await NormalizeMaxResultCountAsync(input);
+            Result<PagedResultDto<OrganizationDto>> result = new Result<PagedResultDto<OrganizationDto>>();
+            try
+            {
+                await NormalizeMaxResultCountAsync(input);
 
-            var organizations = await _OrganizationRepository
-                .OrderBy(input.Sorting ?? "Name")
-                .Skip(input.SkipCount)
-                .Take(input.MaxResultCount)
-                .ToListAsync();
+                Expression<Func<Organization, bool>> where = p => p.IsDeleted == false;
+                if (parentId <= 0)
+                {
+                    result.Code = "910005";
+                    result.Message = "上级组织Id不可为空";
+                    result.ResultType = ResultType.Succeed;
+                    return result;
+                }
+                where = where.And(p => p.ParentId == parentId);
 
-            var totalCount = await _OrganizationRepository.GetCountAsync();
+                var organizations = await _OrganizationRepository
+                    .Where(where)
+                    .OrderBy(input.Sorting ?? "Name")
+                    .Skip(input.SkipCount)
+                    .Take(input.MaxResultCount)
+                    .ToListAsync();
 
-            var dtos = ObjectMapper.Map<List<Organization>, List<OrganizationDto>>(organizations);
+                var totalCount = await _OrganizationRepository.CountAsync(where);
 
-            return new PagedResultDto<OrganizationDto>(totalCount, dtos);
+                var dtos = ObjectMapper.Map<List<Organization>, List<OrganizationDto>>(organizations);
+
+                var data = new PagedResultDto<OrganizationDto>(totalCount, dtos);
+
+                result.Code = "910005";
+                result.Message = "查询成功";
+                result.ResultType = ResultType.Succeed;
+                result.Data = data;
+            }
+            catch (Exception)
+            {
+                result.Code = "910005";
+                result.Message = "查询失败，失败编码为：" + result.Code;
+                result.ResultType = ResultType.Error;
+            }
+
+            return result;
         }
+
+
         /// <summary>
         /// 更新组织对象
         /// </summary>
         /// <param name="id">组织Id</param>
         /// <param name="input">更新实体</param>
         /// <returns></returns>
-        public async Task<OrganizationDto> UpdateAsync(int id, UpdateOrganizationDto input)
+        public async Task<Result<OrganizationDto>> UpdateAsync(int id, UpdateOrganizationDto input)
         {
-            var organization = await _OrganizationRepository.GetAsync(id);
+            Result<OrganizationDto> result = new Result<OrganizationDto>();
+            try
+            {
+                var organization = await _OrganizationRepository.GetAsync(id);
 
-            organization.OrgName = input.OrgName;
-            organization.OrgNickName = input.OrgNickName;
-            organization.ParentId = input.ParentId;
-            organization.OrgCode = input.OrgCode;
-            organization.Phone = input.Phone;
-            organization.PhoneExt = input.PhoneExt;
-            organization.Email = input.Email;
-            organization.Sort = input.Sort;
-            organization.ResponsiblePerson = input.ResponsiblePerson;
-            organization.Address = input.Address;
-            organization.Remark = input.Remark;
+                organization.OrgName = input.OrgName;
+                organization.OrgNickName = input.OrgNickName;
+                organization.ParentId = input.ParentId;
+                organization.OrgCode = input.OrgCode;
+                organization.Phone = input.Phone;
+                organization.PhoneExt = input.PhoneExt;
+                organization.Email = input.Email;
+                organization.Sort = input.Sort;
+                organization.ResponsiblePerson = input.ResponsiblePerson;
+                organization.Address = input.Address;
+                organization.Remark = input.Remark;
+                var data = ObjectMapper.Map<Organization, OrganizationDto>(organization);
 
-            return ObjectMapper.Map<Organization, OrganizationDto>(organization);
+                result.Code = "910006";
+                result.Message = "更新成功";
+                result.ResultType = ResultType.Succeed;
+                result.Data = data;
+            }
+            catch (Exception)
+            {
+                result.Code = "910006";
+                result.Message = "更新失败，失败编码为：" + result.Code;
+                result.ResultType = ResultType.Error;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 查询组织树数据
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Result<OrganizationTreeDto>> GetOrganizationTree()
+        {
+            Result<OrganizationTreeDto> result = new Result<OrganizationTreeDto>();
+
+            try
+            {
+                List<Organization> organizations = await _OrganizationRepository.GetListAsync(p => p.IsDeleted == false);
+
+                await GetOrganizationTreeNode(organizations);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return result;
         }
         #region
+
+        /// <summary>
+        /// 组装树型结构
+        /// </summary>
+        /// <returns></returns>
+        private async Task<List<OrganizationTreeDto>> GetOrganizationTreeNode(List<Organization> organizations)
+        {
+
+            List<OrganizationTreeDto> fNodes = organizations.Where(p => p.ParentId == 0).Select(p => new OrganizationTreeDto()
+            {
+                lable = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
+                value = p.Id,
+                parentId = p.ParentId
+            }).ToList();
+
+            foreach (OrganizationTreeDto item in fNodes)
+            {
+                GetTreeNodeItems(item, organizations);
+            }
+            return fNodes;
+        }
+        /// <summary>
+        /// 处理节点里子节点
+        /// </summary>
+        /// <param name="menuTreeDto"></param>
+        /// <param name="menus"></param>
+        private OrganizationTreeDto GetTreeNodeItems(OrganizationTreeDto organization, List<Organization> menus)
+        {
+            List<OrganizationTreeDto> parents = menus.Where(p => p.ParentId == organization.value).Select(p => new OrganizationTreeDto()
+            {
+                lable = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
+                value = p.Id,
+                parentId = p.ParentId
+            }).ToList();
+
+            if (parents.Count > 0)
+            {
+                foreach (OrganizationTreeDto item in parents)
+                {
+                    organization.children.Add(GetTreeNodeItems(item, menus));
+                }
+            }
+            return organization;
+        }
+
+
+
         /// <summary>
         /// 处理分页数据
         /// </summary>
