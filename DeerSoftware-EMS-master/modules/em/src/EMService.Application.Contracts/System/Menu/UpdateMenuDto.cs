@@ -11,6 +11,8 @@ namespace EMService
     /// </summary>
     public class UpdateMenuDto
     {
+
+        public Guid Id { get; set; }
         /// <summary>
         /// 菜单名称
         /// </summary>

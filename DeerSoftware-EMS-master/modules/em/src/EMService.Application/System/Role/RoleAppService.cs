@@ -187,12 +187,12 @@ namespace EMService
         /// <param name="id">组织Id</param>
         /// <param name="input">更新实体</param>
         /// <returns></returns>
-        public async Task<Result<RoleDto>> UpdateAsync(Guid id, UpdateRoleDto input)
+        public async Task<Result<RoleDto>> UpdateAsync(UpdateRoleDto input)
         {
             Result<RoleDto> result = new Result<RoleDto>();
             try
             {
-                var role = await _roleRepository.GetAsync(id);
+                var role = await _roleRepository.GetAsync(input.Id);
                 role.Name = input.Name;
                 role.Code = input.Code;
                 role.Status = input.Status;

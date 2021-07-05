@@ -41,7 +41,7 @@ namespace EMService
         /// <param name="id">组织Id</param>
         /// <param name="input">更新实体</param>
         /// <returns></returns>
-        Task<Result<RoleDto>> UpdateAsync(Guid id, UpdateRoleDto input);
+        Task<Result<RoleDto>> UpdateAsync(UpdateRoleDto input);
         /// <summary>
         /// 删除菜单对象
         /// </summary>

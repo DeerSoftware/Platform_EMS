@@ -234,12 +234,12 @@ namespace EMService
         /// <param name="id">组织Id</param>
         /// <param name="input">更新实体</param>
         /// <returns></returns>
-        public async Task<Result<EquipmentPowerDto>> UpdateAsync(Guid id, UpdateMenuDto input)
+        public async Task<Result<EquipmentPowerDto>> UpdateAsync(UpdateMenuDto input)
         {
             Result<EquipmentPowerDto> result = new Result<EquipmentPowerDto>();
             try
             {
-                var menu = await _menuRepository.GetAsync(id);
+                var menu = await _menuRepository.GetAsync(input.Id);
                 menu.Name = input.Name;
                 menu.NickName = input.NickName;
                 menu.ParentId = input.ParentId;

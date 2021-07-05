@@ -11,6 +11,7 @@ namespace EMService
     /// </summary>
     public class UpdateDictionaryTypeDto
     {
+        public Guid Id { get; set; }
         /// <summary>
         /// 类型名称
         /// </summary>

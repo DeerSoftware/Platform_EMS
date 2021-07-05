@@ -6,6 +6,7 @@ using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.Identity;
 using Volo.Abp.Users.EntityFrameworkCore;
 using EMService.AssetTree;
+using EMService.System.Price;
 
 namespace EMService.EntityFrameworkCore
 {
@@ -37,6 +38,8 @@ namespace EMService.EntityFrameworkCore
         public DbSet<Sequence> Sequences { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Role> Roles { get; set; }
+
+        public DbSet<Price> Prices { get; set; }
 
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside EMServiceDbContextModelCreatingExtensions.ConfigureEMService
