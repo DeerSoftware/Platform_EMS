@@ -28,7 +28,7 @@ namespace EMService
         /// </summary>
         /// <param name="parentId">上级ID</param>
         /// <returns></returns>
-        Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId);
+        Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId,string Filers);
         /// <summary>
         /// 根据Id查询菜单对象
         /// </summary>

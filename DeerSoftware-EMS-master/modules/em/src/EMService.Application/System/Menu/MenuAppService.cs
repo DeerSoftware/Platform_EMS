@@ -79,6 +79,16 @@ namespace EMService
             Result<int> result = new Result<int>();
             try
             {
+                var menus = GetListByParentIdAsync(id.ToString(), "");
+
+                if (menus.Result.Data.Items.Count()>0)
+                {
+                    result.Code = "920002";
+                    result.Message = "当前菜单存在下级菜单，请先删除下级菜单";
+                    result.ResultType = ResultType.Error;
+                    return result;
+                }
+
                 await _menuRepository.DeleteAsync(id);
 
                 result.Code = "920002";
@@ -135,7 +145,7 @@ namespace EMService
             try
             {
                 List<Menu> menus = default;
-                Expression<Func<Menu, bool>> where = p => p.Status == Status.Activate;
+                Expression<Func<Menu, bool>> where = p => p.IsDeleted ==false;
                 if (!string.IsNullOrEmpty(keyword))
                 {
                     where = where.And(p => p.NickName.Contains(keyword) || p.Name.Contains(keyword));
@@ -162,7 +172,7 @@ namespace EMService
         /// </summary>
         /// <param name="parentId"></param>
         /// <returns></returns>
-        public async Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId)
+        public async Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId,string Filers )
         {
             Result<ListResultDto<EquipmentPowerDto>> result = new Result<ListResultDto<EquipmentPowerDto>>();
             try
@@ -172,7 +182,11 @@ namespace EMService
                 if (!string.IsNullOrEmpty(parentId))
                 {
                     var pid = Guid.Parse(parentId);
-                    where = where.And(p => p.ParentId == pid);
+                    where = where.And(p => p.ParentId == pid );
+                }
+                if (!string.IsNullOrEmpty(Filers))
+                {
+                    where = where.And(p => p.Name.Contains(Filers)||p.NickName.Contains(Filers));
                 }
                 menus = await _menuRepository.GetListAsync(where);
                 var menuList = ObjectMapper.Map<List<Menu>, List<EquipmentPowerDto>>(menus);
