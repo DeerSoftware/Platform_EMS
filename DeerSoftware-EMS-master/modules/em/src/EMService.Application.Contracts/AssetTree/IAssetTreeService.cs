@@ -16,16 +16,14 @@ namespace EMService.AssetTree
         /// <summary>
         /// 极据上级节点查询所有下级设备数据
         /// </summary>
-        /// <param name="pNodeId">上级节点Id</param>
-        /// <param name="filter">过滤条件</param>
+        /// <param name="parameter"></param>
         /// <returns></returns>
         Task<ServiceResult<List<DeviceDto>>> getChildrenDeviceData(ParameterInfo parameter);
 
         /// <summary>
         /// 极据上级节点查询所有下级测点数据
         /// </summary>
-        /// <param name="pNodeId">上级节点Id</param>
-        /// <param name="filter">过滤条件</param>
+        /// <param name="parameter"></param>
         /// <returns></returns>
         Task<ServiceResult<List<PointDto>>> getChildrenPointData(ParameterInfo parameter);
 

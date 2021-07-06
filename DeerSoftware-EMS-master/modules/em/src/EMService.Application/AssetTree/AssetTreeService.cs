@@ -17,6 +17,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EMService.AssetTree
 {
+    /// <summary>
+    /// 资产设备树服务
+    /// </summary>
     public class AssetTreeService : EMServiceAppService, IAssetTreeService
     {
         private readonly IRepository<Point, Guid> _pointRepository;
@@ -24,6 +27,13 @@ namespace EMService.AssetTree
         private readonly IRepository<PopMenu, Guid> _popMenuRepository;
         private readonly IRepository<Foundation, Guid> _foundationRepository;
 
+        /// <summary>
+        /// 资产设备树构造器
+        /// </summary>
+        /// <param name="foundationRepository"></param>
+        /// <param name="deviceRepository"></param>
+        /// <param name="pointRepository"></param>
+        /// <param name="popMenuRepository"></param>
         public AssetTreeService(IRepository<Foundation, Guid> foundationRepository, IRepository<Device, Guid> deviceRepository,
             IRepository<Point, Guid> pointRepository, IRepository<PopMenu, Guid> popMenuRepository)
         {
@@ -87,6 +97,11 @@ namespace EMService.AssetTree
             return foundationDto;
         }
 
+        /// <summary>
+        /// 极据上级节点查询所有下级设备数据
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ServiceResult<List<DeviceDto>>> getChildrenDeviceData(ParameterInfo parameter)
         {
@@ -124,6 +139,11 @@ namespace EMService.AssetTree
             return ServiceResultCode.Succeed.ServiceResultSuccess(assetData);
         }
 
+        /// <summary>
+        /// 极据上级节点查询所有下级测点数据
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ServiceResult<List<PointDto>>> getChildrenPointData(ParameterInfo parameter)
         {
@@ -163,6 +183,11 @@ namespace EMService.AssetTree
             return ServiceResultCode.Succeed.ServiceResultSuccess(assetData);
         }
 
+        /// <summary>
+        /// 新增资产节点数据
+        /// </summary>
+        /// <param name="assetData"></param>
+        /// <returns></returns>
         public async Task CreateAssetNode(ParameterInfo<string> assetData)
         {
             if (assetData.Model.IsNotNullOrEmptyOrWhiteSpace())

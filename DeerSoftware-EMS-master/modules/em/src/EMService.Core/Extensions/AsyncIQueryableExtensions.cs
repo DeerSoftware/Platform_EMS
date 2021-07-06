@@ -183,7 +183,7 @@ namespace EMService.Core.Extensions
 
                     index++;
 
-                    MethodCallExpression resultExp = Expression.Call(typeof(IQueryable<T>), OrderName, new Type[] { typeof(T), property.PropertyType }, 
+                    MethodCallExpression resultExp = Expression.Call(typeof(Queryable), OrderName, new Type[] { typeof(T), property.PropertyType }, 
                         query.Expression, Expression.Quote(orderByExp));
 
                     query = query.Provider.CreateQuery<T>(resultExp);
