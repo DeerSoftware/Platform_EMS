@@ -185,7 +185,7 @@ namespace EMService
 
                 var organizations = await _OrganizationRepository
                     .Where(where)
-                    .OrderBy(input.Sorting ?? "Name")
+                    .OrderBy(input.Sorting ?? "OrgName")
                     .Skip(input.SkipCount)
                     .Take(input.MaxResultCount)
                     .ToListAsync();

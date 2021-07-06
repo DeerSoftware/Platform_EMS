@@ -34,12 +34,13 @@ namespace EMService.EntityFrameworkCore
         public DbSet<DeviceSystem> DeviceSystems { get; set; }
 
         public DbSet<Organization> Organizations { get; set; }
-
+        public DbSet<Logs> Logs { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Sequence> Sequences { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Role> Roles { get; set; }
-
+        public DbSet<Dictionary> Dictionaries { get; set; }
+        public DbSet<DictionaryType> DictionaryTypes { get; set; }
         public DbSet<Price> Prices { get; set; }
 
         /* Add DbSet properties for your Aggregate Roots / Entities here.

@@ -9,6 +9,10 @@ namespace EMService
     /// </summary>
     public class OrganizationTreeDto
     {
+        public OrganizationTreeDto()
+        {
+            this.children = new List<OrganizationTreeDto>();
+        }
         /// <summary>
         /// 组织名称
         /// </summary>
