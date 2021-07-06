@@ -16,7 +16,6 @@ namespace EMService
     /// <summary>
     /// 组织服务接口实现
     /// </summary>
-    [Route("api/[controller]/[action]")]
     public class OrganizationAppService : ApplicationService, IOrganizationAppService
     {
         private readonly SequenceManager _sequenceManager;
@@ -52,10 +51,10 @@ namespace EMService
             Sequence sequence = default;
             try
             {
-                var existingOrganization = await _OrganizationRepository.GetListAsync(p => p.OrgCode.Equals(input.OrgCode));
+                var existingOrganization = await _OrganizationRepository.GetListAsync(p => p.OrgName.Equals(input.OrgName));
                 if (existingOrganization.FirstOrDefault() != null)
                 {
-                    throw new OrganizationCodeAlreadyExistsException(input.OrgCode);
+                    throw new OrganizationCodeAlreadyExistsException(input.OrgName);
                 }
                 sequence = await _sequenceManager.GetSequenceAsync<Organization>();
                 organization = ObjectMapper.Map<CreateOrganizationDto, Organization>(input);
@@ -294,9 +293,10 @@ namespace EMService
 
             List<OrganizationTreeDto> fNodes = organizations.Where(p => p.ParentId == 0).Select(p => new OrganizationTreeDto()
             {
-                lable = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
+                label = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
                 value = p.Id,
-                parentId = p.ParentId
+                parentId = p.ParentId,
+                Type=p.OrganizationType
             }).ToList();
 
             foreach (OrganizationTreeDto item in fNodes)
@@ -314,9 +314,10 @@ namespace EMService
         {
             List<OrganizationTreeDto> parents = menus.Where(p => p.ParentId == organization.value).Select(p => new OrganizationTreeDto()
             {
-                lable = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
+                label = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
                 value = p.Id,
-                parentId = p.ParentId
+                parentId = p.ParentId,
+                Type = p.OrganizationType
             }).ToList();
 
             if (parents.Count > 0)

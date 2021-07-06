@@ -12,7 +12,7 @@ namespace EMService
         /// <summary>
         /// 组织名称
         /// </summary>
-        public string lable { get; set; }
+        public string label { get; set; }
         /// <summary>
         /// 组织Id
         /// </summary>

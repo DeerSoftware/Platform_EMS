@@ -35,6 +35,7 @@ namespace EMService.EntityFrameworkCore
 
         public DbSet<Organization> Organizations { get; set; }
 
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<Sequence> Sequences { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Role> Roles { get; set; }
