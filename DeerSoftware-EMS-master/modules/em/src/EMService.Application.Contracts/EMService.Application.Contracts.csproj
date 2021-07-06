@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>EMService</RootNamespace>
   </PropertyGroup>
 
@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EMService.Core\EMService.Core.csproj" />
     <ProjectReference Include="..\EMService.Domain.Shared\EMService.Domain.Shared.csproj" />
   </ItemGroup>
 

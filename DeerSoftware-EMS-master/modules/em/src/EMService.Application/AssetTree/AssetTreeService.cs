@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using EMService.AssetTree.Dto;
 using EMService.Core.Extensions;
 using EMService.Result;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EMService.AssetTree
 {
@@ -86,14 +87,22 @@ namespace EMService.AssetTree
             return foundationDto;
         }
 
-        public async Task<ServiceResult<List<DeviceDto>>> getChildrenDeviceData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
+        [HttpPost]
+        public async Task<ServiceResult<List<DeviceDto>>> getChildrenDeviceData(ParameterInfo parameter)
         {
+            //必填项
+            var pNodeId = parameter.Filters.GetOrError<int>("pNodeId");
+
+            var filter = parameter.Filters.GetOrDefault<string>("filter");
+            var pageIndex = parameter.PageInfos.GetOrError<int>("pageIndex");
+            var pageSize = parameter.PageInfos.GetOrError<int>("pageSize");
+
             List<DeviceDto> assetData = new List<DeviceDto>();
 
             var foundation = await _foundationRepository.GetAllPagedAsync(query =>
             {
                 query = query.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
-                                            (b.DeviceType == (int)DeviceType.Device || b.DeviceType == (int)DeviceType.Component)).Include(p => p.Device);
+                                            (b.DeviceType == (int)DeviceType.Device || b.DeviceType == (int)DeviceType.Component)).Include(p => p.Device).OrderByOrThenBy(parameter.OrderBySorts);
 
                 if (!string.IsNullOrWhiteSpace(filter))
                 {
@@ -115,16 +124,16 @@ namespace EMService.AssetTree
             return ServiceResultCode.Succeed.ServiceResultSuccess(assetData);
         }
 
-        /// <summary>
-        /// 极据上级节点查询所有下级设备数据
-        /// </summary>
-        /// <param name="pNodeId">上级节点Id</param>
-        /// <param name="pageIndex">分页索引</param>
-        /// <param name="pageSize">分页大小</param>
-        /// <param name="filter">过滤条件</param>
-        /// <returns></returns>
-        public async Task<ServiceResult<List<PointDto>>> getChildrenPointData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
+        [HttpPost]
+        public async Task<ServiceResult<List<PointDto>>> getChildrenPointData(ParameterInfo parameter)
         {
+            //必填项
+            var pNodeId = parameter.Filters.GetOrError<int>("pNodeId");
+
+            var filter = parameter.Filters.GetOrDefault<string>("filter");
+            var pageIndex = parameter.PageInfos.GetOrError<int>("pageIndex");
+            var pageSize = parameter.PageInfos.GetOrError<int>("pageSize");
+
             List<PointDto> assetData = new List<PointDto>();
 
             var foundation = await _foundationRepository.GetAllPagedAsync(query =>
@@ -132,7 +141,9 @@ namespace EMService.AssetTree
                 query = query.Where(b => b.TreeArea.Contains(pNodeId.ToString()) &&
                                 (b.DeviceType >= (int)DeviceType.Observe)).Include(p => p.Point);
 
-                if (!string.IsNullOrWhiteSpace(filter))
+
+
+                if (filter.IsNotNullOrEmptyOrWhiteSpace())
                 {
                     query = query.Where(b => b.Name.Contains(filter) || b.Code.Contains(filter));
                 }
@@ -152,11 +163,11 @@ namespace EMService.AssetTree
             return ServiceResultCode.Succeed.ServiceResultSuccess(assetData);
         }
 
-        public async Task CreateAssetNode(dynamic assetData)
+        public async Task CreateAssetNode(ParameterInfo<string> assetData)
         {
-            if (assetData is JsonElement)
+            if (assetData.Model.IsNotNullOrEmptyOrWhiteSpace())
             {
-                var foundationDto = JsonConvert.DeserializeObject<FoundationDto>(assetData.ToString());
+                var foundationDto = JsonConvert.DeserializeObject<FoundationDto>(assetData.Model);
 
                 string key = Guid.NewGuid().ToString("D");
                 foundationDto.Id = Guid.Parse(key);
@@ -177,7 +188,7 @@ namespace EMService.AssetTree
                     case (int)DeviceType.Device:
                     case (int)DeviceType.Component:
 
-                        var deviceDto = JsonConvert.DeserializeObject<DeviceDto>(assetData.ToString());
+                        var deviceDto = JsonConvert.DeserializeObject<DeviceDto>(assetData.Model);
                         deviceDto.Id = Guid.Parse(key);
                         var device = this.Map<DeviceDto, Device>(deviceDto);
 
@@ -187,7 +198,7 @@ namespace EMService.AssetTree
                         break;
                     default:
 
-                        var pointDto = JsonConvert.DeserializeObject<DeviceDto>(assetData.ToString());
+                        var pointDto = JsonConvert.DeserializeObject<PointDto>(assetData.Model);
                         pointDto.Id = Guid.Parse(key);
                         var point = this.Map<PointDto, Point>(pointDto);
 

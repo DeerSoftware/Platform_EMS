@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using System.Linq.Expressions;
 
 namespace EMService.Core.Extensions
 {
@@ -27,7 +29,7 @@ namespace EMService.Core.Extensions
         {
             var query = func != null ? await func(repository) : repository;
 
-         
+
             return await query?.ToPagedListAsync(pageIndex, pageSize);
         }
 
@@ -148,5 +150,48 @@ namespace EMService.Core.Extensions
 
             return pagedResultData;
         }
+
+        /// <summary>
+        /// 排序,可传多个排序字段
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="sorts"></param>
+        /// <returns></returns>
+        public static IQueryable<T> OrderByOrThenBy<T>(this IQueryable<T> query, IDictionary<string, object> sorts)
+        {
+            ParameterExpression parameter = Expression.Parameter(typeof(T));
+
+            int index = 0;
+
+            foreach (var sort in sorts)
+            {
+                //根据属性名获取属性
+                var property = typeof(T).GetProperty(sort.Key);
+
+                if (property != null)
+                {
+                    //创建一个访问属性的表达式
+                    var propertyAccess = Expression.MakeMemberAccess(parameter, property);
+                    var orderByExp = Expression.Lambda(propertyAccess, parameter);
+
+                    string OrderName = "";
+                    if (index > 0)
+                        OrderName = sort.Value.Equals("desc") ? "ThenByDescending" : "ThenBy";
+                    else
+                        OrderName = sort.Value.Equals("desc") ? "OrderByDescending" : "OrderBy";
+
+                    index++;
+
+                    MethodCallExpression resultExp = Expression.Call(typeof(IQueryable<T>), OrderName, new Type[] { typeof(T), property.PropertyType }, 
+                        query.Expression, Expression.Quote(orderByExp));
+
+                    query = query.Provider.CreateQuery<T>(resultExp);
+                }
+            }
+    
+            return query;
+        }
+
     }
 }

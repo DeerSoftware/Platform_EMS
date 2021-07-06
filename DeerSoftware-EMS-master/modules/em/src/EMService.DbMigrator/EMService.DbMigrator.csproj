@@ -27,7 +27,6 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Autofac" Version="4.3.3" />
-    <ProjectReference Include="..\EMService.Application.Contracts\EMService.Application.Contracts.csproj" />
     <ProjectReference Include="..\EMService.EntityFrameworkCore.DbMigrations\EMService.EntityFrameworkCore.DbMigrations.csproj" />
   </ItemGroup>
   

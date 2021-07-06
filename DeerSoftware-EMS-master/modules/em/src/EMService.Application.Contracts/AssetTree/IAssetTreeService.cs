@@ -19,7 +19,7 @@ namespace EMService.AssetTree
         /// <param name="pNodeId">上级节点Id</param>
         /// <param name="filter">过滤条件</param>
         /// <returns></returns>
-        Task<ServiceResult<List<DeviceDto>>> getChildrenDeviceData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null);
+        Task<ServiceResult<List<DeviceDto>>> getChildrenDeviceData(ParameterInfo parameter);
 
         /// <summary>
         /// 极据上级节点查询所有下级测点数据
@@ -27,7 +27,7 @@ namespace EMService.AssetTree
         /// <param name="pNodeId">上级节点Id</param>
         /// <param name="filter">过滤条件</param>
         /// <returns></returns>
-        Task<ServiceResult<List<PointDto>>> getChildrenPointData(int pNodeId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null);
+        Task<ServiceResult<List<PointDto>>> getChildrenPointData(ParameterInfo parameter);
 
         /// <summary>
         /// 根据主键Id查询资产数据
@@ -55,7 +55,7 @@ namespace EMService.AssetTree
         /// </summary>
         /// <param name="assetData"></param>
         /// <returns></returns>
-        Task CreateAssetNode(dynamic assetData);
+        Task CreateAssetNode(ParameterInfo<string> assetData);
 
         /// <summary>
         /// 修改资产节点数据
