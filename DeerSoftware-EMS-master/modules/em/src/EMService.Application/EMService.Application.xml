@@ -28,6 +28,67 @@
             <param name="treeDataList">树形列表数据</param>
             <param name="parentItem">父级model</param>
         </member>
+        <member name="T:EMService.AccountAppService">
+            <summary>
+            字典服务接口实现
+            </summary>
+        </member>
+        <member name="M:EMService.AccountAppService.#ctor(EMService.AccountManager,Volo.Abp.Domain.Repositories.IRepository{EMService.Account,System.Guid})">
+            <summary>
+            构造
+            </summary>
+            <param name="accountManager"></param>
+            <param name="accountRepository"></param>
+        </member>
+        <member name="M:EMService.AccountAppService.CreateAsync(EMService.CreateAccountDto)">
+            <summary>
+            创建菜单对象
+            </summary>
+            <param name="input">组织对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.DeleteAsync(System.Guid)">
+            <summary>
+            删除组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.GetAsync(System.Guid)">
+            <summary>
+            根据Id查询组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.GetListAsync(System.String)">
+            <summary>
+            查询组织对象列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.GetListPagedAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            带分页查询组织对象列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.UpdateAsync(EMService.UpdateAccountDto)">
+            <summary>
+            更新组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <param name="input">更新实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.NormalizeMaxResultCountAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            处理分页数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="T:EMService.DictionaryTypeAppService">
             <summary>
             字典分类服务接口实现
