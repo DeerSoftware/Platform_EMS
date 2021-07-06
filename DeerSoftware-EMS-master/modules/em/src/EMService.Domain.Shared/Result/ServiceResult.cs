@@ -56,7 +56,15 @@ namespace EMService.Result
 
             }
         }
-
+        /// <summary>
+        /// 警告
+        /// </summary>
+        /// <param name="serviceResultCode"></param>
+        public void IsWarning(ServiceResultCode serviceResultCode)
+        {
+            Message = serviceResultCode.GetDescription();
+            Code = serviceResultCode;
+        }
     }
 
     /// <summary>
@@ -81,6 +89,7 @@ namespace EMService.Result
             Code = ServiceResultCode.Succeed;
             Data = data;
         }
+       
     }
 
 }

@@ -9,6 +9,8 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using System.Linq.Expressions;
+using EMService.Result;
+using EMService.Core.Extensions;
 
 namespace EMService
 {
@@ -40,9 +42,9 @@ namespace EMService
         /// </summary>
         /// <param name="input">组织对象</param>
         /// <returns></returns>
-        public async Task<Result<EquipmentPowerDto>> CreateAsync(CreateMenuDto input)
+        public async Task<ServiceResult<EquipmentPowerDto>> CreateAsync(CreateMenuDto input)
         {
-            Result<EquipmentPowerDto> result = new Result<EquipmentPowerDto>();
+            EquipmentPowerDto result = new EquipmentPowerDto();
             try
             {
                 var existingOrganization = await _menuRepository.FirstOrDefaultAsync(p => p.Name.Equals(input.Name));
@@ -51,196 +53,127 @@ namespace EMService
                     throw new OrganizationCodeAlreadyExistsException(input.Name);
                 }
                 var menu = ObjectMapper.Map<CreateMenuDto, Menu>(input);
-
                 var data = ObjectMapper.Map<Menu, EquipmentPowerDto>(await _menuManager.CreateAsync(menu));
-
-                result.Code = "920001";
-                result.Message = "创建成功";
-                result.ResultType = ResultType.Succeed;
-                result.Data = data;
+                return ServiceResultCode.Succeed.ServiceResultSuccess(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                result.Code = "920001";
-                result.Message = "创建失败,失败编码为：" + result.Code;
-                result.ResultType = ResultType.Error;
-                //记录日志
-
+                return ServiceResultCode.Failed.ServiceResultFailed<EquipmentPowerDto>(ex);
             }
-            return result;
         }
         /// <summary>
         /// 删除组织对象
         /// </summary>
         /// <param name="id">组织Id</param>
         /// <returns></returns>
-        public async Task<Result<int>> DeleteAsync(Guid id)
+        public async Task<ServiceResult> DeleteAsync(Guid id)
         {
-            Result<int> result = new Result<int>();
             try
             {
-                var menus = GetListByParentIdAsync(id.ToString(), "");
+                var menus = GetListByParentIdAsync(id, "");
 
-                if (menus.Result.Data.Items.Count()>0)
+                if (menus.Result.Data.Count() > 0)
                 {
-                    result.Code = "920002";
-                    result.Message = "当前菜单存在下级菜单，请先删除下级菜单";
-                    result.ResultType = ResultType.Error;
-                    return result;
+                    return ServiceResultCode.MenuWarning.ServiceResultWarning();
                 }
-
                 await _menuRepository.DeleteAsync(id);
-
-                result.Code = "920002";
-                result.Message = "删除成功";
-                result.ResultType = ResultType.Succeed;
+                return ServiceResultCode.Succeed.ServiceResultSuccess();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                result.Code = "920002";
-                result.Message = "删除失败，失败编码为：" + result.Code;
-                result.ResultType = ResultType.Error;
-                //记录日志
-
+                return ServiceResultCode.Failed.ServiceResultFailed(ex);
             }
-            return result;
         }
         /// <summary>
         /// 根据Id查询组织对象
         /// </summary>
         /// <param name="id">组织Id</param>
         /// <returns></returns>
-        public async Task<Result<EquipmentPowerDto>> GetAsync(Guid id)
+        public async Task<ServiceResult<EquipmentPowerDto>> GetAsync(Guid id)
         {
             Result<EquipmentPowerDto> result = new Result<EquipmentPowerDto>();
             try
             {
                 Menu menu = await _menuRepository.FirstOrDefaultAsync(p => p.Id == id);
                 var data = ObjectMapper.Map<Menu, EquipmentPowerDto>(menu);
-
-                result.Code = "920003";
-                result.Message = "查询成功";
-                result.ResultType = ResultType.Succeed;
-                result.Data = data;
+                return ServiceResultCode.Succeed.ServiceResultSuccess(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                result.Code = "920003";
-                result.Message = "查询失败，失败编码为：" + result.Code;
-                result.ResultType = ResultType.Error;
-                //记录日志
-
+                return ServiceResultCode.Failed.ServiceResultFailed<EquipmentPowerDto>(ex);
             }
-
-
-            return result;
-        }
-        /// <summary>
-        /// 查询组织对象列表
-        /// </summary>
-        /// <returns></returns>
-        public async Task<Result<ListResultDto<EquipmentPowerDto>>> GetListAsync(string keyword)
-        {
-            Result<ListResultDto<EquipmentPowerDto>> result = new Result<ListResultDto<EquipmentPowerDto>>();
-            try
-            {
-                List<Menu> menus = default;
-                Expression<Func<Menu, bool>> where = p => p.IsDeleted ==false;
-                if (!string.IsNullOrEmpty(keyword))
-                {
-                    where = where.And(p => p.NickName.Contains(keyword) || p.Name.Contains(keyword));
-                }
-                menus = await _menuRepository.GetListAsync(where);
-                var menuList = ObjectMapper.Map<List<Menu>, List<EquipmentPowerDto>>(menus);
-                var data = new ListResultDto<EquipmentPowerDto>(menuList);
-
-                result.Code = "920004";
-                result.Message = "查询成功";
-                result.ResultType = ResultType.Succeed;
-                result.Data = data;
-            }
-            catch (Exception)
-            {
-                result.Code = "920004";
-                result.Message = "查询失败，失败编码为：" + result.Code;
-                result.ResultType = ResultType.Error;
-            }
-            return result;
         }
         /// <summary>
         /// 根据上级Id查询下级数据
         /// </summary>
         /// <param name="parentId"></param>
         /// <returns></returns>
-        public async Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId,string Filers )
+        public async Task<ServiceResult<List<EquipmentPowerDto>>> GetListByParentIdAsync(Guid parentId, string filter)
         {
-            Result<ListResultDto<EquipmentPowerDto>> result = new Result<ListResultDto<EquipmentPowerDto>>();
+            List<EquipmentPowerDto> result = new List<EquipmentPowerDto>();
             try
             {
                 List<Menu> menus = default;
                 Expression<Func<Menu, bool>> where = p => p.Status == Status.Activate;
-                if (!string.IsNullOrEmpty(parentId))
+                if (string.IsNullOrEmpty(parentId.ToString()))
                 {
-                    var pid = Guid.Parse(parentId);
-                    where = where.And(p => p.ParentId == pid );
+                    where = where.And(p => p.ParentId == Guid.Empty);
                 }
-                if (!string.IsNullOrEmpty(Filers))
+                else
                 {
-                    where = where.And(p => p.Name.Contains(Filers)||p.NickName.Contains(Filers));
+                    where = where.And(p => p.ParentId == parentId);
+                }
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    where = where.And(p => p.Name.Contains(filter) || p.NickName.Contains(filter));
                 }
                 menus = await _menuRepository.GetListAsync(where);
                 var menuList = ObjectMapper.Map<List<Menu>, List<EquipmentPowerDto>>(menus);
-                var data = new ListResultDto<EquipmentPowerDto>(menuList);
-
-                result.Code = "920004";
-                result.Message = "查询成功";
-                result.ResultType = ResultType.Succeed;
-                result.Data = data;
+                var data = new List<EquipmentPowerDto>(menuList);
+                return ServiceResultCode.Succeed.ServiceResultSuccess(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                result.Code = "920004";
-                result.Message = "查询失败，失败编码为：" + result.Code;
-                result.ResultType = ResultType.Error;
+                return ServiceResultCode.Failed.ServiceResultFailed<List<EquipmentPowerDto>>(ex);
             }
-            return result;
-
         }
         /// <summary>
         /// 带分页查询组织对象列表
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<Result<PagedResultDto<EquipmentPowerDto>>> GetListPagedAsync(PagedAndSortedResultRequestDto input)
+        public async Task<ServiceResult<List<EquipmentPowerDto>>> GetListPagedAsync(Guid ParentId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
         {
-            Result<PagedResultDto<EquipmentPowerDto>> result = new Result<PagedResultDto<EquipmentPowerDto>>();
+            List<EquipmentPowerDto> equipmentPowers = new List<EquipmentPowerDto>();
             try
             {
-                await NormalizeMaxResultCountAsync(input);
+                var foundation = await _menuRepository.GetAllPagedAsync(query =>
+                {
+                    if (!string.IsNullOrEmpty(ParentId.ToString()))
+                    {
+                        query = query.Where(p => p.ParentId == ParentId);
+                    }
 
-                var menus = await _menuRepository
-                    .OrderBy(input.Sorting ?? "Name")
-                    .Skip(input.SkipCount)
-                    .Take(input.MaxResultCount)
-                    .ToListAsync();
+                    if (!string.IsNullOrWhiteSpace(filter))
+                    {
+                        query = query.Where(p => p.Name.Contains(filter) || p.NickName.Contains(filter));
+                    }
 
-                var totalCount = await _menuRepository.GetCountAsync();
-                var dtos = ObjectMapper.Map<List<Menu>, List<EquipmentPowerDto>>(menus);
+                    return query;
 
-                var data = new PagedResultDto<EquipmentPowerDto>(totalCount, dtos);
+                }, pageIndex, pageSize);
 
-                result.Code = "920005";
-                result.Message = "查询成功";
-                result.ResultType = ResultType.Succeed;
-                result.Data = data;
+                foreach (var item in foundation)
+                {
+                    var dtos = ObjectMapper.Map<Menu, EquipmentPowerDto>(item);
+                    equipmentPowers.Add(dtos);
+                }
+                return ServiceResultCode.Succeed.ServiceResultSuccess(equipmentPowers);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                result.Code = "920005";
-                result.Message = "查询失败，失败编码为：" + result.Code;
-                result.ResultType = ResultType.Error;
+                return ServiceResultCode.Failed.ServiceResultFailed<List<EquipmentPowerDto>>(ex);
             }
-            return result;
         }
         /// <summary>
         /// 更新组织对象
@@ -248,7 +181,7 @@ namespace EMService
         /// <param name="id">组织Id</param>
         /// <param name="input">更新实体</param>
         /// <returns></returns>
-        public async Task<Result<EquipmentPowerDto>> UpdateAsync(UpdateMenuDto input)
+        public async Task<ServiceResult<EquipmentPowerDto>> UpdateAsync(UpdateMenuDto input)
         {
             Result<EquipmentPowerDto> result = new Result<EquipmentPowerDto>();
             try
@@ -262,43 +195,30 @@ namespace EMService
                 menu.Url = input.Url;
                 menu.Icon = input.Icon;
                 var data = ObjectMapper.Map<Menu, EquipmentPowerDto>(menu);
-
-                result.Code = "920006";
-                result.Message = "更新成功";
-                result.ResultType = ResultType.Succeed;
-                result.Data = data;
+                return ServiceResultCode.Succeed.ServiceResultSuccess(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                result.Code = "920006";
-                result.Message = "更新失败，失败编码为：" + result.Code;
-                result.ResultType = ResultType.Error;
+                return ServiceResultCode.Failed.ServiceResultFailed<EquipmentPowerDto>(ex);
             }
-            return result;
         }
         /// <summary>
         /// 获取菜单树
         /// </summary>
         /// <returns></returns>
-        public async Task<Result<List<MenuTreeDto>>> GetMenuTree()
+        public async Task<ServiceResult<List<MenuTreeDto>>> GetMenuTree()
         {
-            Result<List<MenuTreeDto>> result = new Result<List<MenuTreeDto>>();
+            List<MenuTreeDto> result = new List<MenuTreeDto>();
             try
             {
                 var menus = await _menuRepository.GetListAsync();
                 List<MenuTreeDto> menuTreeDtos = await GetMenuTreeNode(menus);
-                result.Code = "920007";
-                result.Message = "查询成功";
-                result.ResultType = ResultType.Succeed;
-                result.Data = menuTreeDtos;
+                return ServiceResultCode.Succeed.ServiceResultSuccess(menuTreeDtos);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                result.Code = "920007";
-                result.Message = "查询失败，失败编码为：" + result.Code;
-                result.ResultType = ResultType.Error;
+                return ServiceResultCode.Failed.ServiceResultFailed<List<MenuTreeDto>>(ex);
             }
-            return result;
         }
 
 
@@ -320,7 +240,7 @@ namespace EMService
                     icon = p.Icon,
                     title = string.IsNullOrEmpty(p.NickName) ? p.Name : p.NickName,
                 },
-                component = p.Url
+                component = ""
             }).ToList();
 
             foreach (MenuTreeDto item in fNodes)
