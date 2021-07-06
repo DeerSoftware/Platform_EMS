@@ -71,7 +71,7 @@ namespace EMService
                 result.ResultType = ResultType.Succeed;
                 result.Data = data;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 result.Code = "910001";
                 result.Message = "新增失败，失败编码为：" + result.Code;
@@ -96,7 +96,7 @@ namespace EMService
                 result.Message = "删除成功";
                 result.ResultType = ResultType.Succeed;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 result.Code = "910002";
                 result.Message = "删除失败，失败编码为：" + result.Code;
@@ -123,7 +123,7 @@ namespace EMService
                 result.ResultType = ResultType.Succeed;
                 result.Data = data;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 result.Code = "910003";
                 result.Message = "查询失败，失败编码为：" + result.Code;
@@ -151,7 +151,7 @@ namespace EMService
                 result.ResultType = ResultType.Succeed;
                 result.Data = data;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 result.Code = "910004";
                 result.Message = "查询失败，失败编码为：" + result.Code;
@@ -201,7 +201,7 @@ namespace EMService
                 result.ResultType = ResultType.Succeed;
                 result.Data = data;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 result.Code = "910005";
                 result.Message = "查询失败，失败编码为：" + result.Code;
@@ -296,7 +296,7 @@ namespace EMService
                 label = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
                 value = p.Id,
                 parentId = p.ParentId,
-                Type=p.OrganizationType
+                Type = p.OrganizationType
             }).ToList();
 
             foreach (OrganizationTreeDto item in fNodes)
