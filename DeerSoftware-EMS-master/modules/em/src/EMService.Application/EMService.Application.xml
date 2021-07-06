@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EMService.Application</name>
+    </assembly>
+    <members>
+        <member name="M:EMService.AssetTree.AssetTreeService.getChildrenPointData(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            极据上级节点查询所有下级设备数据
+            </summary>
+            <param name="pNodeId">上级节点Id</param>
+            <param name="pageIndex">分页索引</param>
+            <param name="pageSize">分页大小</param>
+            <param name="filter">过滤条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AssetTree.AssetTreeService.TransformTreeData(System.Collections.Generic.List{EMService.AssetTree.Dto.FoundationDto})">
+            <summary>
+            递归第一级数据
+            </summary>
+            <param name="treeDataList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AssetTree.AssetTreeService.TransformChildTreeData(System.Collections.Generic.List{EMService.AssetTree.Dto.FoundationDto},EMService.AssetTree.Dto.FoundationDto)">
+            <summary>
+            递归子级数据
+            </summary>
+            <param name="treeDataList">树形列表数据</param>
+            <param name="parentItem">父级model</param>
+        </member>
+        <member name="T:EMService.AccountAppService">
+            <summary>
+            账号服务接口实现
+            </summary>
+        </member>
+        <member name="M:EMService.AccountAppService.#ctor(EMService.AccountManager,Volo.Abp.Domain.Repositories.IRepository{EMService.Account,System.Guid})">
+            <summary>
+            构造
+            </summary>
+            <param name="accountManager"></param>
+            <param name="accountRepository"></param>
+        </member>
+        <member name="M:EMService.AccountAppService.CreateAsync(EMService.CreateAccountDto)">
+            <summary>
+            创建账号对象
+            </summary>
+            <param name="input">组织对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.DeleteAsync(System.Guid)">
+            <summary>
+            删除账号对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.GetAsync(System.Guid)">
+            <summary>
+            根据Id查询账号对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.GetListAsync(System.String)">
+            <summary>
+            查询账号对象列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.GetListPagedAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            带分页查询账号对象列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.UpdateAsync(EMService.UpdateAccountDto)">
+            <summary>
+            更新账号对象
+            </summary>
+            <param name="id">组织Id</param>
+            <param name="input">更新实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.AccountAppService.NormalizeMaxResultCountAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            处理分页数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EMService.DictionaryTypeAppService">
+            <summary>
+            字典分类服务接口实现
+            </summary>
+        </member>
+        <member name="M:EMService.DictionaryTypeAppService.#ctor(EMService.DictionaryTypeManager,Volo.Abp.Domain.Repositories.IRepository{EMService.DictionaryType,System.Guid})">
+            <summary>
+            构造
+            </summary>
+            <param name="sequenceManager"></param>
+            <param name="organizationManager"></param>
+            <param name="organizationRepository"></param>
+        </member>
+        <member name="M:EMService.DictionaryTypeAppService.CreateAsync(EMService.CreateDictionaryTypeDto)">
+            <summary>
+            创建菜单对象
+            </summary>
+            <param name="input">组织对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryTypeAppService.DeleteAsync(System.Guid)">
+            <summary>
+            删除组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryTypeAppService.GetAsync(System.Guid)">
+            <summary>
+            根据Id查询组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryTypeAppService.GetListAsync(System.String)">
+            <summary>
+            查询组织对象列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryTypeAppService.GetListPagedAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            带分页查询组织对象列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryTypeAppService.UpdateAsync(EMService.UpdateDictionaryTypeDto)">
+            <summary>
+            更新组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <param name="input">更新实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryTypeAppService.NormalizeMaxResultCountAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            处理分页数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EMService.DictionaryAppService">
+            <summary>
+            字典服务接口实现
+            </summary>
+        </member>
+        <member name="M:EMService.DictionaryAppService.#ctor(EMService.DictionaryManager,Volo.Abp.Domain.Repositories.IRepository{EMService.Dictionary,System.Guid})">
+            <summary>
+            构造
+            </summary>
+            <param name="sequenceManager"></param>
+            <param name="organizationManager"></param>
+            <param name="organizationRepository"></param>
+        </member>
+        <member name="M:EMService.DictionaryAppService.CreateAsync(EMService.CreateDictionaryDto)">
+            <summary>
+            创建菜单对象
+            </summary>
+            <param name="input">组织对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryAppService.DeleteAsync(System.Guid)">
+            <summary>
+            删除组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryAppService.GetAsync(System.Guid)">
+            <summary>
+            根据Id查询组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryAppService.GetListAsync(System.String)">
+            <summary>
+            查询组织对象列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryAppService.GetListPagedAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            带分页查询组织对象列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryAppService.UpdateAsync(EMService.UpdateDictionaryDto)">
+            <summary>
+            更新组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <param name="input">更新实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.DictionaryAppService.NormalizeMaxResultCountAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            处理分页数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EMService.MenuAppService">
+            <summary>
+            菜单服务接口实现
+            </summary>
+        </member>
+        <member name="M:EMService.MenuAppService.#ctor(EMService.MenuManager,Volo.Abp.Domain.Repositories.IRepository{EMService.Menu,System.Guid})">
+            <summary>
+            构造
+            </summary>
+            <param name="sequenceManager"></param>
+            <param name="organizationManager"></param>
+            <param name="organizationRepository"></param>
+        </member>
+        <member name="M:EMService.MenuAppService.CreateAsync(EMService.CreateMenuDto)">
+            <summary>
+            创建菜单对象
+            </summary>
+            <param name="input">组织对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.MenuAppService.DeleteAsync(System.Guid)">
+            <summary>
+            删除组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.MenuAppService.GetAsync(System.Guid)">
+            <summary>
+            根据Id查询组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.MenuAppService.GetListAsync(System.String)">
+            <summary>
+            查询组织对象列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.MenuAppService.GetListByParentIdAsync(System.String,System.String)">
+            <summary>
+            根据上级Id查询下级数据
+            </summary>
+            <param name="parentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.MenuAppService.GetListPagedAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            带分页查询组织对象列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.MenuAppService.UpdateAsync(EMService.UpdateMenuDto)">
+            <summary>
+            更新组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <param name="input">更新实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.MenuAppService.GetMenuTree">
+            <summary>
+            获取菜单树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.MenuAppService.GetMenuTreeNode(System.Collections.Generic.List{EMService.Menu})">
+            <summary>
+            组装树型结构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.MenuAppService.GetTreeNodeItems(EMService.MenuTreeDto,System.Collections.Generic.List{EMService.Menu})">
+            <summary>
+            处理节点里子节点
+            </summary>
+            <param name="menuTreeDto"></param>
+            <param name="menus"></param>
+        </member>
+        <member name="M:EMService.MenuAppService.NormalizeMaxResultCountAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            处理分页数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EMService.OrganizationAppService">
+            <summary>
+            组织服务接口实现
+            </summary>
+        </member>
+        <member name="M:EMService.OrganizationAppService.#ctor(EMService.SequenceManager,EMService.OrganizationManager,Volo.Abp.Domain.Repositories.IRepository{EMService.Organization,System.Int32})">
+            <summary>
+            构造
+            </summary>
+            <param name="sequenceManager"></param>
+            <param name="organizationManager"></param>
+            <param name="organizationRepository"></param>
+        </member>
+        <member name="M:EMService.OrganizationAppService.CreateAsync(EMService.CreateOrganizationDto)">
+            <summary>
+            创建组织对象
+            </summary>
+            <param name="input">组织对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.OrganizationAppService.DeleteAsync(System.Int32)">
+            <summary>
+            删除组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.OrganizationAppService.GetAsync(System.Int32)">
+            <summary>
+            根据Id查询组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.OrganizationAppService.GetListAsync(System.String)">
+            <summary>
+            查询组织对象列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.OrganizationAppService.GetListPagedAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto,System.Int32)">
+            <summary>
+            带分页查询组织对象列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.OrganizationAppService.UpdateAsync(System.Int32,EMService.UpdateOrganizationDto)">
+            <summary>
+            更新组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <param name="input">更新实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.OrganizationAppService.GetOrganizationTree">
+            <summary>
+            查询组织树数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.OrganizationAppService.GetOrganizationTreeNode(System.Collections.Generic.List{EMService.Organization})">
+            <summary>
+            组装树型结构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.OrganizationAppService.GetTreeNodeItems(EMService.OrganizationTreeDto,System.Collections.Generic.List{EMService.Organization})">
+            <summary>
+            处理节点里子节点
+            </summary>
+            <param name="menuTreeDto"></param>
+            <param name="menus"></param>
+        </member>
+        <member name="M:EMService.OrganizationAppService.NormalizeMaxResultCountAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            处理分页数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.System.Price.PriceAppService.NormalizeMaxResultCountAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            处理分页数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EMService.RoleAppService">
+            <summary>
+            组织服务接口实现
+            </summary>
+        </member>
+        <member name="M:EMService.RoleAppService.#ctor(EMService.RoleManager,Volo.Abp.Domain.Repositories.IRepository{EMService.Role,System.Guid})">
+            <summary>
+            构造
+            </summary>
+            <param name="roleManager"></param>
+            <param name="roleRepository"></param>
+        </member>
+        <member name="M:EMService.RoleAppService.CreateAsync(EMService.CreateRoleDto)">
+            <summary>
+            创建组织对象
+            </summary>
+            <param name="input">组织对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.RoleAppService.DeleteAsync(System.Guid)">
+            <summary>
+            删除组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.RoleAppService.GetAsync(System.Guid)">
+            <summary>
+            根据Id查询组织对象
+            </summary>
+            <param name="id">组织Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.RoleAppService.GetListAsync">
+            <summary>
+            查询角色对象列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.RoleAppService.GetListPagedAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            带分页查询组织对象列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.RoleAppService.UpdateAsync(EMService.UpdateRoleDto)">
+            <summary>
+            更新角色对象
+            </summary>
+            <param name="id">组织Id</param>
+            <param name="input">更新实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:EMService.RoleAppService.NormalizeMaxResultCountAsync(Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto)">
+            <summary>
+            处理分页数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EMService.SequenceAppService">
+            <summary>
+            序列号服务接口实现
+            </summary>
+        </member>
+        <member name="M:EMService.SequenceAppService.#ctor(EMService.SequenceManager,Volo.Abp.Domain.Repositories.IRepository{EMService.Sequence,System.Guid})">
+            <summary>
+            构造
+            </summary>
+            <param name="sequenceManager"></param>
+            <param name="organizationManager"></param>
+            <param name="organizationRepository"></param>
+        </member>
+        <member name="M:EMService.SequenceAppService.GetSequenceAsync``1">
+            <summary>
+            获取序列号
+            根据对象进行查询、更新、新增
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

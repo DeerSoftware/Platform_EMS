@@ -14,12 +14,12 @@ namespace EMService.System.Price
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<Result<PagedResultDto<PriceDto>>> GetListPagedByIdAsync(Guid BaseId,PagedAndSortedResultRequestDto input);
+        Task<Result<PagedResultDto<PriceDto>>> GetListPagedByIdAsync(Guid BaseId, string Filers, PagedAndSortedResultRequestDto input);
         /// <summary>
         /// 全展示的分页列表
         /// </summary>
         /// <returns></returns>
-        Task<Result<PagedResultDto<PriceDto>>> GetListPagedAsync(PagedAndSortedResultRequestDto input);
+        Task<Result<PagedResultDto<PriceDto>>> GetListPagedAsync(string Filers,PagedAndSortedResultRequestDto input);
         /// <summary>
         /// 根据Id查询单价对象
         /// </summary>

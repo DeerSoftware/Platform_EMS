@@ -46,5 +46,26 @@ namespace EMService.Result
 
             return result;
         }
+   
+        public static ServiceResult ServiceResultWarning(this Enum @enum) 
+        {
+            ServiceResult result = new ServiceResult();
+            result.IsWarning((ServiceResultCode)@enum);
+            return result;
+        }
+
+        public static ServiceResult ServiceResultSuccess(this Enum @enum)
+        {
+            ServiceResult result = new ServiceResult();
+            result.IsSuccess();
+            return result;
+        }
+
+        public static ServiceResult ServiceResultFailed(this Enum @enum, Exception ex = null)
+        {
+            ServiceResult result = new ServiceResult();
+            result.IsFailed((ServiceResultCode)@enum, ex);
+            return result;
+        }
     }
 }

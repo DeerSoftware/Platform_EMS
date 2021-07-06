@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EMService.Result;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,43 +28,38 @@ namespace EMService.Controllers
             _menuAppService = menuAppService;
         }
         [HttpPost]
-        public Task<Result<EquipmentPowerDto>> CreateAsync(CreateMenuDto input)
+        public Task<ServiceResult<EquipmentPowerDto>> CreateAsync(CreateMenuDto input)
         {
             return _menuAppService.CreateAsync(input);
         }
         [HttpGet]
-        public Task<Result<int>> DeleteAsync(Guid id)
+        public Task<ServiceResult> DeleteAsync(Guid id)
         {
             return _menuAppService.DeleteAsync(id);
         }
         [HttpGet]
-        public Task<Result<EquipmentPowerDto>> GetAsync(Guid id)
+        public Task<ServiceResult<EquipmentPowerDto>> GetAsync(Guid id)
         {
             return _menuAppService.GetAsync(id);
         }
         [HttpGet]
-        public Task<Result<ListResultDto<EquipmentPowerDto>>> GetListAsync(string keyword)
+        public Task<ServiceResult<List<EquipmentPowerDto>>> GetListByParentIdAsync(Guid parentId,string Filers)
         {
-            return _menuAppService.GetListAsync(keyword);
-        }
-        [HttpGet]
-        public Task<Result<ListResultDto<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId)
-        {
-            return _menuAppService.GetListByParentIdAsync(parentId);
+            return _menuAppService.GetListByParentIdAsync(parentId, Filers);
         }
 
         [HttpGet]
-        public Task<Result<PagedResultDto<EquipmentPowerDto>>> GetListPagedAsync(PagedAndSortedResultRequestDto input)
+        public Task<ServiceResult<List<EquipmentPowerDto>>> GetListPagedAsync(Guid ParentId, int pageIndex = 1, int pageSize = int.MaxValue, string filter = null)
         {
-            return _menuAppService.GetListPagedAsync(input);
+            return _menuAppService.GetListPagedAsync(ParentId, pageIndex,pageSize,filter);
         }
         [HttpGet]
-        public Task<Result<List<MenuTreeDto>>> GetMenuTree()
+        public Task<ServiceResult<List<MenuTreeDto>>> GetMenuTree()
         {
             return _menuAppService.GetMenuTree();
         }
         [HttpPost]
-        public Task<Result<EquipmentPowerDto>> UpdateAsync( UpdateMenuDto input)
+        public Task<ServiceResult<EquipmentPowerDto>> UpdateAsync( UpdateMenuDto input)
         {
             return _menuAppService.UpdateAsync(input);
         }

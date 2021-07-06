@@ -106,14 +106,14 @@ namespace EMService.System.Price
             return result;
         }
 
-        public async Task<Result<PagedResultDto<PriceDto>>> GetListPagedAsync(PagedAndSortedResultRequestDto input)
+        public async Task<Result<PagedResultDto<PriceDto>>> GetListPagedAsync(string Filers,PagedAndSortedResultRequestDto input)
         {
             Result<PagedResultDto<PriceDto>> result = new Result<PagedResultDto<PriceDto>>();
             try
             {
                 await NormalizeMaxResultCountAsync(input);
 
-                var prices = await _priceRepository
+                var prices = await _priceRepository.Where(p => p.TypeCode.Contains(Filers) || p.PriceTypeName.Contains(Filers))
                     .OrderBy(input.Sorting ?? "BaseName")
                     .Skip(input.SkipCount)
                     .Take(input.MaxResultCount)
@@ -137,20 +137,13 @@ namespace EMService.System.Price
             return result;
         }
 
-        public async Task<Result<PagedResultDto<PriceDto>>> GetListPagedByIdAsync(Guid BaseId, PagedAndSortedResultRequestDto input)
+        public async Task<Result<PagedResultDto<PriceDto>>> GetListPagedByIdAsync(Guid BaseId, string Filers, PagedAndSortedResultRequestDto input)
         {
             Result<PagedResultDto<PriceDto>> result = new Result<PagedResultDto<PriceDto>>();
             try
             {
-
-                //List<Price> prices = default;
-                //Expression<Func<Price, bool>> where = p => p.BaseId == BaseId;
-                //prices = await _priceRepository.GetListAsync(where);
-                //var menuList = ObjectMapper.Map<List<Price>, List<PriceDto>>(prices);
-                //var data = new ListResultDto<PriceDto>(menuList);
-
                 await NormalizeMaxResultCountAsync(input);
-                var prices = await _priceRepository.Where(p => p.BaseId == BaseId)
+                var prices = await _priceRepository.Where(p => p.BaseId == BaseId).Where(p=>p.TypeCode.Contains(Filers)||p.PriceTypeName.Contains(Filers))
                     .OrderBy(input.Sorting ?? "BaseName")
                     .Skip(input.SkipCount)
                     .Take(input.MaxResultCount)

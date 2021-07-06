@@ -146,7 +146,11 @@ namespace EMService
                     options.SwaggerDoc("v1", new OpenApiInfo {Title = "EMService API", Version = "v1"});
                     options.DocInclusionPredicate((docName, description) => true);
                     options.CustomSchemaIds(type => type.FullName);
+                    var xmlFile = "EMService.Application.xml";
+                    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                    options.IncludeXmlComments(xmlPath, true);
                 });
+            
         }
 
         private void ConfigureLocalization()

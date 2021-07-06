@@ -23,5 +23,8 @@ namespace EMService.Result
         /// </summary>
         [Description("请求失败")]
         Failed = -1,
+
+        [Description("当前菜单存在下级菜单,请先删除下级菜单")]
+        MenuWarning = 920002
     }
 }

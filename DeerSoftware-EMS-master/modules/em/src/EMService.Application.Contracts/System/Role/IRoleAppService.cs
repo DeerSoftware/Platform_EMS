@@ -48,5 +48,8 @@ namespace EMService
         /// <param name="id">组织Id</param>
         /// <returns></returns>
         Task<Result<int>> DeleteAsync(Guid id);
+
+       // Task<Result<int>> AssignRoles();
+
     }
 }

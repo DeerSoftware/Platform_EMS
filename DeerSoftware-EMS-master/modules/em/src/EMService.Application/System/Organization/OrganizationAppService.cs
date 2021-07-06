@@ -9,6 +9,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using System.Linq.Expressions;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EMService
 {
@@ -41,6 +42,7 @@ namespace EMService
         /// </summary>
         /// <param name="input">组织对象</param>
         /// <returns></returns>
+        [HttpPost]
         public async Task<Result<OrganizationDto>> CreateAsync(CreateOrganizationDto input)
         {
             Result<OrganizationDto> result = new Result<OrganizationDto>();
@@ -49,10 +51,10 @@ namespace EMService
             Sequence sequence = default;
             try
             {
-                var existingOrganization = await _OrganizationRepository.GetListAsync(p => p.OrgCode.Equals(input.OrgCode));
+                var existingOrganization = await _OrganizationRepository.GetListAsync(p => p.OrgName.Equals(input.OrgName));
                 if (existingOrganization.FirstOrDefault() != null)
                 {
-                    throw new OrganizationCodeAlreadyExistsException(input.OrgCode);
+                    throw new OrganizationCodeAlreadyExistsException(input.OrgName);
                 }
                 sequence = await _sequenceManager.GetSequenceAsync<Organization>();
                 organization = ObjectMapper.Map<CreateOrganizationDto, Organization>(input);
@@ -69,7 +71,7 @@ namespace EMService
                 result.ResultType = ResultType.Succeed;
                 result.Data = data;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 result.Code = "910001";
                 result.Message = "新增失败，失败编码为：" + result.Code;
@@ -82,6 +84,7 @@ namespace EMService
         /// </summary>
         /// <param name="id">组织Id</param>
         /// <returns></returns>
+        [HttpPost]
         public async Task<Result<int>> DeleteAsync(int id)
         {
             Result<int> result = new Result<int>();
@@ -93,7 +96,7 @@ namespace EMService
                 result.Message = "删除成功";
                 result.ResultType = ResultType.Succeed;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 result.Code = "910002";
                 result.Message = "删除失败，失败编码为：" + result.Code;
@@ -106,6 +109,7 @@ namespace EMService
         /// </summary>
         /// <param name="id">组织Id</param>
         /// <returns></returns>
+        [HttpGet]
         public async Task<Result<OrganizationDto>> GetAsync(int id)
         {
             Result<OrganizationDto> result = new Result<OrganizationDto>();
@@ -119,7 +123,7 @@ namespace EMService
                 result.ResultType = ResultType.Succeed;
                 result.Data = data;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 result.Code = "910003";
                 result.Message = "查询失败，失败编码为：" + result.Code;
@@ -131,6 +135,7 @@ namespace EMService
         /// 查询组织对象列表
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public async Task<Result<ListResultDto<OrganizationDto>>> GetListAsync(string keyword)
         {
             Result<ListResultDto<OrganizationDto>> result = new Result<ListResultDto<OrganizationDto>>();
@@ -146,7 +151,7 @@ namespace EMService
                 result.ResultType = ResultType.Succeed;
                 result.Data = data;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 result.Code = "910004";
                 result.Message = "查询失败，失败编码为：" + result.Code;
@@ -160,6 +165,7 @@ namespace EMService
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
+        [HttpGet]
         public async Task<Result<PagedResultDto<OrganizationDto>>> GetListPagedAsync(PagedAndSortedResultRequestDto input, int parentId)
         {
             Result<PagedResultDto<OrganizationDto>> result = new Result<PagedResultDto<OrganizationDto>>();
@@ -179,7 +185,7 @@ namespace EMService
 
                 var organizations = await _OrganizationRepository
                     .Where(where)
-                    .OrderBy(input.Sorting ?? "Name")
+                    .OrderBy(input.Sorting ?? "OrgName")
                     .Skip(input.SkipCount)
                     .Take(input.MaxResultCount)
                     .ToListAsync();
@@ -195,7 +201,7 @@ namespace EMService
                 result.ResultType = ResultType.Succeed;
                 result.Data = data;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 result.Code = "910005";
                 result.Message = "查询失败，失败编码为：" + result.Code;
@@ -212,6 +218,7 @@ namespace EMService
         /// <param name="id">组织Id</param>
         /// <param name="input">更新实体</param>
         /// <returns></returns>
+        [HttpGet]
         public async Task<Result<OrganizationDto>> UpdateAsync(int id, UpdateOrganizationDto input)
         {
             Result<OrganizationDto> result = new Result<OrganizationDto>();
@@ -250,6 +257,7 @@ namespace EMService
         /// 查询组织树数据
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public async Task<Result<List<OrganizationTreeDto>>> GetOrganizationTree()
         {
             Result<List<OrganizationTreeDto>> result = new Result<List<OrganizationTreeDto>>();
@@ -258,17 +266,19 @@ namespace EMService
             {
                 List<Organization> organizations = await _OrganizationRepository.GetListAsync(p => p.IsDeleted == false);
 
-                var data=await GetOrganizationTreeNode(organizations);
+                var data = await GetOrganizationTreeNode(organizations);
 
                 result.Code = "910006";
-                result.Message = "更新成功";
+                result.Message = "查询成功";
                 result.ResultType = ResultType.Succeed;
                 result.Data = data;
 
             }
             catch (Exception)
             {
-                throw;
+                result.Code = "910006";
+                result.Message = "查询失败，失败编码为：" + result.Code;
+                result.ResultType = ResultType.Succeed;
             }
             return result;
         }
@@ -283,9 +293,10 @@ namespace EMService
 
             List<OrganizationTreeDto> fNodes = organizations.Where(p => p.ParentId == 0).Select(p => new OrganizationTreeDto()
             {
-                lable = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
+                label = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
                 value = p.Id,
-                parentId = p.ParentId
+                parentId = p.ParentId,
+                Type = p.OrganizationType
             }).ToList();
 
             foreach (OrganizationTreeDto item in fNodes)
@@ -303,9 +314,10 @@ namespace EMService
         {
             List<OrganizationTreeDto> parents = menus.Where(p => p.ParentId == organization.value).Select(p => new OrganizationTreeDto()
             {
-                lable = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
+                label = string.IsNullOrEmpty(p.OrgNickName) ? p.OrgName : p.OrgNickName,
                 value = p.Id,
-                parentId = p.ParentId
+                parentId = p.ParentId,
+                Type = p.OrganizationType
             }).ToList();
 
             if (parents.Count > 0)
