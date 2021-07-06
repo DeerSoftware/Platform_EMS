@@ -5,6 +5,11 @@
     <RootNamespace>EMService</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\工作文档\Git\Platform_EMS\DeerSoftware-EMS-master\modules\em\src\EMService.Application\EMService.Application.xml</DocumentationFile>
+    <OutputPath>D:\工作文档\Git\Platform_EMS\DeerSoftware-EMS-master\microservices\EMService.Host\bin\Debug\net5.0</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />

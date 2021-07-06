@@ -66,6 +66,12 @@ namespace EMService
         /// </summary>
         public string Remark { get; set; }
         /// <summary>
+        /// 组织类型
+        /// </summary>
+        [Required]
+        [NotNull] 
+        public OrganizationType OrganizationType { get; set; }
+        /// <summary>
         /// 所属层
         /// </summary>
         [NotNull]

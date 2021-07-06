@@ -43,7 +43,7 @@ namespace EMService.Controllers
             return _menuAppService.GetAsync(id);
         }
         [HttpGet]
-        public Task<ServiceResult<List<EquipmentPowerDto>>> GetListByParentIdAsync(string parentId,string Filers)
+        public Task<ServiceResult<List<EquipmentPowerDto>>> GetListByParentIdAsync(Guid parentId,string Filers)
         {
             return _menuAppService.GetListByParentIdAsync(parentId, Filers);
         }

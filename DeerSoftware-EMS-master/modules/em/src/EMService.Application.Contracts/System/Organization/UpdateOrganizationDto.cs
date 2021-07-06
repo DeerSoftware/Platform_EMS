@@ -1,5 +1,7 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace EMService
@@ -53,6 +55,14 @@ namespace EMService
         /// 地址
         /// </summary>
         public string Address { get; set; }
+
+        /// <summary>
+        /// 组织类型
+        /// </summary>
+        [Required]
+        [NotNull]
+        public OrganizationType OrganizationType { get; set; }
+
         /// <summary>
         /// 备注
         /// </summary>
