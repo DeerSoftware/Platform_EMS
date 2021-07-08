@@ -12,7 +12,7 @@ namespace EMService
     public class UpdateRolePowerDto 
     {
         /// <summary>
-        /// ID
+        /// ID id
         /// </summary>
         public Guid Id { get; set; }
         /// <summary>
